@@ -2,9 +2,9 @@
     max-width: 1920px;
     width: 100%;
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     align-items: center;
-    background-color: aqua;
+    background-color: #212529;
 }
 
 #header-content {
@@ -15,6 +15,22 @@
     align-items: center;
 }
 
-#logo img {
+#logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#logo-div img {
     width: 80px;
+}
+
+#logo-div {
+    width: 33.33%;
+    display: flex;
+}
+
+h1 {
+    color: white;
+
 }
