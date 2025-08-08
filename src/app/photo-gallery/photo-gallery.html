@@ -1,0 +1,12 @@
+<div id="gallery-limitation">
+    <div class="gallery-container">
+        <div class="gallery-grid">
+            <div class="gallery-item" *ngFor="let img of images">
+                <div class="img-wrapper">
+                    <img [src]="img.src" [alt]="img.description" loading="lazy" />
+                    <div class="img-description">{{ img.description }}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

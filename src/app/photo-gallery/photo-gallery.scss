@@ -1,0 +1,65 @@
+/* filepath: d:\Programmieren\Photography\photography\src\app\photo-gallery\photo-gallery.scss */
+.gallery-container {
+    padding: 2rem;
+}
+
+.gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.gallery-item {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+    transition: box-shadow 0.2s;
+    position: relative;
+
+    &:hover {
+        box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    }
+}
+
+.img-wrapper {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 4/3;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s;
+}
+
+.gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+.img-description {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(33, 37, 41, 0.7);
+    color: #fff;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity 0.2s;
+    pointer-events: none;
+}
+
+.gallery-item:hover .img-description {
+    opacity: 1;
+}
+
+#gallery-limitation {
+    max-width: 1920px;
+    align-items: center;
+}

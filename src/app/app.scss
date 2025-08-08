@@ -5,3 +5,9 @@ app-header {
     background-color: #212529;
     height: 100%;
 }
+
+app-photo-gallery {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}

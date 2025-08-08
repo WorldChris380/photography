@@ -22,15 +22,45 @@
 }
 
 #logo-div img {
-    width: 80px;
+    width: 40px;
+    height: 40px;
+    transition: transform 0.5s ease;
 }
 
 #logo-div {
     width: 33.33%;
     display: flex;
+    align-items: center;
+}
+
+#logo-div img:hover {
+    transform: rotate(360deg);
 }
 
 h1 {
     color: white;
+    font-weight: 100;
+    font-size: 24px;
+}
 
+a {
+    display: flex;
+    align-items: center;
+}
+
+#site-title {
+    margin-left: 20px;
+}
+
+.menu-link {
+    font-size: 24px;
+}
+
+#call-to-actions-header-area {
+    display: flex
+}
+
+.cta-header-link-logo {
+    width: 24px;
+    height: 24px;
 }
