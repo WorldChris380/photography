@@ -1,0 +1,99 @@
+#photography-home-limitation {
+  min-height: calc(100vh - 60px);
+}
+
+#atf {
+  position: relative;
+  height: calc(100vh - 60px);
+}
+
+.atf-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.641);
+  z-index: 1;
+}
+
+#atf-image {
+  object-fit: cover;
+  width: 100%;
+  height: calc(100vh - 60px);
+}
+
+#atf-buttons {
+  display: flex;
+  gap: 20px;
+}
+
+.atf-dots {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 32px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  z-index: 2;
+}
+
+.atf-dot {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: rgb(255, 255, 255);
+  border: 2px solid #000000;
+  cursor: pointer;
+  transition: background 0.2s, border-color 0.2s;
+  display: inline-block;
+}
+
+.atf-dot.active {
+  background: #000000;
+  border-color: #ffffff;
+}
+
+.atf-hero-content {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  transform: translateY(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  pointer-events: none; // Damit nur Button klickbar ist, siehe unten
+}
+
+.atf-hero-content h1 {
+  color: #fff;
+  font-size: 2.8rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+  text-shadow: 0 2px 16px rgba(0, 0, 0, 0.3);
+  pointer-events: auto;
+}
+
+.atf-hero-btn {
+  background: #212529;
+  color: #fff;
+  border: none;
+  border-radius: 24px;
+  padding: 1rem 2.5rem;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.18);
+  transition: background 0.2s;
+  pointer-events: auto;
+}
+
+.atf-hero-btn:hover {
+  background: #3cff00;
+  color: #212529;
+  transition: all 0.8s;
+}

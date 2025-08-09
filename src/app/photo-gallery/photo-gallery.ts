@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { ActivatedRoute } from '@angular/router';
 import gallery from '../../assets/gallery.json';
 
 const PAGE_SIZE = 20;
@@ -37,6 +38,16 @@ export class PhotoGallery {
   currentPath: string[] = [];
   page = 1;
   selectedImageIndex: number | null = null;
+
+  constructor(private route: ActivatedRoute) {
+    this.route.queryParams.subscribe(params => {
+      if (params['filter']) {
+        this.selectedFolder = params['filter'];
+        this.currentPath = params['filter'].split('/');
+        this.page = 1;
+      }
+    });
+  }
 
   trackBySrc = (_: number, img: GalleryImage) => img.src;
 

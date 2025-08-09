@@ -1,1 +1,16 @@
-<p>photography-home works!</p>
+<div id="photography-home-limitation">
+    <div id="atf">
+        <img id="atf-image" [src]="atfImages[atfIndex]" alt="" />
+        <div class="atf-overlay"></div>
+        <div class="atf-hero-content">
+            <h1>Landscape and aviation photography</h1>
+            <div id="atf-buttons"><button class="atf-hero-btn">Discover travel photos</button>
+                <button class="atf-hero-btn">Discover aviation photos</button>
+            </div>
+        </div>
+        <div class="atf-dots">
+            <span *ngFor="let img of atfImages; let i = index" class="atf-dot" [class.active]="i === atfIndex"
+                (click)="atfIndex = i"></span>
+        </div>
+    </div>
+</div>
