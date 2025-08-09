@@ -1,13 +1,21 @@
 /* filepath: d:\Programmieren\Photography\photography\src\app\photo-gallery\photo-gallery.scss */
+
+#gallery-limitation {
+  min-height: calc(100vh - 60px - 127px);
+}
+
 .gallery-container {
   position: relative;
   padding: 2rem;
+  padding-top: 0 !important;
   min-height: 300px; // Platz für Loader, wenn keine Bilder da sind
+  max-width: 1920px;
+  width: 100%;
 }
 
 .gallery-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
   gap: 24px;
 }
 
@@ -62,12 +70,14 @@
 }
 
 #gallery-limitation {
-  max-width: 1920px;
   align-items: center;
+  justify-content: center;
+  display: flex;
+  flex-direction: column;
 }
 
 .gallery-filter {
-  margin-bottom: 1.5rem;
+  margin: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;

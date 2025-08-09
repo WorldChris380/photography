@@ -3,21 +3,24 @@ footer {
     width: 100%;
 }
 
-.footer {
+.footer-limitation {
+    max-width: 1920px;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     background: #212529;
     color: #fff;
-    padding: 2rem;
-    font-size: 1rem;
 }
 
 .footer-content {
+    padding: 50px 2rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    max-width: 1920px;
-    margin: 0 auto;
-    padding: 0 4rem;
+    width: 100%;
 }
 
 .footer-link {

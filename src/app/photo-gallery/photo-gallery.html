@@ -12,11 +12,7 @@
   </div>
 
   <div class="gallery-container">
-    <div class="gallery-loader" *ngIf="isLoading">
-      <img src="assets/img/logos/christian-boehme-logo-512px.png" alt="Lädt…" class="loader-logo" />
-    </div>
-
-    <div class="gallery-grid" [class.loading]="isLoading">
+    <div class="gallery-grid">
       <div
         class="gallery-item"
         *ngFor="let img of pagedImages; let i = index; trackBy: trackBySrc"
@@ -27,9 +23,7 @@
           <img
             [src]="img.src"
             [alt]="img.description"
-            [attr.loading]="i < FIRST_BATCH_COUNT ? 'eager' : 'lazy'"
-            (load)="onImageLoad(img.src)"
-            (error)="onImageLoad(img.src)"
+            [attr.loading]="i === 0 && page === 1 ? 'eager' : 'lazy'"
           />
           <div class="img-description">{{ img.description }}</div>
         </div>
