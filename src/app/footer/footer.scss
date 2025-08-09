@@ -1,0 +1,69 @@
+/* filepath: d:\Programmieren\Photography\photography\src\app\footer\footer.scss */
+footer {
+    width: 100%;
+}
+
+.footer {
+    background: #212529;
+    color: #fff;
+    padding: 2rem;
+    font-size: 1rem;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1920px;
+    margin: 0 auto;
+    padding: 0 4rem;
+}
+
+.footer-link {
+    color: #fff;
+    margin: 0 1rem;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.footer-link:hover {
+    color: #adb5bd;
+}
+
+.footer-social-icon {
+    width: 28px;
+    height: 28px;
+    margin-left: 1rem;
+    vertical-align: middle;
+    filter: brightness(0) invert(1);
+    transition: filter 0.2s;
+}
+
+.footer-social-icon:hover {
+    filter: brightness(0.8) invert(0.8);
+}
+
+.footer-left,
+.footer-center,
+.footer-right {
+    display: flex;
+    align-items: center;
+}
+
+.footer-center {
+    flex: 1;
+    justify-content: center;
+}
+
+@media (max-width: 700px) {
+    .footer-content {
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .footer-center {
+        justify-content: flex-start;
+    }
+}
