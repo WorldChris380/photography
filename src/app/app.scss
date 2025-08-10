@@ -37,10 +37,6 @@ body.darkmode #gallery-limitation {
   color: #f1f3f4 !important;
 }
 
-body.darkmode .atf-overlay {
-  background: rgba(0, 0, 0, 0.7);
-}
-
 body.darkmode .menu-link,
 body.darkmode .dropdown-menu a {
   color: #f1f3f4 !important;
@@ -77,5 +73,35 @@ body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:
 
 body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:not(.active):hover {
   background: $cb-blue !important;
+  color: white !important;
+}
+
+body.darkmode .atf-hero-btn-green {
+  background: $cb-grey !important;
+  color: white !important;
+}
+
+body.darkmode .atf-hero-btn-green:hover {
+  background: $cb-green !important;
+  color: white !important;
+}
+
+body.darkmode .atf-hero-btn-blue {
+  background: $cb-grey !important;
+  color: white !important;
+}
+
+body.darkmode .atf-hero-btn-blue:hover {
+  background: $cb-green !important;
+  color: white !important;
+}
+
+body.darkmode .atf-hero-btn-red {
+  background: $cb-grey !important;
+  color: white !important;
+}
+
+body.darkmode .atf-hero-btn-red:hover {
+  background: $cb-green !important;
   color: white !important;
 }

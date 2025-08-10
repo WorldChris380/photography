@@ -10,8 +10,8 @@ import { RouterModule } from '@angular/router';
 })
 export class PhotographyHome {
   atfImages = [
-    'assets/img/photography/travel/Costa Rica Hot Springs Tabacon.jpg',
-    'assets/img/photography/travel/australia/Outback Australia.jpg',
+    'assets/img/photography/travel/north-america/costa-rica/Costa Rica Hot Springs Tabacon.jpg',
+    'assets/img/photography/travel/australia-oceania/australia/Outback Australia.jpg',
     'assets/img/photography/travel/europe/belarus/Mir Castle Belarus.jpg'
   ];
   atfIndex = 0;

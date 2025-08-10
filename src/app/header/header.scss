@@ -18,6 +18,22 @@
   align-items: center;
 }
 
+.main-menu,
+.dropdown-menu {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+.nav-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  z-index: 10;
+}
+#header-navigation.open {
+  z-index: 20;
+}
+
 #header-navigation {
   display: flex;
   flex-direction: row;

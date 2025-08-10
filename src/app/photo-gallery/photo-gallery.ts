@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 import gallery from '../../assets/gallery.json';
 
 const PAGE_SIZE = 20;
@@ -26,7 +27,7 @@ type GalleryImage = { src: string; category: string; description: string };
 @Component({
   selector: 'app-photo-gallery',
   standalone: true,
-  imports: [CommonModule, RouterModule],
+  imports: [CommonModule, RouterModule, FormsModule],
   templateUrl: './photo-gallery.html',
   styleUrls: ['./photo-gallery.scss'],
 })
@@ -38,6 +39,8 @@ export class PhotoGallery {
   currentPath: string[] = [];
   page = 1;
   selectedImageIndex: number | null = null;
+  searchTerm = '';
+  private _filteredImages: GalleryImage[] = this.images;
 
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
@@ -51,11 +54,31 @@ export class PhotoGallery {
 
   trackBySrc = (_: number, img: GalleryImage) => img.src;
 
+  onSearch() {
+    const term = this.searchTerm.trim().toLowerCase();
+    if (!term) {
+      this._filteredImages = this.images;
+      return;
+    }
+    this._filteredImages = this.images.filter(img => {
+      // Beschreibung durchsuchen
+      const desc = img.description.toLowerCase();
+      // Ordnerpfad durchsuchen (inkl. Unterordner)
+      const folderPath = img.src.toLowerCase(); // src enthält den ganzen Pfad
+      return desc.includes(term) || folderPath.includes(term);
+    });
+    this.page = 1;
+  }
+
   get filteredImages() {
-    if (!this.selectedFolder) return this.images;
-    return this.images.filter(img =>
-      img.src.includes(`assets/img/photography/${this.selectedFolder}/`)
-    );
+    // Wenn ein Filter gesetzt ist, filtere zusätzlich nach Ordner
+    let imgs = this._filteredImages;
+    if (this.selectedFolder) {
+      imgs = imgs.filter(img =>
+        img.src.includes(`assets/img/photography/${this.selectedFolder}/`)
+      );
+    }
+    return imgs;
   }
 
   get pagedImages() {
@@ -87,8 +110,10 @@ export class PhotoGallery {
       .map(part =>
         part
           .split('-')
-          .map(word => word.charAt(0).toUpperCase() + word.slice(1))
-          .join('')
+          .map((word, i) =>
+            word.charAt(0).toUpperCase() + word.slice(1)
+          )
+          .join(' ')
       )
       .join(' / ');
   }
@@ -169,5 +194,18 @@ export class PhotoGallery {
 
   getCurrentFolderPath(folder: string): string {
     return this.currentPath.concat(folder).join('/');
+  }
+
+  @HostListener('window:keydown', ['$event'])
+  handleKeyDown(event: KeyboardEvent) {
+    if (this.selectedImageIndex !== null) {
+      if (event.key === 'Escape') {
+        this.closeLightbox();
+      } else if (event.key === 'ArrowLeft') {
+        this.prevImage();
+      } else if (event.key === 'ArrowRight') {
+        this.nextImage();
+      }
+    }
   }
 }

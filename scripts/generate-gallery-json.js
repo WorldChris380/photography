@@ -27,7 +27,7 @@ const images = walk(IMG_DIR).map(fullPath => {
   const parts = path.relative(IMG_DIR, fullPath).split(path.sep);
   const category = parts.length > 1 ? parts[0] : 'uncategorized';
   // Beschreibung aus Dateinamen ohne Endung
-  const fileName = path.basename(fullPath, path.extname(fullPath));
+  const fileName = path.basename(fullPath, path.extname(fullPath)).replace(/-/g, ' ');
   return {
     src: relPath,
     category,

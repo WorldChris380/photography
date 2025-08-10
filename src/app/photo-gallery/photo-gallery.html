@@ -1,6 +1,6 @@
 <div id="gallery-limitation">
   <div class="gallery-filter">
-    <button *ngIf="currentPath.length" (click)="goUpOneLevel()">Zurück</button>
+    <button *ngIf="currentPath.length" (click)="goUpOneLevel()">Go back</button>
     <button
       *ngFor="let folder of currentLevelFolders"
       (click)="goToSubfolder(folder)"
@@ -8,7 +8,17 @@
     >
       {{ formatFolderLabel(folder) }}
     </button>
-    <button (click)="clearAllFilters()" [class.active]="!selectedFolder && !currentPath.length">Alle</button>
+    <button (click)="clearAllFilters()" [class.active]="!selectedFolder && !currentPath.length">All</button>
+  </div>
+
+  <div class="gallery-search-bar">
+    <input
+      type="text"
+      placeholder="Search by country or description"
+      [(ngModel)]="searchTerm"
+      (input)="onSearch()"
+    />
+    <span class="gallery-search-count">{{ filteredImages.length }} images found</span>
   </div>
 
   <div class="gallery-container">

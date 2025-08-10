@@ -35,4 +35,8 @@ export class Header implements OnInit {
       this.renderer.removeClass(document.body, 'darkmode');
     }
   }
+
+  closeMenuDelayed() {
+    setTimeout(() => this.menuOpen = false, 150);
+  }
 }
