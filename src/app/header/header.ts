@@ -1,4 +1,4 @@
-import { Component, Renderer2, OnInit } from '@angular/core';
+import { Component, Renderer2, OnInit, ViewEncapsulation } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
@@ -7,13 +7,14 @@ import { CommonModule } from '@angular/common';
   standalone: true,
   imports: [CommonModule, RouterModule],
   templateUrl: './header.html',
-  styleUrls: ['./header.scss']
+  styleUrls: ['./header.scss'],
+  encapsulation: ViewEncapsulation.None
 })
 export class Header implements OnInit {
   menuOpen = false;
   darkMode = false;
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
     const saved = localStorage.getItem('darkmode');
@@ -28,19 +29,10 @@ export class Header implements OnInit {
   }
 
   private applyDarkMode() {
-    const galleryLimitation = document.getElementById('gallery-limitation');
     if (this.darkMode) {
       this.renderer.addClass(document.body, 'darkmode');
-      if (galleryLimitation) {
-        this.renderer.setStyle(galleryLimitation, 'background', '#212529');
-        this.renderer.setStyle(galleryLimitation, 'color', '#f1f3f4');
-      }
     } else {
       this.renderer.removeClass(document.body, 'darkmode');
-      if (galleryLimitation) {
-        this.renderer.removeStyle(galleryLimitation, 'background');
-        this.renderer.removeStyle(galleryLimitation, 'color');
-      }
     }
   }
 }

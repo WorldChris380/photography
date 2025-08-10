@@ -125,34 +125,619 @@
     "description": "Fiji Link de Havilland Canada DHC-6-300 Twin Otter DQ-PSE in Nadi with tropic background"
   },
   {
-    "src": "assets/img/photography/travel/Adobe-Express-file-_9_.webp",
+    "src": "assets/img/photography/travel/africa/cape-verde/Sal Island Beach.jpg",
     "category": "travel",
-    "description": "Adobe-Express-file-_9_"
+    "description": "Sal Island Beach"
   },
   {
-    "src": "assets/img/photography/travel/Algarve-coastline.jpg",
+    "src": "assets/img/photography/travel/africa/cape-verde/_CRB9139B.jpg",
     "category": "travel",
-    "description": "Algarve-coastline"
+    "description": "_CRB9139B"
   },
   {
-    "src": "assets/img/photography/travel/Arc-de-triomphe-Paris.jpg",
+    "src": "assets/img/photography/travel/africa/cape-verde/_CRB9312B.jpg",
     "category": "travel",
-    "description": "Arc-de-triomphe-Paris"
+    "description": "_CRB9312B"
   },
   {
-    "src": "assets/img/photography/travel/Barcelona-cable-car.jpg",
+    "src": "assets/img/photography/travel/africa/egypt/DSC00184B.JPG",
     "category": "travel",
-    "description": "Barcelona-cable-car"
+    "description": "DSC00184B"
   },
   {
-    "src": "assets/img/photography/travel/Costa Rica Hot Springs Tabacon.jpg",
+    "src": "assets/img/photography/travel/africa/egypt/Karnak-temple-Luxor.jpg",
     "category": "travel",
-    "description": "Costa Rica Hot Springs Tabacon"
+    "description": "Karnak-temple-Luxor"
   },
   {
-    "src": "assets/img/photography/travel/Ehrwald.jpg",
+    "src": "assets/img/photography/travel/africa/morocco/Taghazout-Morocco.jpg",
+    "category": "travel",
+    "description": "Taghazout-Morocco"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/indonesia/CRB_4806B.JPG",
+    "category": "travel",
+    "description": "CRB_4806B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/indonesia/CRB_4860B.JPG",
+    "category": "travel",
+    "description": "CRB_4860B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/indonesia/CRB_4884B.JPG",
+    "category": "travel",
+    "description": "CRB_4884B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/indonesia/CRB_4885B.JPG",
+    "category": "travel",
+    "description": "CRB_4885B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/indonesia/CRB_5015B.JPG",
+    "category": "travel",
+    "description": "CRB_5015B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/indonesia/CRB_5111B.JPG",
+    "category": "travel",
+    "description": "CRB_5111B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/indonesia/CRB_5429B.JPG",
+    "category": "travel",
+    "description": "CRB_5429B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_3348B.jpg",
+    "category": "travel",
+    "description": "DSC_3348B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_3498B.jpg",
+    "category": "travel",
+    "description": "DSC_3498B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_3659B.jpg",
+    "category": "travel",
+    "description": "DSC_3659B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_3760B.jpg",
+    "category": "travel",
+    "description": "DSC_3760B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_4409B.jpg",
+    "category": "travel",
+    "description": "DSC_4409B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_4567B.jpg",
+    "category": "travel",
+    "description": "DSC_4567B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_4839-2B.jpg",
+    "category": "travel",
+    "description": "DSC_4839-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_4839B.jpg",
+    "category": "travel",
+    "description": "DSC_4839B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/israel/DSC_5265B.jpg",
+    "category": "travel",
+    "description": "DSC_5265B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/malaysia/CRB_3280B.JPG",
+    "category": "travel",
+    "description": "CRB_3280B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/oman/CRB_5922B.jpg",
+    "category": "travel",
+    "description": "CRB_5922B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/oman/CRB_7006B.jpg",
+    "category": "travel",
+    "description": "CRB_7006B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/philippines/CRB_0574B.jpg",
+    "category": "travel",
+    "description": "CRB_0574B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/philippines/CRB_0584B.jpg",
+    "category": "travel",
+    "description": "CRB_0584B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/philippines/CRB_0776B.JPG",
+    "category": "travel",
+    "description": "CRB_0776B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/philippines/DJI_0028B.jpg",
+    "category": "travel",
+    "description": "DJI_0028B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/qatar/CRB_0302B.JPG",
+    "category": "travel",
+    "description": "CRB_0302B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/qatar/CRB_0373B.JPG",
+    "category": "travel",
+    "description": "CRB_0373B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/qatar/CRB_0579B.JPG",
+    "category": "travel",
+    "description": "CRB_0579B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/singapore/CRB_4006B.JPG",
+    "category": "travel",
+    "description": "CRB_4006B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/singapore/CRB_4189B.JPG",
+    "category": "travel",
+    "description": "CRB_4189B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/singapore/CRB_4190B.JPG",
+    "category": "travel",
+    "description": "CRB_4190B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0254B.JPG",
+    "category": "travel",
+    "description": "CRB_0254B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0264B.JPG",
+    "category": "travel",
+    "description": "CRB_0264B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0318B.JPG",
+    "category": "travel",
+    "description": "CRB_0318B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0400B.JPG",
+    "category": "travel",
+    "description": "CRB_0400B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0757B.JPG",
+    "category": "travel",
+    "description": "CRB_0757B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0826B.JPG",
+    "category": "travel",
+    "description": "CRB_0826B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0837B.JPG",
+    "category": "travel",
+    "description": "CRB_0837B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0876B.JPG",
+    "category": "travel",
+    "description": "CRB_0876B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0903B.JPG",
+    "category": "travel",
+    "description": "CRB_0903B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_0922B.JPG",
+    "category": "travel",
+    "description": "CRB_0922B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_1027B.JPG",
+    "category": "travel",
+    "description": "CRB_1027B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_1473B.JPG",
+    "category": "travel",
+    "description": "CRB_1473B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_1497B.JPG",
+    "category": "travel",
+    "description": "CRB_1497B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/thailand/CRB_1635B.JPG",
+    "category": "travel",
+    "description": "CRB_1635B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_0642-1B.JPG",
+    "category": "travel",
+    "description": "CRB_0642-1B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_3017B.jpg",
+    "category": "travel",
+    "description": "CRB_3017B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_3050B.jpg",
+    "category": "travel",
+    "description": "CRB_3050B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_3054B.jpg",
+    "category": "travel",
+    "description": "CRB_3054B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_3105B.jpg",
+    "category": "travel",
+    "description": "CRB_3105B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_3586B.jpg",
+    "category": "travel",
+    "description": "CRB_3586B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_3648B.jpg",
+    "category": "travel",
+    "description": "CRB_3648B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_4204B.jpg",
+    "category": "travel",
+    "description": "CRB_4204B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_4247B.jpg",
+    "category": "travel",
+    "description": "CRB_4247B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_4370B.jpg",
+    "category": "travel",
+    "description": "CRB_4370B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_4448B.jpg",
+    "category": "travel",
+    "description": "CRB_4448B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_4743B.jpg",
+    "category": "travel",
+    "description": "CRB_4743B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_5474B.jpg",
+    "category": "travel",
+    "description": "CRB_5474B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/CRB_5477B.jpg",
+    "category": "travel",
+    "description": "CRB_5477B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/DSC_2890B.jpg",
+    "category": "travel",
+    "description": "DSC_2890B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/DSC_2897B.jpg",
+    "category": "travel",
+    "description": "DSC_2897B"
+  },
+  {
+    "src": "assets/img/photography/travel/asia/united-arab-emirates/DSC_2986B.jpg",
+    "category": "travel",
+    "description": "DSC_2986B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0388B.JPG",
+    "category": "travel",
+    "description": "CRB_0388B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0459B.JPG",
+    "category": "travel",
+    "description": "CRB_0459B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0593B.JPG",
+    "category": "travel",
+    "description": "CRB_0593B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0720B.JPG",
+    "category": "travel",
+    "description": "CRB_0720B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0731B.JPG",
+    "category": "travel",
+    "description": "CRB_0731B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0841B.JPG",
+    "category": "travel",
+    "description": "CRB_0841B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0914B.JPG",
+    "category": "travel",
+    "description": "CRB_0914B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_0944B.JPG",
+    "category": "travel",
+    "description": "CRB_0944B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_1556B.jpg",
+    "category": "travel",
+    "description": "CRB_1556B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_1681B.JPG",
+    "category": "travel",
+    "description": "CRB_1681B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4083B.JPG",
+    "category": "travel",
+    "description": "CRB_4083B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4116B.JPG",
+    "category": "travel",
+    "description": "CRB_4116B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4151B.JPG",
+    "category": "travel",
+    "description": "CRB_4151B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4166B.JPG",
+    "category": "travel",
+    "description": "CRB_4166B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4178B.JPG",
+    "category": "travel",
+    "description": "CRB_4178B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4196B.JPG",
+    "category": "travel",
+    "description": "CRB_4196B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4222B.JPG",
+    "category": "travel",
+    "description": "CRB_4222B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_4229B.JPG",
+    "category": "travel",
+    "description": "CRB_4229B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_5145B.jpg",
+    "category": "travel",
+    "description": "CRB_5145B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6050B.JPG",
+    "category": "travel",
+    "description": "CRB_6050B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6069B.JPG",
+    "category": "travel",
+    "description": "CRB_6069B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6187B.JPG",
+    "category": "travel",
+    "description": "CRB_6187B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6192B.JPG",
+    "category": "travel",
+    "description": "CRB_6192B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6449B.JPG",
+    "category": "travel",
+    "description": "CRB_6449B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6649B.JPG",
+    "category": "travel",
+    "description": "CRB_6649B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6702B.JPG",
+    "category": "travel",
+    "description": "CRB_6702B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6754B.JPG",
+    "category": "travel",
+    "description": "CRB_6754B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6766B.jpg",
+    "category": "travel",
+    "description": "CRB_6766B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6777B.JPG",
+    "category": "travel",
+    "description": "CRB_6777B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6789B.jpg",
+    "category": "travel",
+    "description": "CRB_6789B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_6795B.JPG",
+    "category": "travel",
+    "description": "CRB_6795B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7366B.JPG",
+    "category": "travel",
+    "description": "CRB_7366B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7367B.JPG",
+    "category": "travel",
+    "description": "CRB_7367B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7370B.JPG",
+    "category": "travel",
+    "description": "CRB_7370B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7612B.JPG",
+    "category": "travel",
+    "description": "CRB_7612B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7655B.JPG",
+    "category": "travel",
+    "description": "CRB_7655B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7673B.JPG",
+    "category": "travel",
+    "description": "CRB_7673B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7758B.JPG",
+    "category": "travel",
+    "description": "CRB_7758B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7773B.JPG",
+    "category": "travel",
+    "description": "CRB_7773B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7863-2B.jpg",
+    "category": "travel",
+    "description": "CRB_7863-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_7863B.JPG",
+    "category": "travel",
+    "description": "CRB_7863B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_8152B.JPG",
+    "category": "travel",
+    "description": "CRB_8152B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_8153B.JPG",
+    "category": "travel",
+    "description": "CRB_8153B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_8283B.JPG",
+    "category": "travel",
+    "description": "CRB_8283B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_8567B.JPG",
+    "category": "travel",
+    "description": "CRB_8567B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/CRB_9229B.JPG",
+    "category": "travel",
+    "description": "CRB_9229B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/DJI_0002B.jpg",
+    "category": "travel",
+    "description": "DJI_0002B"
+  },
+  {
+    "src": "assets/img/photography/travel/australia/Outback Australia.jpg",
+    "category": "travel",
+    "description": "Outback Australia"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/austria/DSCN6381B.jpg",
+    "category": "travel",
+    "description": "DSCN6381B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/austria/Ehrwald.jpg",
     "category": "travel",
     "description": "Ehrwald"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/belarus/DSC_7721B.jpg",
+    "category": "travel",
+    "description": "DSC_7721B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/belarus/DSC_7830B.jpg",
+    "category": "travel",
+    "description": "DSC_7830B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/belarus/DSC_7914B.jpg",
+    "category": "travel",
+    "description": "DSC_7914B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/belarus/DSC_8067B.jpg",
+    "category": "travel",
+    "description": "DSC_8067B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/belarus/DSC_8104B.jpg",
+    "category": "travel",
+    "description": "DSC_8104B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/belarus/DSC_8111B.jpg",
+    "category": "travel",
+    "description": "DSC_8111B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/belarus/DSC_8428B.jpg",
+    "category": "travel",
+    "description": "DSC_8428B"
   },
   {
     "src": "assets/img/photography/travel/europe/belarus/Mir Castle Belarus.jpg",
@@ -160,123 +745,913 @@
     "description": "Mir Castle Belarus"
   },
   {
+    "src": "assets/img/photography/travel/europe/belgium/Grand-place-Brussels.jpg",
+    "category": "travel",
+    "description": "Grand-place-Brussels"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/DSC_125B.jpg",
+    "category": "travel",
+    "description": "DSC_125B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/prague-skyline.jpg",
+    "category": "travel",
+    "description": "prague-skyline"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC6611-2B.JPG",
+    "category": "travel",
+    "description": "_DSC6611-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC6611-3B.JPG",
+    "category": "travel",
+    "description": "_DSC6611-3B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC6611-4B.JPG",
+    "category": "travel",
+    "description": "_DSC6611-4B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC6611B.jpg",
+    "category": "travel",
+    "description": "_DSC6611B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC6632B.jpg",
+    "category": "travel",
+    "description": "_DSC6632B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC7729B.JPG",
+    "category": "travel",
+    "description": "_DSC7729B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC8970B.jpg",
+    "category": "travel",
+    "description": "_DSC8970B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC9963B.jpg",
+    "category": "travel",
+    "description": "_DSC9963B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/czech-republic/_DSC9994B.jpg",
+    "category": "travel",
+    "description": "_DSC9994B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/france/Arc-de-triomphe-Paris.jpg",
+    "category": "travel",
+    "description": "Arc-de-triomphe-Paris"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/france/_DSC0700B.jpg",
+    "category": "travel",
+    "description": "_DSC0700B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/france/_DSC0758B.JPG",
+    "category": "travel",
+    "description": "_DSC0758B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/france/_DSC1888B.jpg",
+    "category": "travel",
+    "description": "_DSC1888B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/france/_DSC1911B.JPG",
+    "category": "travel",
+    "description": "_DSC1911B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/france/_DSC1961B.JPG",
+    "category": "travel",
+    "description": "_DSC1961B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/france/_DSC1994B.jpg",
+    "category": "travel",
+    "description": "_DSC1994B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/CRB_0069B.jpg",
+    "category": "travel",
+    "description": "CRB_0069B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/CRB_8262B.jpg",
+    "category": "travel",
+    "description": "CRB_8262B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/CRB_8388B.jpg",
+    "category": "travel",
+    "description": "CRB_8388B"
+  },
+  {
     "src": "assets/img/photography/travel/europe/germany/Dresden-skyline-at-night.jpg",
     "category": "travel",
     "description": "Dresden-skyline-at-night"
   },
   {
-    "src": "assets/img/photography/travel/Famous-blue-lagoon-Fiji.jpg",
+    "src": "assets/img/photography/travel/europe/germany/DSCN0247B.JPG",
     "category": "travel",
-    "description": "Famous-blue-lagoon-Fiji"
+    "description": "DSCN0247B"
   },
   {
-    "src": "assets/img/photography/travel/Geneve-lake-fountain.jpg",
+    "src": "assets/img/photography/travel/europe/germany/DSCN0273B.JPG",
     "category": "travel",
-    "description": "Geneve-lake-fountain"
+    "description": "DSCN0273B"
   },
   {
-    "src": "assets/img/photography/travel/Grand-place-Brussels.jpg",
+    "src": "assets/img/photography/travel/europe/germany/DSCN0302B.JPG",
     "category": "travel",
-    "description": "Grand-place-Brussels"
+    "description": "DSCN0302B"
   },
   {
-    "src": "assets/img/photography/travel/Hideaway-beach-of-Matacawalevu-Yasawas-Fiji.webp",
+    "src": "assets/img/photography/travel/europe/germany/DSCN0315B.jpg",
     "category": "travel",
-    "description": "Hideaway-beach-of-Matacawalevu-Yasawas-Fiji"
+    "description": "DSCN0315B"
   },
   {
-    "src": "assets/img/photography/travel/House-of-Parliament-Budapest.jpg",
+    "src": "assets/img/photography/travel/europe/germany/DSCN0343B.JPG",
     "category": "travel",
-    "description": "House-of-Parliament-Budapest"
+    "description": "DSCN0343B"
   },
   {
-    "src": "assets/img/photography/travel/Ikaria-from-drone.jpg",
+    "src": "assets/img/photography/travel/europe/germany/DSCN0347B.JPG",
+    "category": "travel",
+    "description": "DSCN0347B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSCN0348B.JPG",
+    "category": "travel",
+    "description": "DSCN0348B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSCN2806B.jpg",
+    "category": "travel",
+    "description": "DSCN2806B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSCN7305B.jpg",
+    "category": "travel",
+    "description": "DSCN7305B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_1243B.jpg",
+    "category": "travel",
+    "description": "DSC_1243B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_2034B.jpg",
+    "category": "travel",
+    "description": "DSC_2034B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_5802B.jpg",
+    "category": "travel",
+    "description": "DSC_5802B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_6929B.JPG",
+    "category": "travel",
+    "description": "DSC_6929B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_6930B.JPG",
+    "category": "travel",
+    "description": "DSC_6930B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_6956B.JPG",
+    "category": "travel",
+    "description": "DSC_6956B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_6981B.JPG",
+    "category": "travel",
+    "description": "DSC_6981B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/DSC_9934B.JPG",
+    "category": "travel",
+    "description": "DSC_9934B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0378B.jpg",
+    "category": "travel",
+    "description": "_CRB0378B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0391B.JPG",
+    "category": "travel",
+    "description": "_CRB0391B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0398B.jpg",
+    "category": "travel",
+    "description": "_CRB0398B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0399B.JPG",
+    "category": "travel",
+    "description": "_CRB0399B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0414B.JPG",
+    "category": "travel",
+    "description": "_CRB0414B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0418B.jpg",
+    "category": "travel",
+    "description": "_CRB0418B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0428B.jpg",
+    "category": "travel",
+    "description": "_CRB0428B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0526B.JPG",
+    "category": "travel",
+    "description": "_CRB0526B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0536B.JPG",
+    "category": "travel",
+    "description": "_CRB0536B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0583B.JPG",
+    "category": "travel",
+    "description": "_CRB0583B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_CRB0589B.JPG",
+    "category": "travel",
+    "description": "_CRB0589B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC1033-1B.jpg",
+    "category": "travel",
+    "description": "_DSC1033-1B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC1033-2B.jpg",
+    "category": "travel",
+    "description": "_DSC1033-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC1033-4B.jpg",
+    "category": "travel",
+    "description": "_DSC1033-4B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC1033-5B.jpg",
+    "category": "travel",
+    "description": "_DSC1033-5B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC3714B.JPG",
+    "category": "travel",
+    "description": "_DSC3714B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC3733-2B.JPG",
+    "category": "travel",
+    "description": "_DSC3733-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC3733B.JPG",
+    "category": "travel",
+    "description": "_DSC3733B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC3738B.JPG",
+    "category": "travel",
+    "description": "_DSC3738B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC3825B.JPG",
+    "category": "travel",
+    "description": "_DSC3825B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC3923B.JPG",
+    "category": "travel",
+    "description": "_DSC3923B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/germany/_DSC3927B.JPG",
+    "category": "travel",
+    "description": "_DSC3927B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/greece/Ikaria-from-drone.jpg",
     "category": "travel",
     "description": "Ikaria-from-drone"
   },
   {
-    "src": "assets/img/photography/travel/Karnak-temple-Luxor.jpg",
+    "src": "assets/img/photography/travel/europe/hungary/House-of-Parliament-Budapest.jpg",
     "category": "travel",
-    "description": "Karnak-temple-Luxor"
+    "description": "House-of-Parliament-Budapest"
   },
   {
-    "src": "assets/img/photography/travel/Keukenhof-spring-Netherlands.jpg",
+    "src": "assets/img/photography/travel/europe/italy/Adobe-Express-file-_9_.webp",
+    "category": "travel",
+    "description": "Adobe-Express-file-_9_"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_0303B.jpg",
+    "category": "travel",
+    "description": "DSC_0303B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_8177-1B.jpg",
+    "category": "travel",
+    "description": "DSC_8177-1B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_8177B.jpg",
+    "category": "travel",
+    "description": "DSC_8177B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_8229B.jpg",
+    "category": "travel",
+    "description": "DSC_8229B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_8789B.jpg",
+    "category": "travel",
+    "description": "DSC_8789B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_8806B.jpg",
+    "category": "travel",
+    "description": "DSC_8806B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_9363B.jpg",
+    "category": "travel",
+    "description": "DSC_9363B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_9550B.jpg",
+    "category": "travel",
+    "description": "DSC_9550B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/DSC_9894B.jpg",
+    "category": "travel",
+    "description": "DSC_9894B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC4460B.jpg",
+    "category": "travel",
+    "description": "_DSC4460B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC4483B.jpg",
+    "category": "travel",
+    "description": "_DSC4483B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC4543-2B.JPG",
+    "category": "travel",
+    "description": "_DSC4543-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC4543B.JPG",
+    "category": "travel",
+    "description": "_DSC4543B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5099-2B.JPG",
+    "category": "travel",
+    "description": "_DSC5099-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5099-3B.JPG",
+    "category": "travel",
+    "description": "_DSC5099-3B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5099-4B.JPG",
+    "category": "travel",
+    "description": "_DSC5099-4B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5099-5B.JPG",
+    "category": "travel",
+    "description": "_DSC5099-5B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5099-6B.JPG",
+    "category": "travel",
+    "description": "_DSC5099-6B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5099B.JPG",
+    "category": "travel",
+    "description": "_DSC5099B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5143B.JPG",
+    "category": "travel",
+    "description": "_DSC5143B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/italy/_DSC5230B.JPG",
+    "category": "travel",
+    "description": "_DSC5230B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/netherlands/Keukenhof-spring-Netherlands.jpg",
     "category": "travel",
     "description": "Keukenhof-spring-Netherlands"
   },
   {
-    "src": "assets/img/photography/travel/Locals-beach-of-Matacawalevu-island-Fiji.jpg",
-    "category": "travel",
-    "description": "Locals-beach-of-Matacawalevu-island-Fiji"
-  },
-  {
-    "src": "assets/img/photography/travel/Miami-Downtown-skyline.jpg",
-    "category": "travel",
-    "description": "Miami-Downtown-skyline"
-  },
-  {
-    "src": "assets/img/photography/travel/Modern-London-skyline.jpg",
-    "category": "travel",
-    "description": "Modern-London-skyline"
-  },
-  {
-    "src": "assets/img/photography/travel/Mountain-chain-of-Yasawa-island-group-in-Fiji.webp",
-    "category": "travel",
-    "description": "Mountain-chain-of-Yasawa-island-group-in-Fiji"
-  },
-  {
-    "src": "assets/img/photography/travel/Opera-house-Oslo.jpg",
+    "src": "assets/img/photography/travel/europe/norway/Opera-house-Oslo.jpg",
     "category": "travel",
     "description": "Opera-house-Oslo"
   },
   {
-    "src": "assets/img/photography/travel/Peninsula-Samana-Beach-Vacation.jpg",
+    "src": "assets/img/photography/travel/europe/portugal/Algarve-coastline.jpg",
     "category": "travel",
-    "description": "Peninsula-Samana-Beach-Vacation"
+    "description": "Algarve-coastline"
   },
   {
-    "src": "assets/img/photography/travel/prague-skyline.jpg",
+    "src": "assets/img/photography/travel/europe/portugal/CRB_0048B.JPG",
     "category": "travel",
-    "description": "prague-skyline"
+    "description": "CRB_0048B"
   },
   {
-    "src": "assets/img/photography/travel/River-Dnjepr-Kiev.jpg",
+    "src": "assets/img/photography/travel/europe/portugal/CRB_0195B.JPG",
     "category": "travel",
-    "description": "River-Dnjepr-Kiev"
+    "description": "CRB_0195B"
   },
   {
-    "src": "assets/img/photography/travel/Rocky-palms-beach-at-Kuata-island-of-Fiji.webp",
+    "src": "assets/img/photography/travel/europe/portugal/CRB_0234B.JPG",
     "category": "travel",
-    "description": "Rocky-palms-beach-at-Kuata-island-of-Fiji"
+    "description": "CRB_0234B"
   },
   {
-    "src": "assets/img/photography/travel/Small-holiday-island-of-Yasawas-in-Fiji.jpg",
+    "src": "assets/img/photography/travel/europe/portugal/CRB_0277B.JPG",
     "category": "travel",
-    "description": "Small-holiday-island-of-Yasawas-in-Fiji"
+    "description": "CRB_0277B"
   },
   {
-    "src": "assets/img/photography/travel/Taghazout-Morocco.jpg",
+    "src": "assets/img/photography/travel/europe/portugal/CRB_0424B.JPG",
     "category": "travel",
-    "description": "Taghazout-Morocco"
+    "description": "CRB_0424B"
   },
   {
-    "src": "assets/img/photography/travel/Tavewa-island-from-air-Fiji-in-pacific-ocean.jpg",
+    "src": "assets/img/photography/travel/europe/portugal/CRB_0425B.JPG",
     "category": "travel",
-    "description": "Tavewa-island-from-air-Fiji-in-pacific-ocean"
+    "description": "CRB_0425B"
   },
   {
-    "src": "assets/img/photography/travel/Tourists-beach-Matacawalevu-island-Fiji.jpg",
-    "category": "travel",
-    "description": "Tourists-beach-Matacawalevu-island-Fiji"
-  },
-  {
-    "src": "assets/img/photography/travel/Verkhniy-Sad-Saint-Petersburg.jpg",
+    "src": "assets/img/photography/travel/europe/russia/Verkhniy-Sad-Saint-Petersburg.jpg",
     "category": "travel",
     "description": "Verkhniy-Sad-Saint-Petersburg"
   },
   {
-    "src": "assets/img/photography/travel/_CRB9139B_web_1.jpg",
+    "src": "assets/img/photography/travel/europe/spain/Barcelona-cable-car.jpg",
     "category": "travel",
-    "description": "_CRB9139B_web_1"
+    "description": "Barcelona-cable-car"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCI2145B.jpg",
+    "category": "travel",
+    "description": "DSCI2145B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCI2360B.JPG",
+    "category": "travel",
+    "description": "DSCI2360B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCI2477B.JPG",
+    "category": "travel",
+    "description": "DSCI2477B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCI2741B.JPG",
+    "category": "travel",
+    "description": "DSCI2741B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCN4838B.jpg",
+    "category": "travel",
+    "description": "DSCN4838B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCN4896B.jpg",
+    "category": "travel",
+    "description": "DSCN4896B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCN5078-2B.JPG",
+    "category": "travel",
+    "description": "DSCN5078-2B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCN5078B.JPG",
+    "category": "travel",
+    "description": "DSCN5078B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCN5311B.JPG",
+    "category": "travel",
+    "description": "DSCN5311B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSCN5361B.JPG",
+    "category": "travel",
+    "description": "DSCN5361B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/spain/DSC_1759B.jpg",
+    "category": "travel",
+    "description": "DSC_1759B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/switzerland/DSC_7058B.jpg",
+    "category": "travel",
+    "description": "DSC_7058B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/switzerland/Geneve-lake-fountain.jpg",
+    "category": "travel",
+    "description": "Geneve-lake-fountain"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/ukraine/DSC_2515B.jpg",
+    "category": "travel",
+    "description": "DSC_2515B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/ukraine/River-Dnjepr-Kiev.jpg",
+    "category": "travel",
+    "description": "River-Dnjepr-Kiev"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/united-kingdom/DSC_4079B.jpg",
+    "category": "travel",
+    "description": "DSC_4079B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/united-kingdom/DSC_8109B.jpg",
+    "category": "travel",
+    "description": "DSC_8109B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/united-kingdom/DSC_8345B.JPG",
+    "category": "travel",
+    "description": "DSC_8345B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/united-kingdom/DSC_8796B.jpg",
+    "category": "travel",
+    "description": "DSC_8796B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/united-kingdom/DSC_8833B.jpg",
+    "category": "travel",
+    "description": "DSC_8833B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/united-kingdom/DSC_8848B.jpg",
+    "category": "travel",
+    "description": "DSC_8848B"
+  },
+  {
+    "src": "assets/img/photography/travel/europe/united-kingdom/Modern-London-skyline.jpg",
+    "category": "travel",
+    "description": "Modern-London-skyline"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/Costa Rica Hot Springs Tabacon.jpg",
+    "category": "travel",
+    "description": "Costa Rica Hot Springs Tabacon"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1629B.jpg",
+    "category": "travel",
+    "description": "_CRB1629B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1705B.jpg",
+    "category": "travel",
+    "description": "_CRB1705B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1762B.jpg",
+    "category": "travel",
+    "description": "_CRB1762B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1796B.jpg",
+    "category": "travel",
+    "description": "_CRB1796B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1804B.JPG",
+    "category": "travel",
+    "description": "_CRB1804B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1956B.jpg",
+    "category": "travel",
+    "description": "_CRB1956B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1959B.jpg",
+    "category": "travel",
+    "description": "_CRB1959B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB1988B.jpg",
+    "category": "travel",
+    "description": "_CRB1988B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB2020B.jpg",
+    "category": "travel",
+    "description": "_CRB2020B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/costa-rica/_CRB2141B.jpg",
+    "category": "travel",
+    "description": "_CRB2141B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/dominican-republic/Peninsula-Samana-Beach-Vacation.jpg",
+    "category": "travel",
+    "description": "Peninsula-Samana-Beach-Vacation"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/CRB_9035B.JPG",
+    "category": "travel",
+    "description": "CRB_9035B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN0398B.jpg",
+    "category": "travel",
+    "description": "DSCN0398B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN0822B.JPG",
+    "category": "travel",
+    "description": "DSCN0822B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN0911B.JPG",
+    "category": "travel",
+    "description": "DSCN0911B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN11476B.JPG",
+    "category": "travel",
+    "description": "DSCN11476B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN1234B.jpg",
+    "category": "travel",
+    "description": "DSCN1234B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN1718B.JPG",
+    "category": "travel",
+    "description": "DSCN1718B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN1777B.jpg",
+    "category": "travel",
+    "description": "DSCN1777B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN1801B.JPG",
+    "category": "travel",
+    "description": "DSCN1801B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN1855B.jpg",
+    "category": "travel",
+    "description": "DSCN1855B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN1877B.JPG",
+    "category": "travel",
+    "description": "DSCN1877B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN2114B.jpg",
+    "category": "travel",
+    "description": "DSCN2114B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSCN2361B.jpg",
+    "category": "travel",
+    "description": "DSCN2361B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_1158B.jpg",
+    "category": "travel",
+    "description": "DSC_1158B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_1728B.jpg",
+    "category": "travel",
+    "description": "DSC_1728B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_2884B.jpg",
+    "category": "travel",
+    "description": "DSC_2884B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_3001B.jpg",
+    "category": "travel",
+    "description": "DSC_3001B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_3025B.jpg",
+    "category": "travel",
+    "description": "DSC_3025B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_3399B.jpg",
+    "category": "travel",
+    "description": "DSC_3399B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_3682B.jpg",
+    "category": "travel",
+    "description": "DSC_3682B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_3847B.jpg",
+    "category": "travel",
+    "description": "DSC_3847B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_8145B.jpg",
+    "category": "travel",
+    "description": "DSC_8145B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_8747B.jpg",
+    "category": "travel",
+    "description": "DSC_8747B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_8957B.jpg",
+    "category": "travel",
+    "description": "DSC_8957B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_8968B.jpg",
+    "category": "travel",
+    "description": "DSC_8968B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_9088B.jpg",
+    "category": "travel",
+    "description": "DSC_9088B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_9181B.jpg",
+    "category": "travel",
+    "description": "DSC_9181B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/DSC_9188B.jpg",
+    "category": "travel",
+    "description": "DSC_9188B"
+  },
+  {
+    "src": "assets/img/photography/travel/north-america/united-states/florida/Miami-Downtown-skyline.jpg",
+    "category": "travel",
+    "description": "Miami-Downtown-skyline"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_1997B.JPG",
+    "category": "travel",
+    "description": "CRB_1997B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_2209B.JPG",
+    "category": "travel",
+    "description": "CRB_2209B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_2257B.JPG",
+    "category": "travel",
+    "description": "CRB_2257B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_2588B.JPG",
+    "category": "travel",
+    "description": "CRB_2588B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_2664B.JPG",
+    "category": "travel",
+    "description": "CRB_2664B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_2772B.JPG",
+    "category": "travel",
+    "description": "CRB_2772B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_2805B.JPG",
+    "category": "travel",
+    "description": "CRB_2805B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_3035B.jpg",
+    "category": "travel",
+    "description": "CRB_3035B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_3044B.jpg",
+    "category": "travel",
+    "description": "CRB_3044B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/CRB_3660B.jpg",
+    "category": "travel",
+    "description": "CRB_3660B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/DJI_0018B.JPG",
+    "category": "travel",
+    "description": "DJI_0018B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/DJI_0044B.JPG",
+    "category": "travel",
+    "description": "DJI_0044B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/DJI_0071B.jpg",
+    "category": "travel",
+    "description": "DJI_0071B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/DJI_0073B.jpg",
+    "category": "travel",
+    "description": "DJI_0073B"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Famous-blue-lagoon-Fiji.jpg",
+    "category": "travel",
+    "description": "Famous-blue-lagoon-Fiji"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Hideaway-beach-of-Matacawalevu-Yasawas-Fiji.webp",
+    "category": "travel",
+    "description": "Hideaway-beach-of-Matacawalevu-Yasawas-Fiji"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Locals-beach-of-Matacawalevu-island-Fiji.jpg",
+    "category": "travel",
+    "description": "Locals-beach-of-Matacawalevu-island-Fiji"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Mountain-chain-of-Yasawa-island-group-in-Fiji.webp",
+    "category": "travel",
+    "description": "Mountain-chain-of-Yasawa-island-group-in-Fiji"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Rocky-palms-beach-at-Kuata-island-of-Fiji.webp",
+    "category": "travel",
+    "description": "Rocky-palms-beach-at-Kuata-island-of-Fiji"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Small-holiday-island-of-Yasawas-in-Fiji.jpg",
+    "category": "travel",
+    "description": "Small-holiday-island-of-Yasawas-in-Fiji"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Tavewa-island-from-air-Fiji-in-pacific-ocean.jpg",
+    "category": "travel",
+    "description": "Tavewa-island-from-air-Fiji-in-pacific-ocean"
+  },
+  {
+    "src": "assets/img/photography/travel/oceania/fiji/Tourists-beach-Matacawalevu-island-Fiji.jpg",
+    "category": "travel",
+    "description": "Tourists-beach-Matacawalevu-island-Fiji"
   }
 ]

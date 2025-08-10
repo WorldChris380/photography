@@ -5,26 +5,26 @@ $cb-gray: #212529;
 $cb-red: #dc3545;
 
 h1 {
-    font-weight: 100;
+  font-weight: 100;
 }
 
 app-header {
-    background-color: $cb-grey;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    height: 100%;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+  background-color: $cb-grey;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
 }
 
 app-footer {
-    background-color: $cb-grey;
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    bottom: 0;
+  background-color: $cb-grey;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  bottom: 0;
 }
 
 body.darkmode {
@@ -33,19 +33,12 @@ body.darkmode {
 }
 
 body.darkmode #gallery-limitation {
-  background: $cb-grey !important;
+  background: #212529 !important;
   color: #f1f3f4 !important;
 }
 
-body.darkmode app-header,
-body.darkmode app-footer,
-body.darkmode #header-navigation,
-body.darkmode .dropdown-menu,
-body.darkmode .gallery-container,
-body.darkmode .footer-limitation,
-body.darkmode #content-limitation {
-  background: #23272a !important;
-  color: #f1f3f4 !important;
+body.darkmode .atf-overlay {
+  background: rgba(0, 0, 0, 0.7);
 }
 
 body.darkmode .menu-link,
@@ -57,10 +50,6 @@ body.darkmode .menu-link:hover,
 body.darkmode .dropdown-menu a:hover {
   background: #3cff00 !important;
   color: #23272a !important;
-}
-
-body.darkmode .atf-overlay {
-  background: rgba(0,0,0,0.7);
 }
 
 body.darkmode .atf-hero-content h1 {
@@ -76,10 +65,17 @@ body.darkmode .atf-hero-content h1 {
   color: #fff;
   transition: color 0.2s;
 }
+
 body.darkmode #darkmode-toggle {
   color: #3cff00;
 }
 
-body.darkmode * {
-  background: red !important;
+body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:not(.active) {
+  background: white !important;
+  color: $cb-grey !important;
+}
+
+body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:not(.active):hover {
+  background: $cb-blue !important;
+  color: white !important;
 }

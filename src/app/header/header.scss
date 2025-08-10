@@ -75,12 +75,19 @@ a {
 }
 
 #call-to-actions-header-area {
-  display: flex
+  display: flex;
+  align-items: center;
 }
 
 .cta-header-link-logo {
   width: 24px;
   height: 24px;
+}
+
+span {
+  align-items: center;
+  display: flex;
+  height: 100%;
 }
 
 .main-menu {
@@ -230,6 +237,8 @@ a {
   #site-title {
     display: none;
   }
+
+#content-limitation{min-height: 60px;}
 
 }
 
