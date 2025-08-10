@@ -6,7 +6,7 @@ import { PhotoGallery } from './photo-gallery/photo-gallery';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, PhotoGallery, Footer],
+  imports: [RouterOutlet, Header, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

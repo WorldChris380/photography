@@ -1,5 +1,15 @@
+$cb-blue: #007bff;
+$cb-green: #28a745;
+$cb-grey: #212529;
+$cb-gray: #212529;
+$cb-red: #dc3545;
+
+h1 {
+    font-weight: 100;
+}
+
 app-header {
-    background-color: #212529;
+    background-color: $cb-grey;
     width: 100%;
     display: flex;
     justify-content: center;
@@ -10,9 +20,66 @@ app-header {
 }
 
 app-footer {
-    background-color: #212529;
+    background-color: $cb-grey;
     width: 100%;
     display: flex;
     justify-content: center;
     bottom: 0;
+}
+
+body.darkmode {
+  background: #181a1b;
+  color: #f1f3f4;
+}
+
+body.darkmode #gallery-limitation {
+  background: $cb-grey !important;
+  color: #f1f3f4 !important;
+}
+
+body.darkmode app-header,
+body.darkmode app-footer,
+body.darkmode #header-navigation,
+body.darkmode .dropdown-menu,
+body.darkmode .gallery-container,
+body.darkmode .footer-limitation,
+body.darkmode #content-limitation {
+  background: #23272a !important;
+  color: #f1f3f4 !important;
+}
+
+body.darkmode .menu-link,
+body.darkmode .dropdown-menu a {
+  color: #f1f3f4 !important;
+}
+
+body.darkmode .menu-link:hover,
+body.darkmode .dropdown-menu a:hover {
+  background: #3cff00 !important;
+  color: #23272a !important;
+}
+
+body.darkmode .atf-overlay {
+  background: rgba(0,0,0,0.7);
+}
+
+body.darkmode .atf-hero-content h1 {
+  color: #fff;
+}
+
+#darkmode-toggle {
+  background: none;
+  border: none;
+  font-size: 1.7rem;
+  margin-left: 1rem;
+  cursor: pointer;
+  color: #fff;
+  transition: color 0.2s;
+}
+body.darkmode #darkmode-toggle {
+  color: #3cff00;
+}
+
+body.darkmode * {
+  background: red !important;
 }

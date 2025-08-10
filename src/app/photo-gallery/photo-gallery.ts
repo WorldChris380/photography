@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import gallery from '../../assets/gallery.json';
 
 const PAGE_SIZE = 20;
@@ -26,7 +26,7 @@ type GalleryImage = { src: string; category: string; description: string };
 @Component({
   selector: 'app-photo-gallery',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './photo-gallery.html',
   styleUrls: ['./photo-gallery.scss'],
 })

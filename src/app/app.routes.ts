@@ -5,6 +5,6 @@ import { PhotographyHome } from './photography-home/photography-home';
 
 export const routes: Routes = [
   { path: 'gallery', component: PhotoGallery },
-  { path: 'photography-home', component: PhotographyHome },
+  { path: '', component: PhotographyHome },
   // weitere Routen ...
 ];

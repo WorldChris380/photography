@@ -1,35 +1,69 @@
 <div id="content-limitation">
     <div id="header-content">
         <div id="logo-div">
-            <a routerLink="/photography-home">
+            <a routerLink="/">
                 <img src="assets/img/logos/christian-boehme-logo-512px.png" alt="Logo of Christian Boehme">
                 <h1 id="site-title">Christian Böhme</h1>
             </a>
         </div>
-        <nav id="header-navigation">
+        <!-- Burger-Button -->
+        <button id="burger-btn" (click)="menuOpen = !menuOpen" aria-label="Menü öffnen/schließen">
+            <ng-container *ngIf="!menuOpen">
+                <span></span>
+                <span></span>
+                <span></span>
+            </ng-container>
+            <ng-container *ngIf="menuOpen">
+                <span class="burger-x">&#10006;</span>
+            </ng-container>
+        </button>
+        <!-- Nach dem Burger-Button -->
+        <div class="nav-overlay" *ngIf="menuOpen" (click)="menuOpen = false"></div>
+        <nav id="header-navigation" [class.open]="menuOpen">
             <ul class="main-menu">
                 <li class="menu-item dropdown">
-                    <a class="menu-link" routerLink="/photography">Photography</a>
+                    <a class="menu-link" routerLink="/" (click)="menuOpen = false">Photography</a>
                     <ul class="dropdown-menu">
-                        <a routerLink="/photography-home">Home</a>
-                        <a [routerLink]="['/gallery']" [queryParams]="{ filter: 'travel' }">Landscape Gallery</a>
-                        <a [routerLink]="['/gallery']" [queryParams]="{ filter: 'aviation' }">Aviation Gallery</a>
+                        <a [routerLink]="['/gallery']" [queryParams]="{ filter: 'travel' }"
+                            (click)="menuOpen = false">Landscape Gallery</a>
+                        <a [routerLink]="['/gallery']" [queryParams]="{ filter: 'aviation' }"
+                            (click)="menuOpen = false">Aviation Gallery</a>
                         <a target="_blank"
-                            href="https://stock.adobe.com/de/contributor/211348852/christian-boehme.com?load_type=author&prev_url=detail">Buy
-                            photos</a>
+                            href="https://stock.adobe.com/de/contributor/211348852/christian-boehme.com?load_type=author&prev_url=detail"
+                            (click)="menuOpen = false">Buy photos</a>
                     </ul>
                 </li>
-                <a class="dark-background menu-link" target="_blank" href="https://christian-boehme.com/">Career
+                <a class="dark-background menu-link" target="_blank" href="https://christian-boehme.com/"
+                    (click)="menuOpen = false">
+                    Career
                 </a>
             </ul>
         </nav>
         <div id="call-to-actions-header-area">
-            <a class="dark-background" target="_blank" href="https://christian-boehme.com/">
-                <img class="cta-header-link-logo" src="assets/img/logos/linkedin-logo-white.png" alt="">
-            </a>
-            <a class="dark-background" target="_blank" href="https://christian-boehme.com/">
-                <img class="cta-header-link-logo" src="assets/img/logos/adobe-stock-logo-white.png" alt="">
-            </a>
+           <button id="darkmode-toggle" (click)="toggleDarkMode()" aria-label="Dark Mode umschalten">
+    <span *ngIf="!darkMode">
+        <!-- Schöner Mond (Crescent Moon) -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M21 12.79A9 9 0 1111.21 3a7 7 0 109.79 9.79z" fill="#fff" stroke="#fff"/>
+        </svg>
+    </span>
+    <span *ngIf="darkMode">
+        <!-- Sonne -->
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="12" r="5" fill="#fff" stroke="#fff"/>
+            <g>
+                <line x1="12" y1="1" x2="12" y2="3"/>
+                <line x1="12" y1="21" x2="12" y2="23"/>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+                <line x1="1" y1="12" x2="3" y2="12"/>
+                <line x1="21" y1="12" x2="23" y2="12"/>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+            </g>
+        </svg>
+    </span>
+</button>
         </div>
     </div>
 </div>

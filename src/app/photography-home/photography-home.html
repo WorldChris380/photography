@@ -4,8 +4,18 @@
         <div class="atf-overlay"></div>
         <div class="atf-hero-content">
             <h1>Landscape and aviation photography</h1>
-            <div id="atf-buttons"><button class="atf-hero-btn">Discover travel photos</button>
-                <button class="atf-hero-btn">Discover aviation photos</button>
+            <div id="atf-buttons">
+                <a [routerLink]="['/gallery']" [queryParams]="{ filter: 'travel' }" class="atf-hero-btn-green">
+                    View landscape photos
+                </a>
+                <a [routerLink]="['/gallery']" [queryParams]="{ filter: 'aviation' }" class="atf-hero-btn-blue">
+                    View aviation photos
+                </a>
+                <a target="_blank"
+                    href="https://stock.adobe.com/de/contributor/211348852/christian-boehme.com?load_type=author&prev_url=detail"
+                    class="atf-hero-btn-red">
+                    Buy photos
+                </a>
             </div>
         </div>
         <div class="atf-dots">

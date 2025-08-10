@@ -1,84 +1,86 @@
+@use '../app.scss' as *;
+
 #content-limitation {
-    max-width: 1920px;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    background-color: #212529;
+  max-width: 1920px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: #212529;
 }
 
 #header-content {
-    padding: 0 2rem;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    /* margin entfernt! */
+  padding: 0 2rem;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 }
 
 #header-navigation {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-evenly;
-    gap: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  gap: 20px;
 }
 
 #logo {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
 }
 
 #logo-div img {
-    width: 40px;
-    height: 40px;
-    transition: transform 0.5s ease;
+  width: 40px;
+  height: 40px;
+  transition: transform 0.5s ease;
 }
 
 #logo-div {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #logo-div img:hover {
-    transform: rotate(360deg);
+  transform: rotate(360deg);
 }
 
 h1 {
-    color: white;
-    font-weight: 100;
-    font-size: 24px;
+  color: white;
+  font-weight: 100;
+  font-size: 24px;
 }
 
 a {
-    display: flex;
-    align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 #site-title {
-    margin-left: 20px;
+  margin-left: 20px;
 }
 
 .menu-link {
-    font-size: 24px;
+  font-size: 24px;
 }
 
 .menu-link:hover {
-    color: aqua;
+  background-color: $cb-blue !important;
+
 }
 
 .menu-link.active {
-    color: greenyellow;
+  color: $cb-green;
 }
 
 #call-to-actions-header-area {
-    display: flex
+  display: flex
 }
 
 .cta-header-link-logo {
-    width: 24px;
-    height: 24px;
+  width: 24px;
+  height: 24px;
 }
 
 .main-menu {
@@ -103,8 +105,8 @@ a {
 }
 
 .menu-link:hover,
-.menu-item:hover > .menu-link {
-  background: #343a40;
+.menu-item:hover>.menu-link {
+  background: $cb-grey;
 }
 
 .dropdown-menu {
@@ -113,16 +115,16 @@ a {
   left: 0;
   top: 100%;
   min-width: 180px;
-  background: #212529;
-  box-shadow: 0 4px 24px rgba(0,0,0,0.12);
+  background: $cb-grey;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   border-radius: 0 0 12px 12px;
   z-index: 10;
   flex-direction: column;
   padding: 0.5rem 0;
 }
 
-.dropdown:hover > .dropdown-menu,
-.dropdown:focus-within > .dropdown-menu {
+.dropdown:hover>.dropdown-menu,
+.dropdown:focus-within>.dropdown-menu {
   display: flex;
 }
 
@@ -140,18 +142,102 @@ a {
 }
 
 .dropdown-menu a:hover {
-  background: #3cff00;
-  color: #212529;
+  background: $cb-blue;
+  color: white;
+}
+
+#burger-btn {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+#burger-btn span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background: #fff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+#burger-btn .burger-x {
+  color: $cb-red;
+  font-size: 2rem;
+  line-height: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
 }
 
 @media (max-width: 900px) {
+  #burger-btn {
+    display: flex;
+    margin-left: auto;
+  }
+
+  #header-navigation {
+    position: fixed;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background: $cb-grey;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 2rem 1.5rem;
+    transform: translateY(-120%);
+    transition: transform 0.3s;
+    z-index: 1000;
+    width: 100vw;
+    min-height: 100vh;
+    box-sizing: border-box;
+    display: flex;
+  }
+
+  #header-navigation.open {
+    transform: translateY(0);
+  }
+
   .main-menu {
     flex-direction: column;
-    gap: 0.5rem;
+    gap: 1.5rem;
+    width: 100%;
   }
+
   .dropdown-menu {
     position: static;
     box-shadow: none;
     border-radius: 0;
+    background: none;
+    padding-left: 1rem;
   }
+
+  #call-to-actions-header-area {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  #site-title {
+    display: none;
+  }
+
+}
+
+.nav-overlay {
+  display: block;
+  position: fixed;
+  z-index: 999;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  transition: opacity 0.2s;
 }
