@@ -39,13 +39,20 @@ body.darkmode #gallery-limitation {
 
 body.darkmode .menu-link,
 body.darkmode .dropdown-menu a {
-  color: #f1f3f4 !important;
+  color: white !important;
+  background: $cb-grey !important;
+}
+
+body.darkmode .menu-link.active,
+body.darkmode .dropdown-menu a.active {
+  color: white !important;
+  background: $cb-grey !important;
 }
 
 body.darkmode .menu-link:hover,
 body.darkmode .dropdown-menu a:hover {
-  background: #3cff00 !important;
-  color: #23272a !important;
+  background: $cb-grey !important;
+  color: white !important;
 }
 
 body.darkmode .atf-hero-content h1 {

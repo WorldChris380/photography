@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://photography.christian-boehme.com/sitemap.xml

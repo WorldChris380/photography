@@ -6,7 +6,7 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  background-color: #212529;
+  background-color: white;
 }
 
 #header-content {
@@ -27,9 +27,13 @@
 
 .nav-overlay {
   position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
   z-index: 10;
 }
+
 #header-navigation.open {
   z-index: 20;
 }
@@ -63,7 +67,7 @@
 }
 
 h1 {
-  color: white;
+  color: $cb-grey;
   font-weight: 100;
   font-size: 24px;
 }
@@ -81,13 +85,8 @@ a {
   font-size: 24px;
 }
 
-.menu-link:hover {
-  background-color: $cb-blue !important;
-
-}
-
 .menu-link.active {
-  color: $cb-green;
+  color: $cb-grey;
 }
 
 #call-to-actions-header-area {
@@ -119,7 +118,8 @@ span {
 }
 
 .menu-link {
-  color: #fff;
+  color: #111;
+  background: transparent;
   text-decoration: none;
   padding: 0.7rem 1.2rem;
   border-radius: 8px;
@@ -128,8 +128,10 @@ span {
 }
 
 .menu-link:hover,
-.menu-item:hover>.menu-link {
-  background: $cb-grey;
+.menu-item:hover>.menu-link,
+.dropdown-menu a:hover {
+  background: white;
+  color: $cb-grey;
 }
 
 .dropdown-menu {
@@ -138,7 +140,7 @@ span {
   left: 0;
   top: 100%;
   min-width: 180px;
-  background: $cb-grey;
+  background: white;
   box-shadow: 0 4px 24px rgba(0, 0, 0, 0.12);
   border-radius: 0 0 12px 12px;
   z-index: 10;
@@ -156,7 +158,8 @@ span {
 }
 
 .dropdown-menu a {
-  color: #fff;
+  color: $cb-grey;
+  background: transparent;
   text-decoration: none;
   padding: 0.7rem 1.2rem;
   display: block;
@@ -165,7 +168,7 @@ span {
 }
 
 .dropdown-menu a:hover {
-  background: $cb-blue;
+  background: $cb-grey;
   color: white;
 }
 
@@ -254,7 +257,9 @@ span {
     display: none;
   }
 
-#content-limitation{min-height: 60px;}
+  #content-limitation {
+    min-height: 60px;
+  }
 
 }
 
@@ -265,4 +270,40 @@ span {
   inset: 0;
   background: rgba(0, 0, 0, 0.55);
   transition: opacity 0.2s;
+}
+
+body.darkmode #content-limitation {
+  background: $cb-grey;
+}
+
+body.darkmode #site-title {
+  color: white
+}
+
+body.darkmode .menu-link,
+body.darkmode .dropdown-menu a {
+  color: $cb-grey;
+  background: white;
+}
+
+body.darkmode .menu-link:hover,
+body.darkmode .menu-item:hover>.menu-link,
+body.darkmode .dropdown-menu a:hover {
+  background: white;
+  color: $cb-grey;
+}
+
+body.darkmode .menu-link:hover {
+  background: white !important;
+  color: $cb-grey !important;
+}
+
+body.darkmode .menu-link:active {
+  background: white !important;
+  color: $cb-grey !important;
+}
+
+body.darkmode .dropdown-menu a:hover {
+  background: white !important;
+  color: $cb-grey !important;
 }
