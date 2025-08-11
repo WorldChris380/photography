@@ -127,11 +127,15 @@ span {
   display: block;
 }
 
-.menu-link:hover,
 .menu-item:hover>.menu-link,
 .dropdown-menu a:hover {
   background: white;
   color: $cb-grey;
+}
+
+.menu-link:hover {
+  background: $cb-grey !important;
+  color: white !important;
 }
 
 .dropdown-menu {
@@ -146,6 +150,10 @@ span {
   z-index: 10;
   flex-direction: column;
   padding: 0.5rem 0;
+}
+
+body.darkmode .dropdown-menu {
+  background: $cb-grey;
 }
 
 .dropdown:hover>.dropdown-menu,
