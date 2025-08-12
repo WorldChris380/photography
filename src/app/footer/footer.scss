@@ -11,8 +11,8 @@ footer {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    background: #212529;
-    color: #fff;
+    background: white; // Standard: weiß
+    color: #212529; // Standard: dunkel
 }
 
 .footer-content {
@@ -25,7 +25,6 @@ footer {
 }
 
 .footer-link {
-    color: #fff;
     margin: 0 1rem;
     text-decoration: none;
     transition: color 0.2s;
@@ -33,6 +32,10 @@ footer {
 
 .footer-link:hover {
     color: $cb-blue;
+}
+
+body.darkmode .footer-link {
+    color: white !important;
 }
 
 .footer-social-icon {
@@ -49,12 +52,23 @@ footer {
 .footer-right {
     display: flex;
     align-items: center;
+    gap: 20px;
+
+    a:hover {
+        color: $cb-blue;
+    }
 }
 
 .footer-center {
     flex: 1;
     justify-content: center;
 }
+
+a {
+    color: black;
+}
+
+
 
 @media (max-width: 700px) {
     .footer-content {
@@ -66,4 +80,8 @@ footer {
     .footer-center {
         justify-content: flex-start;
     }
+}
+
+body.darkmode .footer-center {
+    color: white !important;
 }

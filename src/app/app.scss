@@ -20,27 +20,41 @@ app-header {
 }
 
 
-body.darkmode app-header{
+body.darkmode app-header {
   background-color: $cb-grey;
 }
 
-
 app-footer {
-  background-color: $cb-grey;
+  background-color: white;
   width: 100%;
   display: flex;
   justify-content: center;
   bottom: 0;
 }
 
+body.darkmode app-footer {
+  background-color: $cb-grey;
+}
+
+body.darkmode a {
+  color: white;
+}
+
+
+
+body.darkmode .footer-limitation {
+  background: $cb-grey;
+  color: white;
+}
+
 body.darkmode {
   background: #181a1b;
-  color: #f1f3f4;
+  color: white;
 }
 
 body.darkmode #gallery-limitation {
-  background: #212529 !important;
-  color: #f1f3f4 !important;
+  background: $cb-grey !important;
+  color: white !important;
 }
 
 body.darkmode .menu-link,
@@ -62,7 +76,7 @@ body.darkmode .dropdown-menu a:hover {
 }
 
 body.darkmode .atf-hero-content h1 {
-  color: #fff;
+  color: white;
 }
 
 #darkmode-toggle {
