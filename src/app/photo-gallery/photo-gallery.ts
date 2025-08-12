@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -31,7 +31,7 @@ type GalleryImage = { src: string; category: string; description: string };
   templateUrl: './photo-gallery.html',
   styleUrls: ['./photo-gallery.scss'],
 })
-export class PhotoGallery {
+export class PhotoGallery implements OnInit {
   readonly PAGE_SIZE = PAGE_SIZE;
 
   images: GalleryImage[] = gallery as GalleryImage[];
@@ -41,6 +41,9 @@ export class PhotoGallery {
   selectedImageIndex: number | null = null;
   searchTerm = '';
   private _filteredImages: GalleryImage[] = this.images;
+
+  loading = true;
+  loadedImages = 0;
 
   constructor(private route: ActivatedRoute) {
     this.route.queryParams.subscribe(params => {
@@ -88,6 +91,31 @@ export class PhotoGallery {
 
   get totalPages() {
     return Math.ceil(this.filteredImages.length / PAGE_SIZE);
+  }
+
+  get paginationPages(): number[] {
+    const total = this.totalPages;
+    const current = this.page;
+    const maxButtons = 30;
+    const sideButtons = 14;
+
+    let start = Math.max(1, current - sideButtons);
+    let end = Math.min(total, current + sideButtons);
+
+    // Falls wir am Anfang oder Ende sind, auf 30 Buttons auffüllen
+    if (end - start + 1 < maxButtons) {
+      if (start === 1) {
+        end = Math.min(total, start + maxButtons - 1);
+      } else if (end === total) {
+        start = Math.max(1, end - maxButtons + 1);
+      }
+    }
+
+    const pages: number[] = [];
+    for (let i = start; i <= end; i++) {
+      pages.push(i);
+    }
+    return pages;
   }
 
   selectFolder(folder: string) {
@@ -207,5 +235,23 @@ export class PhotoGallery {
         this.nextImage();
       }
     }
+  }
+
+  get loadingProgress(): number {
+    return this.pagedImages.length
+      ? Math.round((this.loadedImages / this.pagedImages.length) * 100)
+      : 0;
+  }
+
+  onImageLoad() {
+    this.loadedImages++;
+    if (this.loadedImages >= this.pagedImages.length) {
+      this.loading = false;
+    }
+  }
+
+  ngOnInit() {
+    this.loading = true;
+    this.loadedImages = 0;
   }
 }

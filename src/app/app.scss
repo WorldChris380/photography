@@ -9,6 +9,7 @@ h1 {
 }
 
 app-header {
+  border-bottom: solid 1px $cb-grey;
   background-color: white;
   width: 100%;
   display: flex;
@@ -19,12 +20,13 @@ app-header {
   z-index: 1000;
 }
 
-
 body.darkmode app-header {
+  border-bottom: solid 1px white;
   background-color: $cb-grey;
 }
 
 app-footer {
+  border-top: 1px solid $cb-grey;
   background-color: white;
   width: 100%;
   display: flex;
@@ -34,13 +36,12 @@ app-footer {
 
 body.darkmode app-footer {
   background-color: $cb-grey;
+  border-top: 1px solid white;
 }
 
 body.darkmode a {
   color: white;
 }
-
-
 
 body.darkmode .footer-limitation {
   background: $cb-grey;
@@ -94,13 +95,15 @@ body.darkmode #darkmode-toggle {
 }
 
 body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:not(.active) {
-  background: white !important;
-  color: $cb-grey !important;
+  background: $cb-grey !important;
+  color: white !important;
+  border: solid 1px white !important;
 }
 
 body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:not(.active):hover {
-  background: $cb-blue !important;
-  color: white !important;
+  background: white!important;
+  color: $cb-grey !important;
+  border: none !important;
 }
 
 body.darkmode .atf-hero-btn-green {
@@ -119,7 +122,7 @@ body.darkmode .atf-hero-btn-blue {
 }
 
 body.darkmode .atf-hero-btn-blue:hover {
-  background: $cb-green !important;
+  background: $cb-blue !important;
   color: white !important;
 }
 
@@ -129,11 +132,26 @@ body.darkmode .atf-hero-btn-red {
 }
 
 body.darkmode .atf-hero-btn-red:hover {
-  background: $cb-green !important;
+  background: $cb-red !important;
   color: white !important;
 }
 
 body.darkmode .gallery-filter button {
+  background: $cb-grey !important;
+  color: white !important;
+  border: solid 1px white !important;
+}
+
+body.darkmode .gallery-filter button:hover {
   background: white !important;
   color: $cb-grey !important;
+}
+
+body.darkmode .atf-dot {
+  background: $cb-grey;
+  border: solid 1px white;
+}
+
+body.darkmode .gallery-search-count {
+  color: white !important;
 }

@@ -1,6 +1,7 @@
 // Wichtig: Diese Datei kann mit 
 // node scripts/generate-gallery-json.js 
 // ausgeführt werden und erstellt dann das Bilder JSON inklusive Bildbeschreibungen aus dem Dateinamen
+// Die Pfade für die Konstanten IMG_DIR und OUT_FILE müssen evtl. angepasst werden!
 
 const fs = require('fs');
 const path = require('path');

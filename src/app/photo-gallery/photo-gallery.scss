@@ -77,8 +77,6 @@
   background: white;
 }
 
-
-
 .gallery-filter {
   margin: 2rem;
   display: flex;
@@ -88,17 +86,15 @@
 }
 
 .gallery-filter button {
-  background: $cb-grey;
-  color: white;
-  border: none;
+  background: white;
+  color: $cb-grey;
+  border: 1px solid $cb-grey;
   border-radius: 20px;
   padding: 0.5rem 1.2rem;
   font-size: 1rem;
   cursor: pointer;
   transition: background 0.2s;
 }
-
-
 
 .gallery-filter button.active,
 .gallery-filter button:hover {
@@ -115,9 +111,9 @@
 }
 
 .gallery-pagination button {
-  background: $cb-grey;
-  color: white;
-  border: none;
+  background: white;
+  color: $cb-grey;
+  border: solid 1px $cb-grey;
   border-radius: 50%;
   width: 2.2rem;
   height: 2.2rem;
@@ -129,6 +125,7 @@
 .gallery-pagination button.active {
   background: $cb-green;
   color: #fff;
+  border: none;
 }
 
 .gallery-pagination button.active:hover {
@@ -138,7 +135,7 @@
 }
 
 .gallery-pagination button:hover {
-  background: $cb-blue;
+  background: $cb-grey;
   color: #fff;
 }
 
@@ -263,9 +260,54 @@ body.darkmode .gallery-search-bar input[type='text'] {
 
 .gallery-search-count {
   font-size: 1.1rem;
-  color: white;
+  color: $cb-grey;
   white-space: nowrap;
   margin-left: 0.5rem;
+}
+
+.gallery-loading-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: rgba(255, 255, 255, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+body.darkmode .gallery-loading-overlay {
+  background: rgba(33, 37, 41, 0.85);
+}
+
+.gallery-loading-content {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loading-logo {
+  width: 96px;
+  height: 96px;
+  animation: spin 1.2s linear infinite;
+}
+
+@keyframes spin {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loading-progress {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  font-weight: bold;
+  color: #007bff;
+  text-shadow: 0 1px 8px #fff, 0 1px 8px #212529;
+  pointer-events: none;
 }
 
 @media (max-width: 700px) {
