@@ -1,5 +1,6 @@
 $cb-blue: #007bff;
 $cb-green: #28a745;
+$light-green: #e0f7e9;
 $cb-grey: #212529;
 $cb-gray: #212529;
 $cb-red: #dc3545;
@@ -101,7 +102,7 @@ body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:
 }
 
 body.darkmode #gallery-limitation .gallery-container .gallery-pagination button:not(.active):hover {
-  background: white!important;
+  background: white !important;
   color: $cb-grey !important;
   border: none !important;
 }
@@ -153,5 +154,21 @@ body.darkmode .atf-dot {
 }
 
 body.darkmode .gallery-search-count {
+  color: white !important;
+}
+
+body.darkmode .facts-row {
+  background: black !important;
+}
+
+body.darkmode .fact-box {
+  background: $cb-grey;
+}
+
+body.darkmode .fact-number {
+  color: white !important;
+}
+
+body.darkmode .fact-label {
   color: white !important;
 }

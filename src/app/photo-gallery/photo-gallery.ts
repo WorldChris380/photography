@@ -2,9 +2,9 @@ import { Component, HostListener, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
-import gallery from '../../assets/gallery.json';
+import { HttpClientModule, HttpClient } from '@angular/common/http';
 
-const PAGE_SIZE = 20;
+const JSON_BASE = 'assets/';
 
 function getFolderPaths(images: { src: string }[]): string[] {
   const folders = new Set<string>();
@@ -27,14 +27,15 @@ type GalleryImage = { src: string; category: string; description: string };
 @Component({
   selector: 'app-photo-gallery',
   standalone: true,
-  imports: [CommonModule, RouterModule, FormsModule],
+  imports: [CommonModule, RouterModule, FormsModule, HttpClientModule],
   templateUrl: './photo-gallery.html',
   styleUrls: ['./photo-gallery.scss'],
 })
 export class PhotoGallery implements OnInit {
-  readonly PAGE_SIZE = PAGE_SIZE;
+  images: any[] = [];
+  // Ladeanzeige entfernt
+  readonly PAGE_SIZE = 20;
 
-  images: GalleryImage[] = gallery as GalleryImage[];
   selectedFolder = '';
   currentPath: string[] = [];
   page = 1;
@@ -42,10 +43,7 @@ export class PhotoGallery implements OnInit {
   searchTerm = '';
   private _filteredImages: GalleryImage[] = this.images;
 
-  loading = true;
-  loadedImages = 0;
-
-  constructor(private route: ActivatedRoute) {
+  constructor(private route: ActivatedRoute, private http: HttpClient) {
     this.route.queryParams.subscribe(params => {
       if (params['filter']) {
         this.selectedFolder = params['filter'];
@@ -66,31 +64,53 @@ export class PhotoGallery implements OnInit {
     this._filteredImages = this.images.filter(img => {
       // Beschreibung durchsuchen
       const desc = img.description.toLowerCase();
-      // Ordnerpfad durchsuchen (inkl. Unterordner)
-      const folderPath = img.src.toLowerCase(); // src enthält den ganzen Pfad
-      return desc.includes(term) || folderPath.includes(term);
+      // Vollständigen Pfad durchsuchen
+      const fullPath = img.src.toLowerCase();
+      // Nur Dateiname extrahieren
+      const fileName = img.src.split('/').pop()?.toLowerCase() || '';
+      // Ordnernamen extrahieren (ohne Dateiname)
+      const folderPath = img.src
+        .replace(/^assets\/img\/photography\//i, '')
+        .split('/')
+        .slice(0, -1)
+        .join('/')
+        .toLowerCase();
+
+      return (
+        desc.includes(term) ||
+        fullPath.includes(term) ||
+        fileName.includes(term) ||
+        folderPath.includes(term)
+      );
     });
     this.page = 1;
   }
 
   get filteredImages() {
-    // Wenn ein Filter gesetzt ist, filtere zusätzlich nach Ordner
-    let imgs = this._filteredImages;
     if (this.selectedFolder) {
-      imgs = imgs.filter(img =>
-        img.src.includes(`assets/img/photography/${this.selectedFolder}/`)
-      );
+      return this._filteredImages.filter(img => {
+        // Extrahiere den Ordnerpfad aus dem Bild
+        const folderPath = img.src
+          .replace(/^assets\/img\/photography\//i, '')
+          .split('/')
+          .slice(0, -1)
+          .join('/')
+          .toLowerCase();
+        // Zeige Bilder aus dem gewählten Ordner und allen Unterordnern
+        return folderPath === this.selectedFolder.toLowerCase() ||
+               folderPath.startsWith(this.selectedFolder.toLowerCase() + '/');
+      });
     }
-    return imgs;
+    return this._filteredImages;
   }
 
   get pagedImages() {
-    const start = (this.page - 1) * PAGE_SIZE;
-    return this.filteredImages.slice(start, start + PAGE_SIZE);
+    const start = (this.page - 1) * this.PAGE_SIZE;
+    return this.filteredImages.slice(start, start + this.PAGE_SIZE);
   }
 
   get totalPages() {
-    return Math.ceil(this.filteredImages.length / PAGE_SIZE);
+    return Math.ceil(this.filteredImages.length / this.PAGE_SIZE);
   }
 
   get paginationPages(): number[] {
@@ -174,7 +194,12 @@ export class PhotoGallery implements OnInit {
   }
 
   goToSubfolder(folder: string) {
-    this.currentPath.push(folder);
+    // Statt nur den Namen anhängen, den vollständigen Pfad setzen
+    if (this.currentPath.length) {
+      this.currentPath.push(folder);
+    } else {
+      this.currentPath = [folder];
+    }
     this.selectedFolder = this.currentPath.join('/');
     this.page = 1;
   }
@@ -237,21 +262,21 @@ export class PhotoGallery implements OnInit {
     }
   }
 
-  get loadingProgress(): number {
-    return this.pagedImages.length
-      ? Math.round((this.loadedImages / this.pagedImages.length) * 100)
-      : 0;
-  }
-
-  onImageLoad() {
-    this.loadedImages++;
-    if (this.loadedImages >= this.pagedImages.length) {
-      this.loading = false;
+  async ngOnInit() {
+    try {
+      const allImages = await fetch(JSON_BASE + 'gallery.json').then(res => res.json());
+      // Duplikate entfernen (optional)
+      const seen = new Set();
+      this.images = allImages.filter((img: any) => {
+        const key = img.src || img.description;
+        if (seen.has(key)) return false;
+        seen.add(key);
+        return true;
+      });
+      this._filteredImages = this.images; // <--- HIER HINZUFÜGEN
+    } catch (e) {
+      this.images = [];
+      this._filteredImages = [];
     }
-  }
-
-  ngOnInit() {
-    this.loading = true;
-    this.loadedImages = 0;
   }
 }

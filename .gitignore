@@ -42,4 +42,4 @@ testem.log
 Thumbs.db
 
 # My individual excluded files
-src/assets/img/photography/
+public/img/photography/

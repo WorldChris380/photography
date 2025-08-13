@@ -34,7 +34,6 @@
             [src]="img.src"
             [alt]="img.description"
             [attr.loading]="i === 0 && page === 1 ? 'eager' : 'lazy'"
-            (load)="onImageLoad()"
           />
           <div class="img-description">{{ img.description }}</div>
         </div>
@@ -84,11 +83,5 @@
     </div>
   </div>
 
-  <!-- Loading Overlay -->
-  <div class="gallery-loading-overlay" *ngIf="loading">
-    <div class="gallery-loading-content">
-      <img src="assets/img/logos/christian-boehme-logo-512px.png" class="loading-logo" alt="Logo" />
-      <span class="loading-progress">{{ loadingProgress }}%</span>
-    </div>
-  </div>
+  <!-- Ladeanzeige entfernt -->
 </div>

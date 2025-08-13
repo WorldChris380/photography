@@ -1,0 +1,16 @@
+<div class="countries-visited-limitation">
+  <div class="accordion" id="countryAccordion">
+    <div *ngFor="let continent of continents">
+      <button class="accordion-header"
+              [class.open]="accordionOpen === continent.name"
+              (click)="accordionOpen = accordionOpen === continent.name ? null : continent.name">
+        {{ continent.name }}
+      </button>
+      <div class="accordion-body" *ngIf="accordionOpen === continent.name">
+        <ul>
+          <li *ngFor="let country of continent.countries">{{ country }}</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

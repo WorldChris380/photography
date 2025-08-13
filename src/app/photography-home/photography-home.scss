@@ -1,12 +1,12 @@
 @use '../app.scss' as *;
 
 #photography-home-limitation {
-  min-height: calc(100vh - 60px);
+  min-height: calc(100vh - 59px);
 }
 
 #atf {
   position: relative;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 59px);
 }
 
 .atf-overlay {
@@ -22,7 +22,7 @@
 #atf-image {
   object-fit: cover;
   width: 100%;
-  height: calc(100vh - 60px);
+  height: calc(100vh - 59px);
 }
 
 #atf-buttons {
@@ -140,57 +140,3 @@
   transition: all 0.8s;
 }
 
-.facts-row {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin: 2.5rem 0;
-}
-
-.fact-box {
-  background: #fff;
-  border-radius: 1.5rem;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
-  padding: 2rem 3rem;
-  text-align: center;
-  min-width: 160px;
-  transition: transform 0.2s;
-}
-
-.fact-box:hover {
-  transform: translateY(-6px) scale(1.04);
-  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.12);
-}
-
-.fact-number {
-  font-size: 2.5rem;
-  font-weight: bold;
-  color: $cb-blue;
-}
-
-.fact-label {
-  font-size: 1.1rem;
-  color: #444;
-  margin-top: 0.5rem;
-}
-
-body.darkmode .fact-box {
-  background: $cb-grey;
-  color: #fff;
-  box-shadow: 0 2px 16px rgba(0, 0, 0, 0.24);
-}
-
-body.darkmode .fact-number {
-  color: $cb-green;
-}
-
-@media (max-width: 900px) {
-  h1 {
-    text-wrap: wrap;
-  }
-
-  #atf-buttons {
-    flex-direction: column;
-    align-items: center;
-  }
-}

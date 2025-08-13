@@ -12,7 +12,7 @@ const inputDirs = [
   'D:/Bilder/Aviation',
   'D:/Bilder/Travel'
 ];
-const outputDir = path.join(__dirname, '../src/assets/img/photography');
+const outputDir = path.join(__dirname, '../public/img/photography');
 const allowedExtensions = ['.jpg', '.jpeg'];
 
 function resizeImage(inputPath, outputPath) {
