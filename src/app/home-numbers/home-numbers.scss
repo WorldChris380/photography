@@ -2,19 +2,23 @@
 
 .facts-row {
   display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   justify-content: center;
-  padding: 15vh 0;
-  background: $light-green;
+  padding: 10vh 1rem;
+  background: $cb-light-green;
 }
 
 .fact-box {
   background: #fff;
   border-radius: 1.5rem;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
-  padding: 2rem 3rem;
+  padding: 2rem 2rem;
   text-align: center;
   min-width: 160px;
+  flex: 1 1 220px;
+  max-width: 320px;
+  margin: 1rem 0;
   transition: transform 0.2s;
 }
 
@@ -24,14 +28,14 @@
 }
 
 .fact-number {
-  font-size: 2.5rem;
+  font-size: 2.2rem;
   font-weight: bold;
   color: $cb-green;
 }
 
 .fact-label {
   font-size: 1.1rem;
-  color: #444;
+  color: $cb-green;
   margin-top: 0.5rem;
 }
 
@@ -46,12 +50,114 @@ body.darkmode .fact-number {
 }
 
 @media (max-width: 900px) {
-  h1 {
-    text-wrap: wrap;
+  #photography-home-limitation {
+    min-height: unset;
+  }
+
+  #atf {
+    height: 60vh;
+  }
+
+  #atf-image {
+    height: 60vh;
+  }
+
+  .atf-hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    line-height: 1.2;
+    word-break: break-word;
   }
 
   #atf-buttons {
     flex-direction: column;
+    gap: 12px;
     align-items: center;
+    width: 100%;
+  }
+
+  .atf-hero-btn-green,
+  .atf-hero-btn-blue,
+  .atf-hero-btn-red {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    width: 90vw;
+    max-width: 320px;
+    min-width: 180px;
+    box-sizing: border-box;
+  }
+
+  .atf-dot {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  #atf {
+    height: 44vh;
+  }
+
+  #atf-image {
+    height: 44vh;
+  }
+
+  .atf-hero-content h1 {
+    font-size: 1.1rem;
+    margin-bottom: 0.7rem;
+    line-height: 1.15;
+    word-break: break-word;
+  }
+
+  .atf-hero-content {
+    padding: 0 0.5rem;
+  }
+
+  #atf-buttons {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+    width: 100%;
+  }
+
+  .atf-hero-btn-green,
+  .atf-hero-btn-blue,
+  .atf-hero-btn-red {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 220px;
+    min-width: 120px;
+    box-sizing: border-box;
+  }
+
+  .atf-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .atf-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  app-countries-visited {
+    min-height: 40vh;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+}
+
+// Zusätzliche Optimierungen für sehr kleine Geräte
+@media (max-width: 400px) {
+  .atf-hero-content h1 {
+    font-size: 0.95rem;
+  }
+
+  .atf-hero-btn-green,
+  .atf-hero-btn-blue,
+  .atf-hero-btn-red {
+    font-size: 0.85rem;
+    padding: 0.6rem 0.5rem;
+    max-width: 160px;
   }
 }

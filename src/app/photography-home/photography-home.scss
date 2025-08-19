@@ -140,3 +140,98 @@
   transition: all 0.8s;
 }
 
+app-countries-visited {
+  background: $cb-green !important;
+  min-height: 60vh;
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 900px) {
+  #photography-home-limitation {
+    min-height: unset;
+  }
+
+  #atf {
+    height: 60vh;
+  }
+
+  #atf-image {
+    height: 60vh;
+  }
+
+  .atf-hero-content h1 {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+  }
+
+  #atf-buttons {
+    flex-direction: column;
+    gap: 12px;
+    align-items: center;
+  }
+
+  .atf-hero-btn-green,
+  .atf-hero-btn-blue,
+  .atf-hero-btn-red {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+    width: 90vw;
+    max-width: 320px;
+  }
+
+  .atf-dot {
+    width: 18px;
+    height: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+
+  #atf {
+    height: 44vh;
+  }
+
+  #atf-image {
+    height: 44vh;
+  }
+
+  .atf-hero-content h1 {
+    font-size: 1.3rem;
+    margin-bottom: 0.7rem;
+  }
+
+  .atf-hero-content {
+    padding: 0 0.5rem;
+  }
+
+  #atf-buttons {
+    flex-direction: column;
+    gap: 8px;
+    align-items: center;
+  }
+
+  .atf-hero-btn-green,
+  .atf-hero-btn-blue,
+  .atf-hero-btn-red {
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
+    width: 100%;
+    max-width: 260px;
+  }
+
+  .atf-dot {
+    width: 14px;
+    height: 14px;
+  }
+
+  .atf-overlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+
+  app-countries-visited {
+    min-height: 40vh;
+    flex-direction: column;
+    padding: 1rem 0.5rem;
+  }
+}

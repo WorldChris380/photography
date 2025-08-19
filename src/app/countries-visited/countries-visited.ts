@@ -22,7 +22,7 @@ export class CountriesVisited {
       name: 'Asia',
       countries: [
         'Indonesia', 'Israel', 'Qatar', 'Malaysia', 'Oman', 'Philippines',
-        'Singapore', 'Thailand', 'United Arab Emirates'
+        'Singapore', 'Thailand', 'United Arab Emirates', 'Turkey'
       ]
     },
     {
@@ -31,7 +31,7 @@ export class CountriesVisited {
         'Belgium', 'Bulgaria', 'Denmark', 'Germany', 'France', 'Greece',
         'Italy', 'Latvia', 'Netherlands', 'Norway', 'Austria', 'Poland',
         'Portugal', 'Russia', 'Switzerland', 'Slovakia', 'Slovenia', 'Spain',
-        'Czech Republic', 'Turkey', 'Ukraine', 'Hungary', 'Vatican City', 'United Kingdom', 'Belarus'
+        'Czech Republic', 'Ukraine', 'Hungary', 'Vatican City', 'United Kingdom', 'Belarus'
       ]
     },
     {

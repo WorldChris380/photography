@@ -3,34 +3,46 @@
 // ausgeführt werden. 
 // sharp muss installiert sein (npm install sharp)
 
-const sharp = require('sharp');
 const fs = require('fs');
 const path = require('path');
+const sharp = require('sharp');
 
 // Mehrere Input-Ordner
 const inputDirs = [
   'D:/Bilder/Aviation',
   'D:/Bilder/Travel'
 ];
-const outputDir = path.join(__dirname, '../public/img/photography');
+const outputDir = 'D:/Bilder/Kompilierte Website Bilder';
 const allowedExtensions = ['.jpg', '.jpeg'];
 
-function resizeImage(inputPath, outputPath) {
-  const extname = path.extname(inputPath).toLowerCase();
-  const quality = 60; // Set quality to 60%
+// Zielbreite für das Skalieren
+const TARGET_WIDTH = 1200;
 
-  let resizeOperation = sharp(inputPath).resize({ width: 1280, withoutEnlargement: true }); // Bildgröße einstellen
+// Nur Dateien, die mit "web.jpg" oder "web.jpeg" enden
+function isWebImage(filename) {
+  const lower = filename.toLowerCase();
+  return (
+    (lower.endsWith('web.jpg') || lower.endsWith('web.jpeg')) &&
+    allowedExtensions.includes(path.extname(lower))
+  );
+}
 
-  if (extname === '.jpg' || extname === '.jpeg') {
-    resizeOperation = resizeOperation.jpeg({ quality });
-  } else if (extname === '.webp') {
-    resizeOperation = resizeOperation.webp({ quality });
-  }
+function resizeAndCopyWebImage(inputPath, outputPath) {
+  // Entferne "web" vor der Dateiendung
+  const parsed = path.parse(outputPath);
+  const newBase = parsed.name.replace(/web$/, '') + parsed.ext;
+  const newOutputPath = path.join(parsed.dir, newBase);
 
-  return resizeOperation
-    .toFile(outputPath)
-    .then(() => console.log(`Resized: ${outputPath}`))
-    .catch(err => console.error(`Error resizing ${inputPath}:`, err));
+  sharp(inputPath)
+    .resize({ width: TARGET_WIDTH, withoutEnlargement: true })
+    .jpeg({ quality: 70 }) // Qualität auf 70% setzen
+    .toFile(newOutputPath)
+    .then(() => {
+      console.log(`Resized & copied: ${newOutputPath}`);
+    })
+    .catch(err => {
+      console.error(`Error resizing ${inputPath}:`, err);
+    });
 }
 
 function processDir(dir, outputMainDir, baseDir) {
@@ -40,12 +52,27 @@ function processDir(dir, outputMainDir, baseDir) {
     const outputPath = path.join(outputMainDir, relPath);
 
     if (fs.statSync(inputPath).isDirectory()) {
-      if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath, { recursive: true });
-      processDir(inputPath, outputMainDir, baseDir); // <--- outputMainDir bleibt immer gleich!
-    } else if (allowedExtensions.includes(path.extname(file).toLowerCase())) {
+      // Prüfe rekursiv, ob im Unterordner passende Bilder liegen
+      let hasWebImages = false;
+      function checkForWebImages(subdir) {
+        return fs.readdirSync(subdir).some(subfile => {
+          const subpath = path.join(subdir, subfile);
+          if (fs.statSync(subpath).isDirectory()) {
+            return checkForWebImages(subpath);
+          }
+          return isWebImage(subfile);
+        });
+      }
+      hasWebImages = checkForWebImages(inputPath);
+
+      if (hasWebImages) {
+        if (!fs.existsSync(outputPath)) fs.mkdirSync(outputPath, { recursive: true });
+        processDir(inputPath, outputMainDir, baseDir);
+      }
+    } else if (isWebImage(file)) {
       const outputFolder = path.dirname(outputPath);
       if (!fs.existsSync(outputFolder)) fs.mkdirSync(outputFolder, { recursive: true });
-      resizeImage(inputPath, outputPath);
+      resizeAndCopyWebImage(inputPath, outputPath);
     }
   });
 }
