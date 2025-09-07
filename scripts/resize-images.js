@@ -12,7 +12,7 @@ const inputDirs = [
   'D:/Bilder/Aviation',
   'D:/Bilder/Travel'
 ];
-const outputDir = 'D:/Bilder/Kompilierte Website Bilder';
+const outputDir = 'D:/Programmieren/Photography/photography/src/assets/img/photography';
 const allowedExtensions = ['.jpg', '.jpeg'];
 
 // Zielbreite für das Skalieren

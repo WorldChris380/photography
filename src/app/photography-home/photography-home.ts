@@ -14,9 +14,10 @@ import { CountriesVisited } from '../countries-visited/countries-visited';
 })
 export class PhotographyHome {
   atfImages = [
-    'assets/img/photography/Aviation/Africa/Cape Verde/Boa Vista (BVC)/2023.06.14 Mi Mit Fahrrad/_CRB9353.JPG',
-    'assets/img/photography/Aviation/Australia/Outback Australia.jpg',
-    'assets/img/photography/Aviation/Europe/Mir Castle Belarus.jpg'
+    'assets/img/photography/Travel/North America/Costa Rica/2024.06.02 So Butterfly Garden, La Fortuna Hotel/_CRB1629.jpg',
+    'assets/img/photography/Travel/Europe/Greece/Kos 2021/CRB_0588.jpg',
+    'assets/img/photography/Travel/North America/Costa Rica/2024.06.03 Mo La Fortuna Hot Springs Tabacon/_CRB1705.jpg',
+    'assets/img/photography/Aviation/Europe/Czech Republic/Prague Airport (PRG)/2024.08.03 Sa Tagesausflug Prag/_CRB0017.jpg'
   ];
   atfIndex = 0;
 

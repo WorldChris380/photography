@@ -5,7 +5,7 @@
 const fs = require('fs');
 const path = require('path');
 
-const IMG_ROOT = path.join(__dirname, '../public/img/photography');
+const IMG_ROOT = path.join(__dirname, '../src/assets/img/photography');
 const OUTPUT_FILE = path.join(__dirname, '../src/assets/gallery.json');
 const SERVER_BASE = 'assets/img/photography/';
 
@@ -31,7 +31,7 @@ const allImages = walk(IMG_ROOT).map(fullPath => {
   const relPath = relGalleryPath(fullPath);
   const fileName = path.basename(fullPath, path.extname(fullPath)).replace(/-/g, ' ');
   return {
-  src: SERVER_BASE + relPath,
+    src: 'assets/img/photography/' + relPath,
     description: fileName
   };
 });

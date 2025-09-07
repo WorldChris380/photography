@@ -19,10 +19,10 @@ export class HomeNumbers {
     this.http.get<any[]>('assets/gallery.json').subscribe(data => {
       this.gallery = data;
       this.aviationCount = this.gallery.filter(
-        img => img.category && img.category.toLowerCase() === 'aviation'
+        img => img.src && img.src.toLowerCase().includes('/aviation/')
       ).length;
       this.travelCount = this.gallery.filter(
-        img => img.category && img.category.toLowerCase() === 'travel'
+        img => img.src && img.src.toLowerCase().includes('/travel/')
       ).length;
     });
   }
