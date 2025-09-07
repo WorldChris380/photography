@@ -14,10 +14,9 @@ import { CountriesVisited } from '../countries-visited/countries-visited';
 })
 export class PhotographyHome {
   atfImages = [
-    'assets/img/photography/Travel/North America/Costa Rica/2024.06.02 So Butterfly Garden, La Fortuna Hotel/_CRB1629.jpg',
-    'assets/img/photography/Travel/Europe/Greece/Kos 2021/CRB_0588.jpg',
-    'assets/img/photography/Travel/North America/Costa Rica/2024.06.03 Mo La Fortuna Hot Springs Tabacon/_CRB1705.jpg',
-    'assets/img/photography/Aviation/Europe/Czech Republic/Prague Airport (PRG)/2024.08.03 Sa Tagesausflug Prag/_CRB0017.jpg'
+    'assets/img/photography/Travel/North America/Costa Rica/2024.06.02 So Butterfly Garden, La Fortuna Hotel/Tropic vulcano Arenal view from La Fortuna .jpg',
+    'assets/img/photography/Travel/North America/Costa Rica/2024.06.03 Mo La Fortuna Hot Springs Tabacon/Tropical paradise hot springs Tabacon Resort .jpg',
+    'assets/img/photography/Travel/North America/Costa Rica/2024.06.03 Mo La Fortuna Hot Springs Tabacon/Lake Arenal in the middle of tropical Costa Rica .jpg'
   ];
   atfIndex = 0;
 

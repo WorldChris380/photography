@@ -35,7 +35,7 @@ function resizeAndCopyWebImage(inputPath, outputPath) {
 
   sharp(inputPath)
     .resize({ width: TARGET_WIDTH, withoutEnlargement: true })
-    .jpeg({ quality: 70 }) // Qualität auf 70% setzen
+    .jpeg({ quality: 80 }) // Qualität auf 80% setzen
     .toFile(newOutputPath)
     .then(() => {
       console.log(`Resized & copied: ${newOutputPath}`);
