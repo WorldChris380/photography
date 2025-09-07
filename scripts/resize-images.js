@@ -16,7 +16,7 @@ const outputDir = 'D:/Programmieren/Photography/photography/src/assets/img/photo
 const allowedExtensions = ['.jpg', '.jpeg'];
 
 // Zielbreite für das Skalieren
-const TARGET_WIDTH = 1200;
+const TARGET_WIDTH = 2160;
 
 // Nur Dateien, die mit "web.jpg" oder "web.jpeg" enden
 function isWebImage(filename) {
