@@ -1,83 +1,50 @@
 <div id="gallery-limitation">
   <div class="gallery-filter">
     <button *ngIf="currentPath.length" (click)="goUpOneLevel()">Go back</button>
-    <button
-      *ngFor="let folder of currentLevelFolders"
-      (click)="goToSubfolder(folder)"
-      [class.active]="selectedFolder === getCurrentFolderPath(folder)"
-    >
+    <button *ngFor="let folder of currentLevelFolders" (click)="goToSubfolder(folder)"
+      [class.active]="selectedFolder === getCurrentFolderPath(folder)">
       {{ formatFolderLabel(folder) }}
     </button>
     <button (click)="clearAllFilters()" [class.active]="!selectedFolder && !currentPath.length">All</button>
   </div>
 
   <div class="gallery-search-bar">
-    <input
-      type="text"
-      placeholder="Search by country or description"
-      [(ngModel)]="searchTerm"
-      (input)="onSearch()"
-    />
+    <input type="text" placeholder="Search by country or description" [(ngModel)]="searchTerm" (input)="onSearch()" />
     <span class="gallery-search-count">{{ filteredImages.length }} images found</span>
   </div>
 
   <div class="gallery-container">
     <div class="gallery-grid">
-      <div
-        class="gallery-item"
-        *ngFor="let img of pagedImages; let i = index; trackBy: trackBySrc"
-        (click)="openLightbox((page - 1) * PAGE_SIZE + i)"
-        style="cursor:pointer"
-      >
+      <div class="gallery-item" *ngFor="let img of pagedImages; let i = index; trackBy: trackBySrc"
+        (click)="openLightbox((page - 1) * PAGE_SIZE + i)" style="cursor:pointer">
         <div class="img-wrapper">
-          <img
-            [src]="img.src"
-            [alt]="img.description"
-            [attr.loading]="i === 0 && page === 1 ? 'eager' : 'lazy'"
-          />
+          <img [src]="img.src" [alt]="img.description" [attr.loading]="i === 0 && page === 1 ? 'eager' : 'lazy'" />
           <div class="img-description">{{ img.description }}</div>
         </div>
       </div>
     </div>
 
     <div class="gallery-pagination" *ngIf="totalPages > 1">
-      <button
-        *ngIf="page !== 1"
-        (click)="goToPage(1)"
-        aria-label="Zur ersten Seite"
-      >
+      <button *ngIf="page !== 1" (click)="goToPage(1)" aria-label="Zur ersten Seite">
         «
       </button>
-      <button
-        *ngFor="let p of paginationPages"
-        [class.active]="p === page"
-        (click)="goToPage(p)"
-      >
+      <button *ngFor="let p of paginationPages" [class.active]="p === page" (click)="goToPage(p)">
         {{ p }}
       </button>
-      <button
-        *ngIf="page !== totalPages"
-        (click)="goToPage(totalPages)"
-        aria-label="Zur letzten Seite"
-      >
+      <button *ngIf="page !== totalPages" (click)="goToPage(totalPages)" aria-label="Zur letzten Seite">
         »
       </button>
     </div>
   </div>
 
   <!-- Lightbox -->
-  <div
-    class="lightbox"
-    *ngIf="lightboxImage"
-    (click)="closeLightbox()"
-    tabindex="0"
-    (keydown.arrowLeft)="prevImage()"
-    (keydown.arrowRight)="nextImage()"
-  >
+  <div class="lightbox" *ngIf="lightboxImage" (click)="closeLightbox()" tabindex="0" (keydown.arrowLeft)="prevImage()"
+    (keydown.arrowRight)="nextImage()">
     <div class="lightbox-content" (click)="$event.stopPropagation()">
       <button class="lightbox-nav left" (click)="prevImage()" [disabled]="selectedImageIndex === 0">&#8592;</button>
       <img [src]="lightboxImage.src" [alt]="lightboxImage.description" />
-      <button class="lightbox-nav right" (click)="nextImage()" [disabled]="selectedImageIndex === filteredImages.length - 1">&#8594;</button>
+      <button class="lightbox-nav right" (click)="nextImage()"
+        [disabled]="selectedImageIndex === filteredImages.length - 1">&#8594;</button>
       <div class="lightbox-desc">{{ lightboxImage.description }}</div>
       <button class="lightbox-close" (click)="closeLightbox()">×</button>
     </div>

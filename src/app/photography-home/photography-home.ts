@@ -1,9 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeNumbers } from '../home-numbers/home-numbers';
 import { CountriesVisited } from '../countries-visited/countries-visited';
+import { SeoService } from '../seo-service/seo-service';
 
 @Component({
   selector: 'app-photography-home',
@@ -12,7 +13,7 @@ import { CountriesVisited } from '../countries-visited/countries-visited';
   standalone: true,
   imports: [CommonModule, RouterModule, HttpClientModule, HomeNumbers, CountriesVisited]
 })
-export class PhotographyHome {
+export class PhotographyHome implements OnInit {
   atfImages = [
     'assets/img/photography/Travel/North America/Costa Rica/2024.06.02 So Butterfly Garden, La Fortuna Hotel/Tropic vulcano Arenal view from La Fortuna .jpg',
     'assets/img/photography/Travel/North America/Costa Rica/2024.06.03 Mo La Fortuna Hot Springs Tabacon/Tropical paradise hot springs Tabacon Resort .jpg',
@@ -24,9 +25,24 @@ export class PhotographyHome {
   travelCount = 0;
   gallery: any[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(
+    private seo: SeoService,
+    private http: HttpClient
+  ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
+    const title = 'Home — Photography Portfolio';
+    const desc = 'Collection of aviation and travel photography. Explore galleries and countries visited.';
+    this.seo.setTitle(title);
+    this.seo.setDescription(desc);
+    this.seo.setCanonical(window.location.origin + window.location.pathname);
+    this.seo.setJsonLd({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Photography",
+      "url": window.location.origin + '/'
+    });
+
     this.http.get<any[]>('assets/gallery.json').subscribe(data => {
       this.gallery = data;
       this.aviationCount = this.gallery.filter(

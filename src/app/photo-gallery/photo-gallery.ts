@@ -3,24 +3,9 @@ import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
+import { SeoService } from '../seo-service/seo-service';
 
 const JSON_BASE = 'assets/';
-
-function getFolderPaths(images: { src: string }[]): string[] {
-  const folders = new Set<string>();
-  images.forEach(img => {
-    // Extrahiere den Teil nach "assets/img/photography/"
-    const match = img.src.match(/assets\/img\/photography\/(.+)\/[^/]+\.[a-z]+$/i);
-    if (match && match[1]) {
-      // Alle Zwischenordner als Filter hinzufügen
-      const parts = match[1].split('/');
-      for (let i = 1; i <= parts.length; i++) {
-        folders.add(parts.slice(0, i).join('/'));
-      }
-    }
-  });
-  return Array.from(folders).sort();
-}
 
 type GalleryImage = { src: string; category: string; description: string };
 
@@ -32,8 +17,7 @@ type GalleryImage = { src: string; category: string; description: string };
   styleUrls: ['./photo-gallery.scss'],
 })
 export class PhotoGallery implements OnInit {
-  images: any[] = [];
-  // Ladeanzeige entfernt
+  images: GalleryImage[] = [];
   readonly PAGE_SIZE = 20;
 
   selectedFolder = '';
@@ -41,9 +25,10 @@ export class PhotoGallery implements OnInit {
   page = 1;
   selectedImageIndex: number | null = null;
   searchTerm = '';
-  private _filteredImages: GalleryImage[] = this.images;
+  private _filteredImages: GalleryImage[] = [];
+  filter = '';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) {
+  constructor(private route: ActivatedRoute, private http: HttpClient, private seo: SeoService) {
     this.route.queryParams.subscribe(params => {
       if (params['filter']) {
         this.selectedFolder = params['filter'];
@@ -59,16 +44,14 @@ export class PhotoGallery implements OnInit {
     const term = this.searchTerm.trim().toLowerCase();
     if (!term) {
       this._filteredImages = this.images;
+      this.page = 1;
       return;
     }
+
     this._filteredImages = this.images.filter(img => {
-      // Beschreibung durchsuchen
       const desc = img.description.toLowerCase();
-      // Vollständigen Pfad durchsuchen
       const fullPath = img.src.toLowerCase();
-      // Nur Dateiname extrahieren
       const fileName = img.src.split('/').pop()?.toLowerCase() || '';
-      // Ordnernamen extrahieren (ohne Dateiname)
       const folderPath = img.src
         .replace(/^assets\/img\/photography\//i, '')
         .split('/')
@@ -89,16 +72,15 @@ export class PhotoGallery implements OnInit {
   get filteredImages() {
     if (this.selectedFolder) {
       return this._filteredImages.filter(img => {
-        // Extrahiere den Ordnerpfad aus dem Bild
         const folderPath = img.src
           .replace(/^assets\/img\/photography\//i, '')
           .split('/')
           .slice(0, -1)
           .join('/')
           .toLowerCase();
-        // Zeige Bilder aus dem gewählten Ordner und allen Unterordnern
+
         return folderPath === this.selectedFolder.toLowerCase() ||
-               folderPath.startsWith(this.selectedFolder.toLowerCase() + '/');
+          folderPath.startsWith(this.selectedFolder.toLowerCase() + '/');
       });
     }
     return this._filteredImages;
@@ -122,7 +104,6 @@ export class PhotoGallery implements OnInit {
     let start = Math.max(1, current - sideButtons);
     let end = Math.min(total, current + sideButtons);
 
-    // Falls wir am Anfang oder Ende sind, auf 30 Buttons auffüllen
     if (end - start + 1 < maxButtons) {
       if (start === 1) {
         end = Math.min(total, start + maxButtons - 1);
@@ -167,26 +148,20 @@ export class PhotoGallery implements OnInit {
   }
 
   get currentLevelFolders(): string[] {
-    // Hole alle Pfade, die auf der aktuellen Ebene liegen
-    const prefix = this.currentPath.length
-      ? this.currentPath.join('/') + '/'
-      : '';
     const level = this.currentPath.length;
+    const prefix = this.currentPath.length ? this.currentPath.join('/') + '/' : '';
 
-    // Alle Ordner, die auf der nächsten Ebene liegen
     const subfolders = new Set<string>();
     this.images.forEach(img => {
       const match = img.src.match(/assets\/img\/photography\/(.+)\/[^/]+\.[a-z]+$/i);
       if (match && match[1]) {
         const parts = match[1].split('/');
-        if (
-          parts.length > level &&
-          (!prefix || match[1].startsWith(prefix))
-        ) {
+        if (parts.length > level && (!prefix || match[1].startsWith(prefix))) {
           subfolders.add(parts.slice(0, level + 1).join('/'));
         }
       }
     });
+
     return Array.from(subfolders)
       .map(f => f.split('/')[level])
       .filter((v, i, a) => a.indexOf(v) === i)
@@ -194,7 +169,6 @@ export class PhotoGallery implements OnInit {
   }
 
   goToSubfolder(folder: string) {
-    // Statt nur den Namen anhängen, den vollständigen Pfad setzen
     if (this.currentPath.length) {
       this.currentPath.push(folder);
     } else {
@@ -265,7 +239,6 @@ export class PhotoGallery implements OnInit {
   async ngOnInit() {
     try {
       const allImages = await fetch(JSON_BASE + 'gallery.json').then(res => res.json());
-      // Duplikate entfernen (optional)
       const seen = new Set();
       this.images = allImages.filter((img: any) => {
         const key = img.src || img.description;
@@ -273,10 +246,37 @@ export class PhotoGallery implements OnInit {
         seen.add(key);
         return true;
       });
-      this._filteredImages = this.images; // <--- HIER HINZUFÜGEN
+      this._filteredImages = this.images;
     } catch (e) {
       this.images = [];
       this._filteredImages = [];
     }
+
+    this.route.queryParams.subscribe(params => {
+      this.filter = params['filter'] || '';
+      const title = this.filter ? `Gallery — ${this.filter}` : 'Gallery';
+      const desc = this.filter ? `Photos filtered by ${this.filter}` : 'All photos';
+      this.seo.setTitle(title);
+      this.seo.setDescription(desc);
+      this.seo.setCanonical(window.location.origin + '/gallery' + (this.filter ? `?filter=${encodeURIComponent(this.filter)}` : ''));
+      this.seo.setJsonLd({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": title,
+        "description": desc,
+        "url": window.location.origin + '/gallery' + (this.filter ? `?filter=${encodeURIComponent(this.filter)}` : '')
+      });
+    });
   }
+}
+
+function getFolderPaths(images: { src: string }[]): string[] {
+  const folders = new Set<string>();
+  images.forEach(img => {
+    const match = img.src.match(/assets\/img\/photography\/(.+)\/[^/]+\.[a-z]+$/i);
+    if (match && match[1]) {
+      const parts = match[1].split('/');
+    }
+  });
+  return Array.from(folders).sort();
 }
