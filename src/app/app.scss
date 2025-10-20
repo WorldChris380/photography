@@ -25,6 +25,17 @@ app-header {
   z-index: 1000;
 }
 
+app-home-numbers {
+  display: block;
+  width: 100%;
+  min-height: 1px; /* sorgt dafür, dass ein Hintergrund sichtbar wird, bei Bedarf anpassen */
+  background-color: $cb-light-green;
+}
+
+body.darkmode app-home-numbers {
+  background-color: black;
+}
+
 body.darkmode app-header {
   border-bottom: solid 1px white;
   background-color: $cb-grey;

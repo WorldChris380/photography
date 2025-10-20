@@ -81,6 +81,11 @@ a {
   margin-left: 20px;
 }
 
+#site-title:hover + #logo-div img,
+#logo-div:hover img {
+  transform: rotate(360deg);
+}
+
 .menu-link {
   font-size: 24px;
 }
