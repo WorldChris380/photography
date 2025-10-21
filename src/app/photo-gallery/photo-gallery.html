@@ -1,11 +1,22 @@
 <div id="gallery-limitation">
   <div class="gallery-filter">
-    <button *ngIf="currentPath.length" (click)="goUpOneLevel()">Go back</button>
+    <button (click)="clearFilter()" [class.active]="!filter || filter.toLowerCase() === 'all'">
+      All
+    </button>
+    <button (click)="selectFolder('Aviation')" [class.active]="filter?.toLowerCase() === 'aviation'">
+      Aviation
+    </button>
+    <button (click)="selectFolder('Travel')" [class.active]="filter?.toLowerCase() === 'travel'">
+      Travel
+    </button>
+    <!-- Only show Go back when we're in a subfolder (currentPath length > 1) -->
+    <button *ngIf="currentPath.length > 1" (click)="goUpOneLevel()">
+      Go back
+    </button>
     <button *ngFor="let folder of currentLevelFolders" (click)="goToSubfolder(folder)"
       [class.active]="selectedFolder === getCurrentFolderPath(folder)">
       {{ formatFolderLabel(folder) }}
     </button>
-    <button (click)="clearAllFilters()" [class.active]="!selectedFolder && !currentPath.length">All</button>
   </div>
 
   <div class="gallery-search-bar">

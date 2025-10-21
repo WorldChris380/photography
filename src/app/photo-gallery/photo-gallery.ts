@@ -31,28 +31,34 @@ export class PhotoGallery implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private seo: SeoService) {
     this.route.queryParams.subscribe(params => {
       if (params['filter']) {
-        const filterValue = params['filter'];
-        this.selectedFolder = filterValue;
-        this.currentPath = filterValue.split('/');
-        this.filter = filterValue;
-        this._updateFilteredImages();
+        this.selectedFolder = params['filter'];
+        this.currentPath = params['filter'].split('/');
+        this.filter = params['filter'];
         this.page = 1;
+        this._updateFilteredImages();
       }
     });
   }
 
   private _updateFilteredImages() {
-    if (!this.images.length) return;
-    
+    if (!this.filter || this.filter.toLowerCase() === 'all') {
+      this._filteredImages = this.images;
+      return;
+    }
+
     this._filteredImages = this.images.filter(img => {
-        if (!this.filter) return true;
-        
-        const pathSegments = img.src
-            .replace(/^assets\/img\/photography\//i, '')
-            .split('/');
-            
-        // Check if first segment matches filter (case insensitive)
-        return pathSegments[0]?.toLowerCase() === this.filter.toLowerCase();
+      const imgPath = img.src.toLowerCase();
+      const filterPath = this.filter.toLowerCase();
+      
+      // Check if image path contains either Aviation or Travel based on filter
+      if (filterPath === 'aviation') {
+        return imgPath.includes('/aviation/');
+      }
+      if (filterPath === 'travel') {
+        return imgPath.includes('/travel/');
+      }
+      
+      return false;
     });
 }
 
@@ -88,23 +94,21 @@ export class PhotoGallery implements OnInit {
   }
 
   get filteredImages() {
-    if (this.selectedFolder) {
-        return this._filteredImages.filter(img => {
-            const folderPath = img.src
-                .replace(/^assets\/img\/photography\//i, '')
-                .split('/')
-                .slice(0, -1)
-                .join('/')
-                .toLowerCase();
-
-            const filterPath = this.selectedFolder.toLowerCase();
-            
-            // Check if path starts with or exactly matches filter
-            return folderPath === filterPath || 
-                   folderPath.startsWith(filterPath + '/');
-        });
+    if (!this.selectedFolder || this.selectedFolder.toLowerCase() === 'all') {
+        return this._filteredImages; // Return all images when no filter or "All" selected
     }
-    return this._filteredImages;
+    return this._filteredImages.filter(img => {
+        const folderPath = img.src
+            .replace(/^assets\/img\/photography\//i, '')
+            .split('/')
+            .slice(0, -1)
+            .join('/')
+            .toLowerCase();
+
+        const filterPath = this.selectedFolder.toLowerCase();
+        return folderPath === filterPath || 
+               folderPath.startsWith(filterPath + '/');
+    });
   }
 
   get pagedImages() {
@@ -142,6 +146,7 @@ export class PhotoGallery implements OnInit {
 
   // Modify selectFolder to use router navigation
   selectFolder(folder: string) {
+    // Navigate with new filter
     this.router.navigate([], {
       relativeTo: this.route,
       queryParams: { filter: folder },
@@ -150,8 +155,10 @@ export class PhotoGallery implements OnInit {
   }
 
   clearFilter() {
-    this.selectedFolder = '';
-    this.page = 1;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { filter: 'all' }
+    });
   }
 
   goToPage(page: number) {
