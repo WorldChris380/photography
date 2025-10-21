@@ -28,15 +28,33 @@ export class PhotoGallery implements OnInit {
   private _filteredImages: GalleryImage[] = [];
   filter = '';
 
-  constructor(private route: ActivatedRoute, private http: HttpClient, private seo: SeoService) {
+  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private seo: SeoService) {
     this.route.queryParams.subscribe(params => {
       if (params['filter']) {
-        this.selectedFolder = params['filter'];
-        this.currentPath = params['filter'].split('/');
+        const filterValue = params['filter'];
+        this.selectedFolder = filterValue;
+        this.currentPath = filterValue.split('/');
+        this.filter = filterValue;
+        this._updateFilteredImages();
         this.page = 1;
       }
     });
   }
+
+  private _updateFilteredImages() {
+    if (!this.images.length) return;
+    
+    this._filteredImages = this.images.filter(img => {
+        if (!this.filter) return true;
+        
+        const pathSegments = img.src
+            .replace(/^assets\/img\/photography\//i, '')
+            .split('/');
+            
+        // Check if first segment matches filter (case insensitive)
+        return pathSegments[0]?.toLowerCase() === this.filter.toLowerCase();
+    });
+}
 
   trackBySrc = (_: number, img: GalleryImage) => img.src;
 
@@ -71,17 +89,20 @@ export class PhotoGallery implements OnInit {
 
   get filteredImages() {
     if (this.selectedFolder) {
-      return this._filteredImages.filter(img => {
-        const folderPath = img.src
-          .replace(/^assets\/img\/photography\//i, '')
-          .split('/')
-          .slice(0, -1)
-          .join('/')
-          .toLowerCase();
+        return this._filteredImages.filter(img => {
+            const folderPath = img.src
+                .replace(/^assets\/img\/photography\//i, '')
+                .split('/')
+                .slice(0, -1)
+                .join('/')
+                .toLowerCase();
 
-        return folderPath === this.selectedFolder.toLowerCase() ||
-          folderPath.startsWith(this.selectedFolder.toLowerCase() + '/');
-      });
+            const filterPath = this.selectedFolder.toLowerCase();
+            
+            // Check if path starts with or exactly matches filter
+            return folderPath === filterPath || 
+                   folderPath.startsWith(filterPath + '/');
+        });
     }
     return this._filteredImages;
   }
@@ -119,9 +140,13 @@ export class PhotoGallery implements OnInit {
     return pages;
   }
 
+  // Modify selectFolder to use router navigation
   selectFolder(folder: string) {
-    this.selectedFolder = folder;
-    this.page = 1;
+    this.router.navigate([], {
+      relativeTo: this.route,
+      queryParams: { filter: folder },
+      queryParamsHandling: 'merge'
+    });
   }
 
   clearFilter() {
@@ -246,10 +271,9 @@ export class PhotoGallery implements OnInit {
         seen.add(key);
         return true;
       });
-      this._filteredImages = this.images;
+      this._updateFilteredImages(); // Apply initial filter
     } catch (e) {
       this.images = [];
-      this._filteredImages = [];
     }
 
     this.route.queryParams.subscribe(params => {

@@ -1,22 +1,23 @@
 <div id="facts-content-limitation">
-<div class="facts-row">
-  <a class="fact-box" [routerLink]="['/gallery']" [queryParams]="{ filter: 'aviation' }" aria-label="Aviation gallery">
-    <div class="fact-number count-animated">{{ aviationDisplay }}</div>
-    <div class="fact-label">Aviation Photos</div>
-  </a>
+  <div class="facts-row">
+    <a class="fact-box" [routerLink]="['/gallery']" [queryParams]="{ filter: 'Aviation' }" aria-label="Aviation gallery">
+      <div class="fact-number count-animated">{{ aviationDisplay }}</div>
+      <div class="fact-label">Aviation Photos</div>
+    </a>
 
-  <a class="fact-box" [routerLink]="['/gallery']" [queryParams]="{ filter: 'travel' }" aria-label="Travel gallery">
-    <div class="fact-number count-animated">{{ travelDisplay }}</div>
-    <div class="fact-label">Travel Photos</div>
-  </a>
+    <a class="fact-box" [routerLink]="['/gallery']" [queryParams]="{ filter: 'Travel' }" aria-label="Travel gallery">
+      <div class="fact-number count-animated">{{ travelDisplay }}</div>
+      <div class="fact-label">Travel Photos</div>
+    </a>
 
-  <a class="fact-box" href="#" (click)="scrollTo('countries-visited', $event)" aria-label="Countries presented">
-    <div class="fact-number count-animated">{{ countriesPresentedDisplay }}</div>
-    <div class="fact-label">Countries presented</div>
-  </a>
+    <a class="fact-box" href="#" (click)="scrollTo('countries-visited', $event)" aria-label="Countries presented">
+      <div class="fact-number count-animated">{{ countriesPresentedDisplay }}</div>
+      <div class="fact-label">Countries presented</div>
+    </a>
 
-  <a class="fact-box" href="#" (click)="scrollTo('countries-visited', $event)" aria-label="Countries visited">
-    <div class="fact-number count-animated">{{ countriesVisitedDisplay }}</div>
-    <div class="fact-label">Countries visited</div>
-  </a>
-</div></div>
+    <a class="fact-box" href="#" (click)="scrollTo('countries-visited', $event)" aria-label="Countries visited">
+      <div class="fact-number count-animated">{{ countriesVisitedDisplay }}</div>
+      <div class="fact-label">Countries visited</div>
+    </a>
+  </div>
+</div>
