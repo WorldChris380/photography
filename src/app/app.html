@@ -1,7 +1,9 @@
 <app-header></app-header>
 
+<app-notifications></app-notifications>
+
 <main [@fadeSlideInOut]="getRouteState(outlet)">
-  <router-outlet #outlet="outlet"></router-outlet>
+  <router-outlet #outlet="outlet" (activate)="onActivate()"></router-outlet>
 </main>
 
 <app-footer></app-footer>

@@ -1,0 +1,5 @@
+<div class="notification-bar" [ngClass]="type" *ngIf="message">
+  <p>{{ message }}</p>
+  <p class="notification-second-prio">(Closes automatically in {{ countdown }} seconds)</p>
+  <button class="dismiss-btn" (click)="dismiss()">X</button>
+</div>

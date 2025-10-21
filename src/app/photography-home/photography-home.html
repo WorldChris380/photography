@@ -1,6 +1,11 @@
 <div id="photography-home-limitation">
     <div id="atf">
-        <img id="atf-image" [src]="atfImages[atfIndex]" alt="" />
+        <div id="atf-images-wrapper" [style.transform]="getTransform()">
+            <img *ngFor="let img of atfImages"
+                 id="atf-image"
+                 [src]="img"
+                 alt="Hero image" />
+        </div>
         <div class="atf-overlay"></div>
         <div class="atf-hero-content">
             <h1>Landscape and aviation photography</h1>
@@ -19,8 +24,10 @@
             </div>
         </div>
         <div class="atf-dots">
-            <span *ngFor="let img of atfImages; let i = index" class="atf-dot" [class.active]="i === atfIndex"
-                (click)="atfIndex = i"></span>
+            <span *ngFor="let img of atfImages; let i = index" 
+                  class="atf-dot" 
+                  [class.active]="i === atfIndex"
+                  (click)="selectImage(i)"></span>
         </div>
     </div>
 </div>

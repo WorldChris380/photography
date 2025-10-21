@@ -6,7 +6,21 @@
 
 #atf {
   position: relative;
+  overflow: hidden; // Verhindert, dass Bilder außerhalb des Containers sichtbar sind
   height: calc(100vh - 59px);
+}
+
+#atf-images-wrapper {
+  display: flex;
+  transition: transform 0.8s ease-out; // Sanfte Bewegung
+  width: 100%; // Platz für 3 Bilder (aktuell, vorheriges, nächstes)
+  height: 100%; // Passt die Höhe des Wrappers an den Container an
+}
+
+#atf-image {
+  flex: 0 0 100%; // Jedes Bild nimmt 100% der Breite ein
+  height: 100%; // Passt die Höhe des Bildes an den Wrapper an
+  object-fit: cover; // Bild wird skaliert, um den gesamten Bereich auszufüllen
 }
 
 .atf-overlay {
@@ -19,10 +33,20 @@
   z-index: 1;
 }
 
-#atf-image {
-  object-fit: cover;
-  width: 100%;
-  height: calc(100vh - 59px);
+#atf-image.slide-out {
+  transform: translateX(-100%);
+}
+
+@keyframes slideOutToLeft {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+
+  to {
+    transform: translateX(-100%);
+    opacity: 0;
+  }
 }
 
 #atf-buttons {

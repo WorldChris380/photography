@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, AfterViewInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
@@ -10,7 +10,7 @@ import { HttpClient, HttpClientModule } from '@angular/common/http';
   templateUrl: './home-numbers.html',
   styleUrls: ['./home-numbers.scss']
 })
-export class HomeNumbers implements OnInit {
+export class HomeNumbers implements OnInit, AfterViewInit {
   aviationCount = 0;
   travelCount = 0;
   gallery: any[] = [];
@@ -24,13 +24,18 @@ export class HomeNumbers implements OnInit {
   countriesPresentedDisplay = 0;
   countriesVisitedTarget = 41;
   countriesVisitedDisplay = 0;
+  photosInDatabaseStart = 0;
+  photosInDatabase = 150000;
 
   // animation config
-  private ANIMATION_DURATION = 1200; // ms
+  private ANIMATION_DURATION = 2000; // ms
 
-  constructor(private http: HttpClient) { }
+  private observer: IntersectionObserver | null = null;
+
+  constructor(private elRef: ElementRef, private http: HttpClient) { }
 
   ngOnInit() {
+    // Lade Daten, aber starte Animation noch nicht!
     this.http.get<any[]>('assets/gallery.json').subscribe(data => {
       this.gallery = data || [];
       this.aviationCount = this.gallery.filter(
@@ -63,6 +68,28 @@ export class HomeNumbers implements OnInit {
       this.animateNumber(this.countriesPresentedTarget, v => this.countriesPresentedDisplay = v);
       this.animateNumber(this.countriesVisitedTarget, v => this.countriesVisitedDisplay = v);
     });
+  }
+
+  ngAfterViewInit() {
+    this.observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          this.startAnimations();
+          if (this.observer) this.observer.disconnect();
+        }
+      });
+    }, { threshold: 0.3 });
+
+    this.observer.observe(this.elRef.nativeElement);
+  }
+
+  private startAnimations() {
+    // Starte hier die Animationen!
+    this.animateNumber(this.photosInDatabase, v => this.photosInDatabaseStart = v);
+    this.animateValue('aviation', this.aviationCount);
+    this.animateValue('travel', this.travelCount);
+    this.animateNumber(this.countriesPresentedTarget, v => this.countriesPresentedDisplay = v);
+    this.animateNumber(this.countriesVisitedTarget, v => this.countriesVisitedDisplay = v);
   }
 
   // animate a numeric property from 0 to target using a setter callback

@@ -11,7 +11,7 @@
   display: flex;
   flex-wrap: wrap;
   gap: clamp(1rem, 4vw, 2rem); // responsive gap
-  justify-content: space-between; // distribute items across full content width
+  justify-content: stretch;
   align-items: stretch;
   max-width: 1920px; // make boxes equal height
   padding: 10vh 1rem;
@@ -24,13 +24,15 @@
   border-radius: 1.5rem;
   box-shadow: 0 2px 16px rgba(0, 0, 0, 0.08);
   padding: 2rem 2rem;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
   text-align: center;
   min-width: 160px;
   flex: 1 1 220px; // allow even distribution
   max-width: 320px;
   margin: 1rem 0;
-  gap: 16px;
+  gap: 20px;
   transition: transform 0.2s;
 }
 
@@ -85,6 +87,12 @@ body.darkmode .fact-box {
 
 body.darkmode .fact-number {
   color: $cb-green;
+}
+
+@media (max-width: 1920px) {
+  .facts-row {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 900px) {

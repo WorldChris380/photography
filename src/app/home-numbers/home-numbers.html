@@ -1,13 +1,18 @@
 <div id="facts-content-limitation">
   <div class="facts-row">
     <a class="fact-box" [routerLink]="['/gallery']" [queryParams]="{ filter: 'Aviation' }" aria-label="Aviation gallery">
+      <div class="fact-number count-animated">{{ photosInDatabaseStart | number:'1.0-0':'de' }}</div>
+      <div class="fact-label">Photos in database</div>
+    </a>
+
+     <a class="fact-box" [routerLink]="['/gallery']" [queryParams]="{ filter: 'Aviation' }" aria-label="Aviation gallery">
       <div class="fact-number count-animated">{{ aviationDisplay }}</div>
-      <div class="fact-label">Aviation Photos</div>
+      <div class="fact-label">Aviation Photos presented</div>
     </a>
 
     <a class="fact-box" [routerLink]="['/gallery']" [queryParams]="{ filter: 'Travel' }" aria-label="Travel gallery">
       <div class="fact-number count-animated">{{ travelDisplay }}</div>
-      <div class="fact-label">Travel Photos</div>
+      <div class="fact-label">Travel Photos presented</div>
     </a>
 
     <a class="fact-box" href="#" (click)="scrollTo('countries-visited', $event)" aria-label="Countries presented">

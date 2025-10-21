@@ -285,7 +285,7 @@ export class PhotoGallery implements OnInit {
 
     this.route.queryParams.subscribe(params => {
       this.filter = params['filter'] || '';
-      const title = this.filter ? `Gallery — ${this.filter}` : 'Gallery';
+      const title = this.filter ? `Christian Böhme Photography - ${this.filter}` : 'Gallery';
       const desc = this.filter ? `Photos filtered by ${this.filter}` : 'All photos';
       this.seo.setTitle(title);
       this.seo.setDescription(desc);

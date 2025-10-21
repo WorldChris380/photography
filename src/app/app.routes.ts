@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { PhotoGallery } from './photo-gallery/photo-gallery';
 import { PhotographyHome } from './photography-home/photography-home';
+import { Contact } from './contact/contact';
 
 export const routes: Routes = [
   {
@@ -12,5 +13,10 @@ export const routes: Routes = [
     path: 'gallery',
     component: PhotoGallery,
     data: { animation: 'gallery' }
+  },
+  {
+    path: 'contact',
+    component: Contact,
+    data: { animation: 'contact' }
   }
 ];

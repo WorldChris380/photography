@@ -1,14 +1,16 @@
-import { Component, OnInit, Renderer2, signal } from '@angular/core';
+import { Component, OnInit, Renderer2, signal, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
 import { CommonModule } from '@angular/common';
 import { fadeSlideInOut } from './animations';
+import { ViewportScroller } from '@angular/common';
+import { Notifications } from './notifications/notifications';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [CommonModule, RouterOutlet, Header, Footer],
+  imports: [CommonModule, RouterOutlet, Header, Footer, Notifications],
   templateUrl: './app.html',
   styleUrls: ['./app.scss'],
   animations: [fadeSlideInOut]
@@ -16,7 +18,7 @@ import { fadeSlideInOut } from './animations';
 export class AppComponent implements OnInit {
   protected readonly title = signal('photography');
 
-  constructor(private renderer: Renderer2) {}
+  constructor(private renderer: Renderer2, private viewportScroller: ViewportScroller) {}
 
   ngOnInit() {
     this.renderer.listen('document', 'contextmenu', (event: MouseEvent) => {
@@ -60,5 +62,16 @@ export class AppComponent implements OnInit {
   getState(o: RouterOutlet) {
     // Simplified state handling to avoid null issues
     return o && o.activatedRouteData ? o.activatedRouteData['animation'] : 'initial';
+  }
+
+  onActivate() {
+    // Scrollt beim Aktivieren einer neuen Route nach oben
+    this.viewportScroller.scrollToPosition([0, 0]);
+  }
+
+  @ViewChild(Notifications) notifications!: Notifications;
+
+  showNotification(message: string, type: 'success' | 'error') {
+    this.notifications.showMessage(message, type);
   }
 }

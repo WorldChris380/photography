@@ -1,0 +1,84 @@
+// Farben für verschiedene Nachrichtentypen
+@use '../app.scss' as *;
+$color-success: #28a745;
+$color-error: #dc3545;
+$color-info: $cb-blue;
+
+// Allgemeine Stile für die Notification-Bar
+.notification-bar {
+    background-color: $color-info;
+    color: white;
+    text-align: center;
+    font-size: 16px;
+    top: 60px;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    height: 40px;
+    border-radius: 0 0 4px 4px;
+    line-height: 40px;
+    overflow: hidden;
+    padding-right: 50px; // Platz für den Button rechts schaffen
+    animation: slide-in 0.5s forwards, slide-out 1s 8s forwards; // Animation für Herein- und Herausgleiten
+
+    p {
+        margin: 0;
+    }
+
+    &.error {
+        background-color: $color-error;
+    }
+
+    &.success {
+        background-color: $color-success;
+    }
+
+    .dismiss-btn {
+        position: absolute;
+        top: 5px;
+        right: 10px;
+        width: 30px;
+        height: 30px;
+        background-color: #e04857; // Hellroter Hintergrund
+        color: white;
+        border: none;
+        border-radius: 4px; // Leicht abgerundete Ecken
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        transition: background-color 0.3s;
+
+        &:hover {
+            background-color: #ff9999; // Dunkleres Rot beim Hover
+        }
+
+        &:active {
+            background-color: #ff6666; // Noch dunkleres Rot beim Klicken
+        }
+    }
+}
+
+// Animation für das Hereingleiten der Notification
+@keyframes slide-in {
+    from {
+        transform: translateY(-100%); // Start: außerhalb des sichtbaren Bereichs
+    }
+
+    to {
+        transform: translateY(0); // Ende: vollständig sichtbar
+    }
+}
+
+// Animation für das Herausgleiten der Notification
+@keyframes slide-out {
+    from {
+        transform: translateY(0); // Start: vollständig sichtbar
+    }
+
+    to {
+        transform: translateY(-100%); // Ende: außerhalb des sichtbaren Bereichs
+    }
+}
