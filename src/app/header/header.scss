@@ -433,9 +433,7 @@ body.darkmode .dropdown-menu a {
   color: white;
 }
 
-body.darkmode .menu-link:hover,
-body.darkmode .menu-item:hover>.menu-link,
 body.darkmode .dropdown-menu a:hover {
-  background: $cb-green;
+  background: $cb-green !important;
   color: white;
 }

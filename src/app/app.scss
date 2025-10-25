@@ -5,6 +5,7 @@ $cb-grey: #212529;
 $cb-gray: #212529;
 $cb-red: #dc3545;
 @use 'sass:color';
+
 .cb-light-green {
   color: $cb-light-green;
 }
@@ -28,7 +29,8 @@ app-header {
 app-home-numbers {
   display: block;
   width: 100%;
-  min-height: 1px; /* sorgt dafür, dass ein Hintergrund sichtbar wird, bei Bedarf anpassen */
+  min-height: 1px;
+  /* sorgt dafür, dass ein Hintergrund sichtbar wird, bei Bedarf anpassen */
   background-color: $cb-light-green;
 }
 
@@ -225,15 +227,25 @@ textarea:focus-visible {
   width: 44px;
   height: 44px;
   border-radius: 50%;
-  border: none;
+  border: solid 1px white;
   background: $cb-green;
   color: #fff;
   font-size: 1.5rem;
   line-height: 44px;
   text-align: center;
   cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   z-index: 1000;
+}
+
+.darkmode #back-to-top {
+  background: white;
+  color: $cb-grey;
+  border: solid 1px black;
+
+  &:hover {
+    background: $cb-light-green;
+  }
 }
 
 #back-to-top:hover {
@@ -253,5 +265,7 @@ textarea:focus-visible {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html { scroll-behavior: auto; }
+  html {
+    scroll-behavior: auto;
+  }
 }

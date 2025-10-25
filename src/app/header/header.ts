@@ -14,7 +14,6 @@ import { RouterModule } from '@angular/router';
 export class Header implements OnInit {
   menuOpen = false;
   darkMode = false;
-  accountUrl = '/account';
 
   constructor(private renderer: Renderer2, private router: Router) { }
 
@@ -40,9 +39,5 @@ export class Header implements OnInit {
 
   closeMenuDelayed() {
     setTimeout(() => this.menuOpen = false, 150);
-  }
-
-  navigateToAccount() {
-    this.router.navigate([this.accountUrl]);
   }
 }

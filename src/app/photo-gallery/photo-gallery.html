@@ -3,18 +3,25 @@
     <button (click)="clearFilter()" [class.active]="!filter || filter.toLowerCase() === 'all'">
       All
     </button>
+    <!-- Show Go back button after "All" when a filter is active (not "All") -->
+    <button *ngIf="selectedFolder && selectedFolder !== '' && filter && filter.toLowerCase() !== 'all'" 
+            (click)="goUpOneLevel()" 
+            class="back-button">
+      Go back
+    </button>
     <button (click)="selectFolder('Aviation')" [class.active]="filter.toLowerCase() === 'aviation'">
       Aviation
     </button>
     <button (click)="selectFolder('Travel')" [class.active]="filter.toLowerCase() === 'travel'">
       Travel
     </button>
-    <!-- Only show Go back when we're in a subfolder (currentPath length > 1) -->
-    <button *ngIf="currentPath.length > 1" (click)="goUpOneLevel()">
-      Go back
+    <!-- Show current folder as active (only if it's a subfolder, not top-level Aviation/Travel) -->
+    <button *ngIf="currentPath.length > 1 && selectedFolder" 
+            [class.active]="true">
+      {{ formatFolderLabel(getVisibleFolders().current) }}
     </button>
-    <button *ngFor="let folder of currentLevelFolders" (click)="goToSubfolder(folder)"
-      [class.active]="selectedFolder === getCurrentFolderPath(folder)">
+    <!-- Show child folders -->
+    <button *ngFor="let folder of getVisibleFolders().children" (click)="goToSubfolder(folder)">
       {{ formatFolderLabel(folder) }}
     </button>
   </div>
@@ -22,6 +29,7 @@
   <div class="gallery-search-bar">
     <input type="text" placeholder="Search by country or description"
       aria-label="Search images by country or description" [(ngModel)]="searchTerm" (input)="onSearch()" />
+    <button class="search-clear-btn" *ngIf="searchTerm" (click)="clearSearch()" aria-label="Clear search">×</button>
     <span class="gallery-search-count">{{ filteredImages.length }} images found</span>
   </div>
 
@@ -59,6 +67,7 @@
       <img [src]="lightboxImage.src" [alt]="lightboxImage.description" />
       <button class="lightbox-nav right" (click)="nextImage()"
         [disabled]="selectedImageIndex === filteredImages.length - 1" aria-label="Next image">&#8594;</button>
+      <div class="lightbox-path" *ngIf="lightboxImagePath">{{ lightboxImagePath }}</div>
       <div class="lightbox-desc" id="lightbox-desc">{{ lightboxImage.description }}</div>
       <div class="purchase-actions">
         <button class="buy-button" type="button" (click)="togglePurchase()">Buy this photo</button>

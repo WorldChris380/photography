@@ -10,7 +10,7 @@ describe('CountriesVisited', () => {
     await TestBed.configureTestingModule({
       imports: [CountriesVisited]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CountriesVisited);
     component = fixture.componentInstance;

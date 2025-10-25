@@ -97,10 +97,20 @@
   transition: background 0.2s;
 }
 
-.gallery-filter button.active,
-.gallery-filter button:hover {
-  background: #212529;
+.gallery-filter button.active {
+  background: $cb-gray;
   color: #fff;
+}
+
+.gallery-filter button.active:hover {
+  cursor: default;
+  background: $cb-gray;
+  color: white;
+}
+
+.gallery-filter button:hover {
+  background: $cb-light-green;
+  color: black;
 }
 
 .gallery-pagination {
@@ -124,26 +134,26 @@
 }
 
 .gallery-pagination button.active {
-  background: $cb-green;
-  color: #fff;
+  background: black;
+  color: white;
   border: none;
 }
 
 .gallery-pagination button.active:hover {
-  background: $cb-green;
-  color: #fff;
+  background: black;
+  color: white !important;
   cursor: auto;
 }
 
 .gallery-pagination button:hover {
-  background: $cb-grey;
-  color: #fff;
+  background: $cb-light-green;
+  color: black;
 }
 
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.85);
+  background: rgba(0, 0, 0, 0.929);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,9 +186,18 @@
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
 }
 
+.lightbox-path {
+  color: rgba(255, 255, 255, 0.7);
+  margin-top: 0.75rem;
+  text-align: center;
+  font-size: 0.9rem;
+  max-width: 90vw;
+  font-family: monospace;
+}
+
 .lightbox-desc {
   color: #fff;
-  margin-top: 1rem;
+  margin-top: 0.5rem;
   text-align: center;
   font-size: 1.1rem;
   max-width: 90vw;
@@ -217,8 +236,8 @@
   position: absolute;
   top: -16px;
   right: -16px;
-  background: #fff;
-  color: #212529;
+  background: $cb-red;
+  color: white;
   border: none;
   border-radius: 50%;
   width: 36px;
@@ -245,31 +264,35 @@
 .purchase-panel {
   margin-top: 10px;
   padding: 12px;
-  background: rgba(255,255,255,0.95);
+  background: rgba(255, 255, 255, 0.95);
   border-radius: 8px;
-.post-purchase-cta {
-  margin-top: 12px;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  font-size: 14px;
-  color: #cbd5e1;
-}
-.post-purchase-cta .cta-link {
-  padding: 6px 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255,255,255,.2);
-  text-decoration: none;
-  color: #fff;
-}
-.post-purchase-cta .cta-link:hover {
-  border-color: #2ea8ff;
-}
+
+  .post-purchase-cta {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    font-size: 14px;
+    color: #cbd5e1;
+  }
+
+  .post-purchase-cta .cta-link {
+    padding: 6px 10px;
+    border-radius: 999px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    text-decoration: none;
+    color: #fff;
+  }
+
+  .post-purchase-cta .cta-link:hover {
+    border-color: #2ea8ff;
+  }
+
   min-width: 280px;
 }
 
 body.darkmode .purchase-panel {
-  background: rgba(33,37,41,0.95);
+  background: rgba(33, 37, 41, 0.95);
 }
 
 .purchase-info {
@@ -297,13 +320,15 @@ body.darkmode .purchase-info {
   width: 80%;
   min-width: 250px;
   flex-direction: column;
+  position: relative;
 }
 
 .gallery-search-bar input[type='text'] {
   flex: 1;
   font-size: 1.1rem;
   width: 60%;
-  padding: 0.7rem 1.5rem;
+  padding: 0.7rem 3rem 0.7rem 1.5rem;
+  /* Extra padding right for clear button */
   border-radius: 2rem;
   border: solid 1px $cb-grey;
   background: white;
@@ -311,6 +336,41 @@ body.darkmode .purchase-info {
   outline: none;
   transition: box-shadow 0.2s;
   height: 2.5rem;
+}
+
+.search-clear-btn {
+  position: absolute;
+  right: 21%;
+  top: 26%;
+  transform: translateY(-50%);
+  background: transparent;
+  border: none;
+  font-size: 1.8rem;
+  color: $cb-grey;
+  cursor: pointer;
+  width: 2rem;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  transition: background 0.2s, color 0.2s;
+  padding: 0;
+  line-height: 1;
+}
+
+.search-clear-btn:hover {
+  background: $cb-red;
+  color: white;
+}
+
+body.darkmode .search-clear-btn {
+  color: #f1f3f4;
+}
+
+body.darkmode .search-clear-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
 }
 
 body.darkmode .gallery-search-bar input[type='text'] {
@@ -369,6 +429,12 @@ body.darkmode .gallery-loading-overlay {
   color: #007bff;
   text-shadow: 0 1px 8px #fff, 0 1px 8px #212529;
   pointer-events: none;
+}
+
+.active-folder {
+  background-color: #f0f8ff; // Heller Blauton für aktive Ordner
+  font-weight: bold;
+  border: 2px solid #0078d7; // Blaue Umrandung
 }
 
 @media (max-width: 700px) {

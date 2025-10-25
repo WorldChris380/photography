@@ -41,11 +41,11 @@ export class PhotoGallery implements OnInit {
   accountDownloadsUrl = '/account#downloads';
 
   constructor(private route: ActivatedRoute,
-              private router: Router,
-              private http: HttpClient,
-              private seo: SeoService,
-              private paypal: PaypalService,
-              private app: AppComponent) {
+    private router: Router,
+    private http: HttpClient,
+    private seo: SeoService,
+    private paypal: PaypalService,
+    private app: AppComponent) {
     this.route.queryParams.subscribe(params => {
       if (params['filter']) {
         this.selectedFolder = params['filter'];
@@ -53,6 +53,9 @@ export class PhotoGallery implements OnInit {
         this.filter = params['filter'];
         this.page = 1;
         this._updateFilteredImages();
+      } else {
+        this.selectedFolder = 'root'; // Standardwert setzen
+        this.currentPath = ['root'];
       }
     });
   }
@@ -66,7 +69,7 @@ export class PhotoGallery implements OnInit {
     this._filteredImages = this.images.filter(img => {
       const imgPath = img.src.toLowerCase();
       const filterPath = this.filter.toLowerCase();
-      
+
       // Check if image path contains either Aviation or Travel based on filter
       if (filterPath === 'aviation') {
         return imgPath.includes('/aviation/');
@@ -74,10 +77,31 @@ export class PhotoGallery implements OnInit {
       if (filterPath === 'travel') {
         return imgPath.includes('/travel/');
       }
-      
+
       return false;
     });
-}
+  }
+
+  private _updateActiveFolderBasedOnImages(): void {
+    if (this._filteredImages.length > 0) {
+      const firstImagePath = this._filteredImages[0].src;
+      const match = firstImagePath.match(/assets\/img\/photography\/(.+?)\//);
+      if (match && match[1]) {
+        const folderPath = match[1];
+        this.selectedFolder = folderPath;
+        this.currentPath = folderPath.split('/');
+      }
+    }
+  }
+
+  getVisibleFolders(): { parent?: string; current: string; children: string[] } {
+    const level = this.currentPath.length;
+    const parentFolder = level > 1 ? this.currentPath.slice(0, level - 1).join('/') : undefined;
+    const currentFolder = this.currentPath.slice(-1).join('/');
+    const childFolders = this.currentLevelFolders;
+
+    return { parent: parentFolder, current: currentFolder, children: childFolders };
+  }
 
   trackBySrc = (_: number, img: GalleryImage) => img.src;
 
@@ -112,19 +136,19 @@ export class PhotoGallery implements OnInit {
 
   get filteredImages() {
     if (!this.selectedFolder || this.selectedFolder.toLowerCase() === 'all') {
-        return this._filteredImages; // Return all images when no filter or "All" selected
+      return this._filteredImages; // Return all images when no filter or "All" selected
     }
     return this._filteredImages.filter(img => {
-        const folderPath = img.src
-            .replace(/^assets\/img\/photography\//i, '')
-            .split('/')
-            .slice(0, -1)
-            .join('/')
-            .toLowerCase();
+      const folderPath = img.src
+        .replace(/^assets\/img\/photography\//i, '')
+        .split('/')
+        .slice(0, -1)
+        .join('/')
+        .toLowerCase();
 
-        const filterPath = this.selectedFolder.toLowerCase();
-        return folderPath === filterPath || 
-               folderPath.startsWith(filterPath + '/');
+      const filterPath = this.selectedFolder.toLowerCase();
+      return folderPath === filterPath ||
+        folderPath.startsWith(filterPath + '/');
     });
   }
 
@@ -178,6 +202,11 @@ export class PhotoGallery implements OnInit {
     });
   }
 
+  clearSearch() {
+    this.searchTerm = '';
+    this.onSearch();
+  }
+
   goToPage(page: number) {
     this.page = page;
   }
@@ -224,12 +253,14 @@ export class PhotoGallery implements OnInit {
       this.currentPath = [folder];
     }
     this.selectedFolder = this.currentPath.join('/');
+    this.filter = this.selectedFolder;
     this.page = 1;
   }
 
   goUpOneLevel() {
     this.currentPath.pop();
     this.selectedFolder = this.currentPath.join('/');
+    this.filter = this.selectedFolder;
     this.page = 1;
   }
 
@@ -277,12 +308,28 @@ export class PhotoGallery implements OnInit {
       : null;
   }
 
+  get lightboxImagePath() {
+    if (this.selectedImageIndex === null) return '';
+    const img = this.filteredImages[this.selectedImageIndex];
+    if (!img || !img.src) return '';
+    
+    // Extract folder path from src (e.g., "assets/img/photography/Aviation/Africa/Cape Verde/...")
+    // Remove "assets/img/photography/" prefix and filename
+    const pathMatch = img.src.match(/assets\/img\/photography\/(.+?)\/[^\/]+$/);
+    if (pathMatch && pathMatch[1]) {
+      return pathMatch[1];
+    }
+    
+    // Fallback: try to get from category field if it exists
+    return (img as any).category || '';
+  }
+
   onLightboxKeydown(event: KeyboardEvent) {
     if (!this.lightboxContainer) return;
     if (event.key !== 'Tab') return;
     const container = this.lightboxContainer.nativeElement;
     const focusableSelectors = [
-      'a[href]','button:not([disabled])','textarea','input[type="text"]','input[type="radio"]','input[type="checkbox"]','select','[tabindex]:not([tabindex="-1"])'
+      'a[href]', 'button:not([disabled])', 'textarea', 'input[type="text"]', 'input[type="radio"]', 'input[type="checkbox"]', 'select', '[tabindex]:not([tabindex="-1"])'
     ].join(',');
     const focusable = Array.from(container.querySelectorAll<HTMLElement>(focusableSelectors))
       .filter(el => el.offsetParent !== null || el === document.activeElement);
@@ -382,9 +429,9 @@ export class PhotoGallery implements OnInit {
     if (this.selectedImageIndex !== null) {
       if (event.key === 'Escape') {
         this.closeLightbox();
-      } else if (event.key === 'ArrowLeft') {
+      } else if (event.key === 'ArrowLeft' || event.key === 'a' || event.key === 'A') {
         this.prevImage();
-      } else if (event.key === 'ArrowRight') {
+      } else if (event.key === 'ArrowRight' || event.key === 'd' || event.key === 'D') {
         this.nextImage();
       }
     }
@@ -424,6 +471,12 @@ export class PhotoGallery implements OnInit {
 
   navigateToDownloads() {
     this.router.navigate([this.accountDownloadsUrl]);
+  }
+
+  isActiveFolder(folder: string): boolean {
+    // Check if the folder is the last part of the current path (current folder name)
+    const currentFolderName = this.currentPath[this.currentPath.length - 1];
+    return currentFolderName?.toLowerCase() === folder.toLowerCase();
   }
 }
 

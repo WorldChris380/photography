@@ -1,4 +1,90 @@
-<div class="account-page">
-  <h1>Account Page</h1>
-  <p>Welcome to your account. Manage your downloads and settings here.</p>
-</div>
+<main class="account-container">
+  <div class="page-intro">
+    <div>
+      <h2>Your Account</h2>
+      <nav class="top-nav">
+        <a href="#profile" class="nav-link">Profile</a>
+        <a href="#downloads" class="nav-link">Downloads</a>
+      </nav>
+    </div>
+    <div>
+      <button *ngIf="isLoggedIn" (click)="logout()" class="secondary">Logout</button>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="!isLoggedIn">
+    <h2>Sign in or create an account</h2>
+    <div class="tabs" role="tablist" aria-label="Login options">
+      <button class="tab-btn" [class.active]="activeTab === 'emailLink'" (click)="switchTab('emailLink')">Email link</button>
+      <button class="tab-btn" [class.active]="activeTab === 'passwordLogin'" (click)="switchTab('passwordLogin')">Password login</button>
+      <button class="tab-btn" [class.active]="activeTab === 'register'" (click)="switchTab('register')">Create account</button>
+    </div>
+
+    <div *ngIf="activeTab === 'emailLink'" class="tab-panel">
+      <p class="muted">We'll email you a magic link. No password needed.</p>
+      <div class="row">
+        <input type="email" [(ngModel)]="emailLinkEmail" placeholder="your@email" />
+        <button (click)="sendLoginLink()">Send login link</button>
+      </div>
+      <p class="muted">{{ emailLinkMessage }}</p>
+    </div>
+
+    <div *ngIf="activeTab === 'passwordLogin'" class="tab-panel">
+      <p class="muted">Sign in with your email and password.</p>
+      <div class="row">
+        <input type="email" [(ngModel)]="passEmail" placeholder="email" />
+        <input type="password" [(ngModel)]="passPassword" placeholder="password" />
+      </div>
+      <div class="row" style="margin-top: 8px;">
+        <button (click)="loginWithPassword()">Login</button>
+      </div>
+      <p class="muted">{{ passLoginMessage }}</p>
+    </div>
+
+    <div *ngIf="activeTab === 'register'" class="tab-panel">
+      <p class="muted">Create a new account with email and password.</p>
+      <div class="row">
+        <input type="email" [(ngModel)]="regEmail" placeholder="email" />
+        <input type="password" [(ngModel)]="regPassword" placeholder="password (min 8 chars)" />
+      </div>
+      <div class="row" style="margin-top: 8px;">
+        <button (click)="register()">Create account</button>
+      </div>
+      <p class="muted">{{ regMessage }}</p>
+    </div>
+  </div>
+
+  <div class="card" *ngIf="isLoggedIn">
+    <h2>Profile</h2>
+    <p class="muted">Update your delivery email address</p>
+    <div class="row">
+      <input type="email" [(ngModel)]="profileEmail" />
+      <button (click)="saveEmail()">Save</button>
+    </div>
+    <p class="muted">{{ saveMessage }}</p>
+  </div>
+
+  <div class="card" *ngIf="isLoggedIn">
+    <h2>Your purchases</h2>
+    <a id="downloads"></a>
+    <div *ngIf="purchases.length === 0" class="alert">No purchases yet.</div>
+    <table *ngIf="purchases.length > 0">
+      <thead>
+        <tr>
+          <th>Item</th>
+          <th>Date</th>
+          <th>Price</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let item of purchases">
+          <td>{{ item.description || 'Photo' }}</td>
+          <td class="muted">{{ formatDate(item.created_at) }}</td>
+          <td>{{ item.price }} {{ item.currency }}</td>
+          <td><a [href]="'/api/download.php?src=' + item.src">Download</a></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</main>
