@@ -190,11 +190,11 @@ body.darkmode .fact-label {
 
 main {
   position: relative;
-  min-height: calc(100vh - 60px - 120px); // Adjust based on your header/footer height
+  min-height: calc(100vh - 60px - 90px); // Adjust based on your header/footer height
   width: 100%;
   display: block;
   overflow-x: hidden;
-  background-color: $cb-gray;
+  background-color: white;
 }
 
 html {

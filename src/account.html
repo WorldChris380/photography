@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Account - Christian Böhme Photography</title>
+  <style>
+    :root {
+      --bg: #0b0d10;
+      --card: #12151a;
+      --text: #e6edf3;
+      --muted: #9aa4af;
+      --border: #1f232a;
+      --accent: #2ea8ff;
+      --accent-contrast: #06131d;
+    }
+    @media (prefers-color-scheme: light) {
+      :root {
+        --bg: #f7f9fb;
+        --card: #ffffff;
+        --text: #0b0d10;
+        --muted: #5b6570;
+        --border: #e6ebf0;
+        --accent: #0e639c;
+        --accent-contrast: #ffffff;
+      }
+    }
+    * { box-sizing: border-box; }
+    body { font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, sans-serif; background: var(--bg); color: var(--text); max-width: 920px; margin: 40px auto; padding: 0 16px; }
+    header { display: flex; gap: 16px; flex-wrap: wrap; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+    .top-nav { display: flex; gap: 10px; }
+    .nav-link { color: var(--muted); text-decoration: none; padding: 8px 12px; border: 1px solid var(--border); border-radius: 999px; }
+    .nav-link:hover { color: var(--text); border-color: var(--accent); }
+    .card { background: var(--card); border: 1px solid var(--border); border-radius: 12px; padding: 18px; margin: 18px 0; box-shadow: 0 1px 2px rgba(0,0,0,.04); }
+    input[type=email], input[type=text] { width: 100%; padding: 12px; border: 1px solid var(--border); background: transparent; color: var(--text); border-radius: 8px; outline: none; }
+    input::placeholder { color: var(--muted); }
+    button { background: var(--accent); color: var(--accent-contrast); border: none; border-radius: 8px; padding: 10px 14px; cursor: pointer; font-weight: 600; }
+    button:hover { filter: brightness(1.05); }
+    button.secondary { background: transparent; color: var(--text); border: 1px solid var(--border); }
+    .row { display: flex; gap: 10px; }
+    .row > * { flex: 1; }
+    table { width: 100%; border-collapse: collapse; }
+    th, td { padding: 10px; border-bottom: 1px solid var(--border); text-align: left; }
+    th { color: var(--muted); font-weight: 600; text-transform: uppercase; font-size: 12px; letter-spacing: .02em; }
+    .muted { color: var(--muted); }
+    .alert { padding: 12px; border: 1px solid var(--border); background: transparent; border-radius: 8px; color: var(--muted); }
+    a { color: var(--accent); }
+    #logoutBtn {
+      display: none;
+    }
+
+    #profileCard {
+      display: none;
+    }
+
+    #purchasesCard {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Your Account</h1>
+    <nav class="top-nav">
+      <a href="#profile" class="nav-link">Profile</a>
+      <a href="#downloads" class="nav-link">Downloads</a>
+    </nav>
+    <div>
+      <button id="logoutBtn" class="secondary">Logout</button>
+    </div>
+  </header>
+
+  <div class="card" id="loginCard">
+    <h2>Sign in with your email</h2>
+    <p class="muted">We’ll email you a magic link. No password needed.</p>
+    <div class="row">
+      <input type="email" id="emailInput" placeholder="your@email" />
+      <button id="loginBtn">Send login link</button>
+    </div>
+    <p id="loginMsg" class="muted"></p>
+  </div>
+
+  <div class="card" id="profileCard">
+    <h2>Profile</h2>
+    <p class="muted">Update your delivery email address</p>
+    <div class="row">
+      <input type="email" id="profileEmail" />
+      <button id="saveEmailBtn">Save</button>
+    </div>
+    <p id="saveMsg" class="muted"></p>
+  </div>
+
+  <div class="card" id="purchasesCard">
+    <h2>Your purchases</h2>
+    <a id="downloads"></a>
+    <div id="purchases"></div>
+  </div>
+
+  <script>
+    async function fetchJSON(url, opts={}) {
+      const res = await fetch(url, opts);
+      if (!res.ok) throw new Error(await res.text());
+      return res.json();
+    }
+
+    async function refresh() {
+      try {
+        const me = await fetchJSON('/api/me.php');
+        document.getElementById('loginCard').style.display = 'none';
+        document.getElementById('profileCard').style.display = '';
+        document.getElementById('purchasesCard').style.display = '';
+        document.getElementById('logoutBtn').style.display = '';
+        document.getElementById('profileEmail').value = me.user.email || '';
+        loadPurchases();
+      } catch (e) {
+        document.getElementById('loginCard').style.display = '';
+        document.getElementById('profileCard').style.display = 'none';
+        document.getElementById('purchasesCard').style.display = 'none';
+        document.getElementById('logoutBtn').style.display = 'none';
+      }
+    }
+
+    async function loadPurchases() {
+      try {
+        const data = await fetchJSON('/api/purchases.php');
+        const el = document.getElementById('purchases');
+        if (!data.items || data.items.length === 0) { el.innerHTML = '<p class="alert">No purchases yet.</p>'; return; }
+        const rows = data.items.map(it => `
+          <tr>
+            <td>${it.description || 'Photo'}</td>
+            <td class="muted">${new Date(it.created_at * 1000).toLocaleString()}</td>
+            <td>${it.price || ''} ${it.currency || ''}</td>
+            <td><a href="/api/download.php?src=${encodeURIComponent(it.src)}">Download</a></td>
+          </tr>`).join('');
+        el.innerHTML = `<table><thead><tr><th>Item</th><th>Date</th><th>Price</th><th></th></tr></thead><tbody>${rows}</tbody></table>`;
+      } catch (e) {
+        document.getElementById('purchases').innerHTML = '<p class="alert">Could not load purchases.</p>';
+      }
+    }
+
+    document.getElementById('loginBtn').onclick = async () => {
+      const email = (document.getElementById('emailInput').value || '').trim();
+      const msg = document.getElementById('loginMsg');
+      msg.textContent = '';
+      if (!email) { msg.textContent = 'Please enter your email.'; return; }
+      try {
+        await fetchJSON('/api/login-request.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+        msg.textContent = 'Check your inbox for the login link. It expires in 15 minutes.';
+      } catch (e) {
+        msg.textContent = 'Could not send login link. Please try again.';
+      }
+    };
+
+    document.getElementById('logoutBtn').onclick = async () => {
+      await fetch('/api/logout.php', { method: 'POST' });
+      location.reload();
+    };
+
+    document.getElementById('saveEmailBtn').onclick = async () => {
+      const email = (document.getElementById('profileEmail').value || '').trim();
+      const msg = document.getElementById('saveMsg');
+      msg.textContent = '';
+      if (!email) { msg.textContent = 'Please enter an email.'; return; }
+      try {
+        await fetchJSON('/api/update-email.php', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email }) });
+        msg.textContent = 'Saved.';
+      } catch (e) {
+        msg.textContent = 'Could not save. This email might already be in use.';
+      }
+    };
+
+    // Simple in-page nav highlighting (optional)
+    document.querySelectorAll('.top-nav .nav-link').forEach(a => {
+      a.addEventListener('click', (e) => {
+        const el = e.currentTarget;
+        const href = el && el.getAttribute ? el.getAttribute('href') : null;
+        if (href && href.startsWith('#')) {
+          e.preventDefault();
+          const target = document.querySelector(href);
+          if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+
+    refresh();
+  </script>
+</body>
+</html>

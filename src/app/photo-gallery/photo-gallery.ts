@@ -37,6 +37,8 @@ export class PhotoGallery implements OnInit {
 
   purchaseVisible = false;
   defaultPrice = DEFAULT_PHOTO_PRICE_EUR;
+  showDownloadCta = false;
+  accountDownloadsUrl = '/account#downloads';
 
   constructor(private route: ActivatedRoute,
               private router: Router,
@@ -353,8 +355,9 @@ export class PhotoGallery implements OnInit {
             });
             const cap = await res.json();
             if (!res.ok) throw new Error('Capture failed');
-            this.app.showNotification('Thank you! Your purchase was completed.', 'success');
-            this.purchaseVisible = false;
+            this.app.showNotification('Danke! Dein Kauf war erfolgreich. Du kannst deine Dateien jetzt herunterladen.', 'success');
+            // Zeige dezente Download-CTA statt Panel zu schließen
+            this.showDownloadCta = true;
           } catch (e) {
             this.app.showNotification('Payment capture failed. Please contact support.', 'error');
           }
@@ -417,6 +420,10 @@ export class PhotoGallery implements OnInit {
         "url": window.location.origin + '/gallery' + (this.filter ? `?filter=${encodeURIComponent(this.filter)}` : '')
       });
     });
+  }
+
+  navigateToDownloads() {
+    this.router.navigate([this.accountDownloadsUrl]);
   }
 }
 

@@ -69,6 +69,10 @@
           <div class="price">{{ defaultPrice | currency:'EUR':'symbol-narrow':'1.2-2':'de' }}</div>
         </div>
         <div #paypalButtons></div>
+        <div class="post-purchase-cta" *ngIf="showDownloadCta">
+          <span>Fertig! Deine Bestellung war erfolgreich.</span>
+          <a class="cta-link" [attr.href]="accountDownloadsUrl" target="_blank" rel="noopener">Zu deinen Downloads →</a>
+        </div>
       </div>
       <button class="lightbox-close" (click)="closeLightbox()" #lightboxCloseBtn aria-label="Close lightbox">×</button>
     </div>

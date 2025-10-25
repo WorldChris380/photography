@@ -1,6 +1,7 @@
 import { Component, Renderer2, OnInit, ViewEncapsulation } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -13,8 +14,9 @@ import { CommonModule } from '@angular/common';
 export class Header implements OnInit {
   menuOpen = false;
   darkMode = false;
+  accountUrl = '/account';
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2, private router: Router) { }
 
   ngOnInit() {
     const saved = localStorage.getItem('darkmode');
@@ -38,5 +40,9 @@ export class Header implements OnInit {
 
   closeMenuDelayed() {
     setTimeout(() => this.menuOpen = false, 150);
+  }
+
+  navigateToAccount() {
+    this.router.navigate([this.accountUrl]);
   }
 }

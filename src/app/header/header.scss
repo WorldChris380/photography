@@ -21,6 +21,12 @@
   justify-content: space-between;
   align-items: center;
   z-index: 20000;
+  min-height: 70px;
+
+  @media (max-width: 768px) {
+    padding: 0 1rem;
+    min-height: 60px;
+  }
 }
 
 .main-menu,
@@ -36,18 +42,21 @@
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 10;
-}
+  z-index: 9998;
 
-#header-navigation.open {
-  z-index: 20;
+  @media (min-width: 901px) {
+    display: none !important;
+  }
 }
 
 #header-navigation {
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
+  align-items: center;
   gap: 20px;
+  position: static;
+  background-color: transparent;
 }
 
 #logo {
@@ -102,6 +111,27 @@ a {
 #call-to-actions-header-area {
   display: flex;
   align-items: center;
+}
+
+#call-to-actions-header-area .account-icon {
+  color: inherit;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(17, 17, 17, .2);
+  text-decoration: none;
+  margin-left: 10px;
+}
+
+body.darkmode #call-to-actions-header-area .account-icon {
+  border-color: rgba(255, 255, 255, .2);
+}
+
+#call-to-actions-header-area .account-icon:hover {
+  border-color: #4ea1d3;
 }
 
 .cta-header-link-logo {
@@ -191,69 +221,93 @@ body.darkmode .dropdown-menu {
 }
 
 #burger-btn {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  gap: 5px;
-  width: 40px;
-  height: 40px;
   background: none;
   border: none;
   cursor: pointer;
-  z-index: 1001;
-}
-
-#burger-btn span {
-  display: block;
-  height: 4px;
-  width: 100%;
-  background: #fff;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-
-#burger-btn .burger-x {
-  color: $cb-red;
-  font-size: 2rem;
-  line-height: 1;
-  display: flex;
+  display: none;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   width: 40px;
   height: 40px;
+  padding: 8px;
+  z-index: 10001;
+
+  span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: black;
+    margin: 3px 0;
+    transition: all 0.3s ease;
+    border-radius: 2px;
+  }
+
+  .burger-x {
+    font-size: 2rem;
+    color: black;
+    font-weight: 300;
+  }
+
+  @media (max-width: 900px) {
+    display: flex;
+  }
+}
+
+body.darkmode #burger-btn span {
+  background-color: white;
+}
+
+body.darkmode #burger-btn .burger-x {
+  color: white;
 }
 
 @media (max-width: 900px) {
-  #burger-btn {
-    display: flex;
-    margin-left: auto;
-  }
-
   #header-navigation {
     position: fixed;
-    top: 60px;
+    top: 0;
     left: 0;
     right: 0;
-    background: $cb-grey;
+    bottom: 0;
+    background: white;
     flex-direction: column;
     align-items: flex-start;
-    padding: 2rem 1.5rem;
-    transform: translateY(-120%);
-    transition: transform 2s;
-    z-index: 1000;
+    padding: 80px 2rem 2rem;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 10000;
     width: 100vw;
-    min-height: 100vh;
+    height: 100vh;
     box-sizing: border-box;
-    display: flex;
+    overflow-y: auto;
+  }
+
+  body.darkmode #header-navigation {
+    background: $cb-grey;
   }
 
   #header-navigation.open {
-    transform: translateY(0);
+    transform: translateX(0);
   }
 
   .main-menu {
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 0;
+    width: 100%;
+  }
+
+  .menu-item {
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  }
+
+  body.darkmode .menu-item {
+    border-bottom-color: rgba(255, 255, 255, 0.1);
+  }
+
+  .menu-link {
+    padding: 1rem 0;
+    font-size: 1.25rem;
     width: 100%;
   }
 
@@ -261,33 +315,109 @@ body.darkmode .dropdown-menu {
     position: static;
     box-shadow: none;
     border-radius: 0;
-    background: none;
-    padding-left: 1rem;
+    background: rgba(0, 0, 0, 0.03);
+    padding: 0.5rem 0 0.5rem 1.5rem;
+    margin-top: 0.5rem;
+  }
+
+  body.darkmode .dropdown-menu {
+    background: rgba(255, 255, 255, 0.05);
+  }
+
+  .dropdown-menu a {
+    padding: 0.75rem 0;
+    font-size: 1.1rem;
+  }
+
+  .dropdown:hover>.dropdown-menu {
+    display: none;
+  }
+
+  .dropdown.open>.dropdown-menu {
+    display: flex;
   }
 
   #call-to-actions-header-area {
-    display: none;
+    position: static;
+    display: flex;
+    gap: 10px;
+    margin-left: auto;
   }
 }
 
 @media (max-width: 768px) {
   #site-title {
-    display: none;
+    font-size: 1.1rem;
+    margin-left: 10px;
+  }
+
+  #logo-div img {
+    width: 35px;
+    height: 35px;
   }
 
   #content-limitation {
     min-height: 60px;
   }
 
+  #call-to-actions-header-area {
+    gap: 5px;
+  }
+
+  #call-to-actions-header-area .account-icon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .cta-header-link-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  #header-navigation {
+    padding: 70px 1.5rem 2rem;
+  }
+
+  #burger-btn {
+    margin-left: 10px;
+  }
+}
+
+@media (min-width: 901px) {
+  #burger-btn {
+    display: none !important;
+  }
+
+  #header-navigation {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    justify-content: space-between;
+    width: auto;
+    height: auto;
+    padding: 0;
+  }
+
+  .nav-overlay {
+    display: none !important;
+  }
+
+  #call-to-actions-header-area {
+    position: static;
+  }
 }
 
 .nav-overlay {
   display: block;
   position: fixed;
-  z-index: 999;
+  z-index: 9999;
   inset: 0;
-  background: rgba(0, 0, 0, 0.55);
-  transition: opacity 0.2s;
+  background: rgba(0, 0, 0, 0.5);
+  transition: opacity 0.3s ease;
+
+  @media (min-width: 901px) {
+    display: none !important;
+  }
 }
 
 body.darkmode #content-limitation {
@@ -300,28 +430,12 @@ body.darkmode #site-title {
 
 body.darkmode .menu-link,
 body.darkmode .dropdown-menu a {
-  color: $cb-grey;
-  background: white;
+  color: white;
 }
 
 body.darkmode .menu-link:hover,
 body.darkmode .menu-item:hover>.menu-link,
 body.darkmode .dropdown-menu a:hover {
-  background: white;
-  color: $cb-grey;
-}
-
-body.darkmode .menu-link:hover {
-  background: white !important;
-  color: $cb-grey !important;
-}
-
-body.darkmode .menu-link:active {
-  background: white !important;
-  color: $cb-grey !important;
-}
-
-body.darkmode .dropdown-menu a:hover {
-  background: white !important;
-  color: $cb-grey !important;
+  background: $cb-green;
+  color: white;
 }

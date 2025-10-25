@@ -7,8 +7,8 @@ ini_set('error_log', __DIR__ . '/paypal_errors.log');
 
 $allowed_origins = [
   'https://photography.christian-boehme.com',
-  'http://localhost:4200',
-  'https://localhost:4200'
+  // 'http://localhost:4200',
+  // 'https://localhost:4200'
 ];
 $origin = isset($_SERVER['HTTP_ORIGIN']) ? $_SERVER['HTTP_ORIGIN'] : '';
 if (in_array($origin, $allowed_origins, true)) {

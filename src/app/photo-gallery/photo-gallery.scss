@@ -26,6 +26,7 @@
   overflow: hidden;
   transition: box-shadow 0.2s;
   position: relative;
+  cursor: pointer;
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -232,7 +233,7 @@
 }
 
 .buy-button {
-  background: $cb-green;
+  background: $cb-red;
   color: #fff;
   border: none;
   border-radius: 20px;
@@ -246,6 +247,24 @@
   padding: 12px;
   background: rgba(255,255,255,0.95);
   border-radius: 8px;
+.post-purchase-cta {
+  margin-top: 12px;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  font-size: 14px;
+  color: #cbd5e1;
+}
+.post-purchase-cta .cta-link {
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255,255,255,.2);
+  text-decoration: none;
+  color: #fff;
+}
+.post-purchase-cta .cta-link:hover {
+  border-color: #2ea8ff;
+}
   min-width: 280px;
 }
 
