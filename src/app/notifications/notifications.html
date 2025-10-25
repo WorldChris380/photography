@@ -1,5 +1,9 @@
-<div class="notification-bar" [ngClass]="type" *ngIf="message">
-  <p>{{ message }}</p>
+<div class="notification-bar"
+     *ngIf="message"
+     [ngClass]="type"
+     [attr.role]="type === 'error' ? 'alert' : 'status'"
+     aria-live="polite">
+  <p class="notification-message">{{ message }}</p>
   <p class="notification-second-prio">(Closes automatically in {{ countdown }} seconds)</p>
-  <button class="dismiss-btn" (click)="dismiss()">X</button>
+  <button class="dismiss-btn" type="button" aria-label="Dismiss notification" (click)="dismiss()">X</button>
 </div>

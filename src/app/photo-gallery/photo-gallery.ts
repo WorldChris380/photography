@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit } from '@angular/core';
+import { Component, HostListener, OnInit, ElementRef, ViewChild } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
@@ -27,6 +27,9 @@ export class PhotoGallery implements OnInit {
   searchTerm = '';
   private _filteredImages: GalleryImage[] = [];
   filter = '';
+
+  @ViewChild('lightboxContainer') lightboxContainer?: ElementRef<HTMLElement>;
+  @ViewChild('lightboxCloseBtn') lightboxCloseBtn?: ElementRef<HTMLButtonElement>;
 
   constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private seo: SeoService) {
     this.route.queryParams.subscribe(params => {
@@ -224,6 +227,14 @@ export class PhotoGallery implements OnInit {
 
   openLightbox(index: number) {
     this.selectedImageIndex = index;
+    // Focus the lightbox close button for accessibility after view updates
+    setTimeout(() => {
+      if (this.lightboxCloseBtn?.nativeElement) {
+        this.lightboxCloseBtn.nativeElement.focus();
+      } else if (this.lightboxContainer?.nativeElement) {
+        this.lightboxContainer.nativeElement.focus();
+      }
+    });
   }
 
   closeLightbox() {
@@ -249,6 +260,31 @@ export class PhotoGallery implements OnInit {
     return this.selectedImageIndex !== null
       ? this.filteredImages[this.selectedImageIndex]
       : null;
+  }
+
+  onLightboxKeydown(event: KeyboardEvent) {
+    if (!this.lightboxContainer) return;
+    if (event.key !== 'Tab') return;
+    const container = this.lightboxContainer.nativeElement;
+    const focusableSelectors = [
+      'a[href]','button:not([disabled])','textarea','input[type="text"]','input[type="radio"]','input[type="checkbox"]','select','[tabindex]:not([tabindex="-1"])'
+    ].join(',');
+    const focusable = Array.from(container.querySelectorAll<HTMLElement>(focusableSelectors))
+      .filter(el => el.offsetParent !== null || el === document.activeElement);
+    if (focusable.length === 0) return;
+    const first = focusable[0];
+    const last = focusable[focusable.length - 1];
+    if (event.shiftKey) {
+      if (document.activeElement === first) {
+        last.focus();
+        event.preventDefault();
+      }
+    } else {
+      if (document.activeElement === last) {
+        first.focus();
+        event.preventDefault();
+      }
+    }
   }
 
   getCurrentFolderPath(folder: string): string {

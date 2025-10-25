@@ -82,3 +82,10 @@ $color-info: $cb-blue;
         transform: translateY(-100%); // Ende: außerhalb des sichtbaren Bereichs
     }
 }
+
+// Respect users who prefer reduced motion
+@media (prefers-reduced-motion: reduce) {
+    .notification-bar {
+        animation: none !important;
+    }
+}

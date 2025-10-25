@@ -33,15 +33,16 @@ function resizeAndCopyWebImage(inputPath, outputPath) {
   const newBase = parsed.name.replace(/web$/, '') + parsed.ext;
   const newOutputPath = path.join(parsed.dir, newBase);
 
+  // Erzeuge NUR eine optimierte JPEG-Variante
   sharp(inputPath)
     .resize({ width: TARGET_WIDTH, withoutEnlargement: true })
-    .jpeg({ quality: 80 }) // Qualität auf 80% setzen
+    .jpeg({ quality: 80 })
     .toFile(newOutputPath)
     .then(() => {
-      console.log(`Resized & copied: ${newOutputPath}`);
+      console.log(`Resized & saved: ${newOutputPath}`);
     })
     .catch(err => {
-      console.error(`Error resizing ${inputPath}:`, err);
+      console.error(`Error processing ${inputPath}:`, err);
     });
 }
 
