@@ -29,6 +29,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "*.php",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [

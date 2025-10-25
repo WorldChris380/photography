@@ -1,4 +1,6 @@
 <?php
+// Note: Separate PayPal endpoint files are added alongside this file.
+// See create-order.php and capture-order.php.
 // CORS-Header hinzufügen
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Methods: POST, OPTIONS");

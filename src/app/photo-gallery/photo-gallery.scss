@@ -227,6 +227,48 @@
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
 }
 
+.purchase-actions {
+  margin-top: 12px;
+}
+
+.buy-button {
+  background: $cb-green;
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 0.5rem 1.2rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.purchase-panel {
+  margin-top: 10px;
+  padding: 12px;
+  background: rgba(255,255,255,0.95);
+  border-radius: 8px;
+  min-width: 280px;
+}
+
+body.darkmode .purchase-panel {
+  background: rgba(33,37,41,0.95);
+}
+
+.purchase-info {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #212529;
+  margin-bottom: 8px;
+}
+
+body.darkmode .purchase-info {
+  color: #fff;
+}
+
+.price {
+  font-weight: bold;
+}
+
 .gallery-search-bar {
   display: flex;
   align-items: center;

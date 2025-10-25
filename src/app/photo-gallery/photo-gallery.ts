@@ -4,6 +4,9 @@ import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { SeoService } from '../seo-service/seo-service';
+import { PaypalService } from '../paypal/paypal.service';
+import { DEFAULT_PHOTO_PRICE_EUR } from '../paypal/payments.config';
+import { AppComponent } from '../app';
 
 const JSON_BASE = 'assets/';
 
@@ -30,8 +33,17 @@ export class PhotoGallery implements OnInit {
 
   @ViewChild('lightboxContainer') lightboxContainer?: ElementRef<HTMLElement>;
   @ViewChild('lightboxCloseBtn') lightboxCloseBtn?: ElementRef<HTMLButtonElement>;
+  @ViewChild('paypalButtons') paypalButtons?: ElementRef<HTMLDivElement>;
 
-  constructor(private route: ActivatedRoute, private router: Router, private http: HttpClient, private seo: SeoService) {
+  purchaseVisible = false;
+  defaultPrice = DEFAULT_PHOTO_PRICE_EUR;
+
+  constructor(private route: ActivatedRoute,
+              private router: Router,
+              private http: HttpClient,
+              private seo: SeoService,
+              private paypal: PaypalService,
+              private app: AppComponent) {
     this.route.queryParams.subscribe(params => {
       if (params['filter']) {
         this.selectedFolder = params['filter'];
@@ -227,6 +239,7 @@ export class PhotoGallery implements OnInit {
 
   openLightbox(index: number) {
     this.selectedImageIndex = index;
+    this.purchaseVisible = false;
     // Focus the lightbox close button for accessibility after view updates
     setTimeout(() => {
       if (this.lightboxCloseBtn?.nativeElement) {
@@ -284,6 +297,76 @@ export class PhotoGallery implements OnInit {
         first.focus();
         event.preventDefault();
       }
+    }
+  }
+
+  async togglePurchase() {
+    this.purchaseVisible = !this.purchaseVisible;
+    if (!this.purchaseVisible) return;
+    try {
+      const paypal = await this.paypal.load();
+      const container = this.paypalButtons?.nativeElement;
+      if (!container) return;
+      // Clear any previous buttons
+      container.innerHTML = '';
+      // Render buttons
+      const img = this.lightboxImage;
+      const description = img ? img.description : 'Photo purchase';
+      const customId = img ? img.src : 'photo';
+      paypal.Buttons({
+        createOrder: async (_data: any, _actions: any) => {
+          try {
+            const res = await fetch('https://photography.christian-boehme.com/create-order.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ src: customId, description })
+            });
+            const text = await res.text();
+            let data: any;
+            try {
+              data = JSON.parse(text);
+            } catch (e) {
+              console.error('Server returned non-JSON:', text.substring(0, 200));
+              this.app.showNotification('Server error. Please try again later.', 'error');
+              throw new Error('Invalid server response');
+            }
+            if (!res.ok || !data?.id) {
+              console.error('Create order error:', data);
+              this.app.showNotification(`Payment error: ${data?.error || 'Unknown'}`, 'error');
+              throw new Error('Create order failed');
+            }
+            return data.id;
+          } catch (e: any) {
+            console.error('Create order exception:', e);
+            if (!e.message?.includes('order failed')) {
+              this.app.showNotification('Network error. Please check your connection.', 'error');
+            }
+            throw e;
+          }
+        },
+        onApprove: async (data: any, _actions: any) => {
+          try {
+            const res = await fetch('https://photography.christian-boehme.com/capture-order.php', {
+              method: 'POST',
+              headers: { 'Content-Type': 'application/json' },
+              body: JSON.stringify({ orderID: data.orderID })
+            });
+            const cap = await res.json();
+            if (!res.ok) throw new Error('Capture failed');
+            this.app.showNotification('Thank you! Your purchase was completed.', 'success');
+            this.purchaseVisible = false;
+          } catch (e) {
+            this.app.showNotification('Payment capture failed. Please contact support.', 'error');
+          }
+        },
+        onError: (err: any) => {
+          console.error('PayPal error', err);
+          this.app.showNotification('PayPal error. Please try again later.', 'error');
+        }
+      }).render(container);
+    } catch (e) {
+      console.error('Failed to load PayPal SDK', e);
+      this.app.showNotification('Could not load payment options. Please try again later.', 'error');
     }
   }
 

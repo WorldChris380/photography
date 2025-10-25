@@ -60,6 +60,16 @@
       <button class="lightbox-nav right" (click)="nextImage()"
         [disabled]="selectedImageIndex === filteredImages.length - 1" aria-label="Next image">&#8594;</button>
       <div class="lightbox-desc" id="lightbox-desc">{{ lightboxImage.description }}</div>
+      <div class="purchase-actions">
+        <button class="buy-button" type="button" (click)="togglePurchase()">Buy this photo</button>
+      </div>
+      <div class="purchase-panel" *ngIf="purchaseVisible">
+        <div class="purchase-info">
+          <div>Digital download – personal use</div>
+          <div class="price">{{ defaultPrice | currency:'EUR':'symbol-narrow':'1.2-2':'de' }}</div>
+        </div>
+        <div #paypalButtons></div>
+      </div>
       <button class="lightbox-close" (click)="closeLightbox()" #lightboxCloseBtn aria-label="Close lightbox">×</button>
     </div>
   </div>
