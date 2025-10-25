@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     }
 
-    $to = "info@christian-boehme.com";
+    $to = "photography@christian-boehme.com";
     $subject = "Contact Form Submission from $name";
     $body = "Name: $name\nEmail: $email\n\nMessage:\n$message\n";
     $headers = "From: $email\r\nReply-To: $email\r\n";

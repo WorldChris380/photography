@@ -7,6 +7,10 @@
   flex-direction: row;
   align-items: center;
   background-color: white;
+
+  &:hover #logo-div img {
+    transform: rotate(1360deg);
+  }
 }
 
 #header-content {
@@ -55,7 +59,7 @@
 #logo-div img {
   width: 40px;
   height: 40px;
-  transition: transform 0.5s ease;
+  transition: transform 2s ease;
 }
 
 #logo-div {
@@ -64,7 +68,7 @@
 }
 
 #logo-div img:hover {
-  transform: rotate(360deg);
+  transform: rotate(1360deg);
 }
 
 h1 {
@@ -82,9 +86,9 @@ a {
   margin-left: 20px;
 }
 
-#site-title:hover + #logo-div img,
+#site-title:hover+#logo-div img,
 #logo-div:hover img {
-  transform: rotate(360deg);
+  transform: rotate(1360deg);
 }
 
 .menu-link {
@@ -140,7 +144,7 @@ span {
 }
 
 .menu-link:hover {
-  background: $cb-grey !important;
+  background: $cb-green !important;
   color: white !important;
 }
 
@@ -182,7 +186,7 @@ body.darkmode .dropdown-menu {
 }
 
 .dropdown-menu a:hover {
-  background: $cb-grey;
+  background: $cb-green;
   color: white;
 }
 
@@ -235,7 +239,7 @@ body.darkmode .dropdown-menu {
     align-items: flex-start;
     padding: 2rem 1.5rem;
     transform: translateY(-120%);
-    transition: transform 0.3s;
+    transition: transform 2s;
     z-index: 1000;
     width: 100vw;
     min-height: 100vh;

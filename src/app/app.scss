@@ -33,12 +33,12 @@ app-home-numbers {
 }
 
 body.darkmode app-home-numbers {
-  background-color: black;
+  background-color: black !important;
 }
 
 body.darkmode app-header {
   border-bottom: solid 1px white;
-  background-color: $cb-grey;
+  background-color: $cb-grey !important;
 }
 
 app-footer {
@@ -194,6 +194,7 @@ main {
   width: 100%;
   display: block;
   overflow-x: hidden;
+  background-color: $cb-gray;
 }
 
 html {

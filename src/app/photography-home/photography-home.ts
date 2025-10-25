@@ -34,7 +34,7 @@ export class PhotographyHome implements OnInit, OnDestroy {
   ) { }
 
   ngOnInit(): void {
-    const title = 'Photography by Christian Böhme';
+    const title = 'Photography | Christian Böhme';
     const desc = 'Collection of aviation and travel photography. Explore galleries and countries visited.';
     this.seo.setTitle(title);
     this.seo.setDescription(desc);
