@@ -67,11 +67,16 @@
       <img [src]="lightboxImage.src" [alt]="lightboxImage.description" />
       <button class="lightbox-nav right" (click)="nextImage()"
         [disabled]="selectedImageIndex === filteredImages.length - 1" aria-label="Next image">&#8594;</button>
-      <div class="lightbox-path" *ngIf="lightboxImagePath">{{ lightboxImagePath }}</div>
-      <div class="lightbox-desc" id="lightbox-desc">{{ lightboxImage.description }}</div>
-      <div class="purchase-actions">
-        <button class="buy-button" type="button" (click)="togglePurchase()">Buy this photo</button>
+      
+      <!-- Info container with same width as image -->
+      <div class="lightbox-info-container">
+        <div class="lightbox-path" *ngIf="lightboxImagePath">{{ lightboxImagePath }}</div>
+        <div class="lightbox-desc" id="lightbox-desc">{{ lightboxImage.description }}</div>
+        <div class="purchase-actions">
+          <button class="buy-button" type="button" (click)="togglePurchase()">Buy this photo</button>
+        </div>
       </div>
+      
       <div class="purchase-panel" *ngIf="purchaseVisible">
         <div class="purchase-info">
           <div>Digital download – personal use</div>

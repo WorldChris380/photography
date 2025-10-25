@@ -1,6 +1,12 @@
 <?php
-define('PAYPAL_CLIENT_ID', 'AXvy9TcDTJ0L4iRsKTI1-sjfch2ErUdDKCdTwfVTuVRwrogfq7mNO3uClPtPnTMsfdzCLIBh-89Riygj');
-define('PAYPAL_SECRET', 'EMyIWGQDpWQLeRbltF8bNE9fExjWVrliA_QrLfHfjpqgZ_Sm0yXBY7j8FUD9dZwJsjncjtE4oip1zB2F');
+// Prevent direct access to this file
+if (!defined('ALLOW_INCLUDE')) {
+    http_response_code(403);
+    die('Direct access not permitted');
+}
+
+define('PAYPAL_CLIENT_ID', 'AQ8msxb9NIL7H6Gb6uc-C9lO8n_sw8d4ZCl2kzkk-j6ygpNuLWxIlL8iQIv5h1F5H-uNgEZiDYRJD4VS');
+define('PAYPAL_SECRET', 'EEmpNXvtLrOPH5YwjiCXgi89Td9rj07G4dFvhId4Tk9jbdC8KjpimAUJAMjXEIt4xhjcKy2KzR_8tRLH');
 // 'live' for production or 'sandbox' for testing
 define('PAYPAL_ENV', 'live');
 

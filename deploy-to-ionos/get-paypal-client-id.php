@@ -28,6 +28,7 @@ if (!file_exists($secretFile)) {
   echo json_encode(['error' => 'Server not configured']);
   exit;
 }
+define('ALLOW_INCLUDE', true);
 require_once $secretFile;
 
 $clientId = defined('PAYPAL_CLIENT_ID') ? trim(PAYPAL_CLIENT_ID) : '';

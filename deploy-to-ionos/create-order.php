@@ -61,6 +61,7 @@ error_log("create-order.php: Loading secrets from: $secretFile");
 error_log("create-order.php: About to require_once paypal-secret.php");
 
 try {
+  define('ALLOW_INCLUDE', true);
   require_once $secretFile;
   error_log("create-order.php: paypal-secret.php loaded successfully");
 } catch (Exception $e) {
@@ -87,9 +88,15 @@ if (!defined('PAYPAL_CLIENT_ID') || !defined('PAYPAL_SECRET')) {
 
 // Get OAuth token
 error_log("create-order.php: Requesting OAuth token");
-// Trim to avoid invisible whitespace from copy/paste
-$__clientId = trim(PAYPAL_CLIENT_ID);
-$__secret   = trim(PAYPAL_SECRET);
+// Sanitize credentials to avoid invisible Unicode whitespace from copy/paste
+$sanitize = static function($s) {
+  $s = trim($s);
+  // Remove zero-width and non-breaking spaces
+  $s = preg_replace('/[\x{200B}-\x{200D}\x{FEFF}\x{00A0}]/u', '', $s);
+  return $s;
+};
+$__clientId = $sanitize(PAYPAL_CLIENT_ID);
+$__secret   = $sanitize(PAYPAL_SECRET);
 error_log("create-order.php: Using CLIENT_ID: " . substr($__clientId, 0, 20) . "... (len=" . strlen($__clientId) . ")");
 error_log("create-order.php: Using SECRET: " . substr($__secret, 0, 10) . "... (len=" . strlen($__secret) . ")");
 
@@ -131,7 +138,9 @@ if ($tokenRes === false || $curlErrno !== 0) {
 
 curl_close($ch);
 error_log("create-order.php: OAuth HTTP code: $httpCode");
-error_log("create-order.php: OAuth response: $tokenRes");
+if ($httpCode !== 200) {
+  error_log("create-order.php: OAuth error body: $tokenRes");
+}
 
 $tokenInfo = json_decode($tokenRes, true);
 if (!isset($tokenInfo['access_token'])) {

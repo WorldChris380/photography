@@ -14,6 +14,7 @@ if (!file_exists($secretFile)) {
   echo json_encode(['ok'=>false,'error'=>'paypal-secret.php missing','dir'=>__DIR__]);
   exit;
 }
+define('ALLOW_INCLUDE', true);
 require_once $secretFile;
 
 $base = (defined('PAYPAL_ENV') && PAYPAL_ENV === 'sandbox') ? 'https://api-m.sandbox.paypal.com' : 'https://api-m.paypal.com';

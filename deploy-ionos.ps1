@@ -44,6 +44,11 @@ Copy-Item "$sourceSrc\get-paypal-client-id.php" -Destination $destination -Force
 Copy-Item "$sourceSrc\paypal-secret.php" -Destination $destination -Force -ErrorAction SilentlyContinue
 Copy-Item "$sourceSrc\send-email.php" -Destination $destination -Force -ErrorAction SilentlyContinue
 
+# Optionales Debug-Script (nur temporär für Auth-Fehlersuche)
+if (Test-Path "debug-paypal.php") {
+    Copy-Item "debug-paypal.php" -Destination $destination -Force -ErrorAction SilentlyContinue
+}
+
 # Kopiere .htaccess
 Write-Host "Erstelle .htaccess..." -ForegroundColor Green
 Copy-Item "dist-htaccess.txt" -Destination "$destination\.htaccess" -Force

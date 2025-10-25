@@ -1,4 +1,5 @@
 <?php
+define('ALLOW_INCLUDE', true);
 require_once __DIR__ . '/../paypal-secret.php';
 
 function cors_json() {

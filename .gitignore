@@ -45,4 +45,5 @@ Thumbs.db
 
 # My individual excluded files
 public/img/photography/
+src/assets/img/photography/
 scripts/Anleitung für automatische Website Konvertierung und Optimierung.txt
