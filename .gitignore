@@ -47,3 +47,6 @@ Thumbs.db
 public/img/photography/
 src/assets/img/photography/
 scripts/Anleitung für automatische Website Konvertierung und Optimierung.txt
+
+# Deployment folder - contains sensitive credentials
+deploy-to-ionos/
