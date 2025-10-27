@@ -19,7 +19,7 @@ export class AppComponent implements OnInit {
   protected readonly title = signal('photography');
   showBackToTop = false;
 
-  constructor(private renderer: Renderer2, private viewportScroller: ViewportScroller) {}
+  constructor(private renderer: Renderer2, private viewportScroller: ViewportScroller) { }
 
   ngOnInit() {
     this.renderer.listen('document', 'contextmenu', (event: MouseEvent) => {

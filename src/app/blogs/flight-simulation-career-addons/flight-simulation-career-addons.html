@@ -1,0 +1,196 @@
+﻿<div class="blog-page">
+  <div class="blog-container">
+    <header class="blog-header">
+      <div>
+        <h1>Career Add-ons for Flight Simulation</h1>
+        <p class="lead">Compatibility: MSFS 2020/2024, X-Plane 12, Prepar3D, DCS World, FSX  Freeware, Payware & Community projects (as of Oct 2025)</p>
+      </div>
+    </header>
+
+    <div class="filter-bar" role="tablist" aria-label="Simulator filter">
+      <button *ngFor="let s of sims"
+              class="filter-btn"
+              [class.active]="selectedSim === s"
+              (click)="selectSim(s)"
+              role="tab"
+              [attr.aria-selected]="selectedSim === s">
+        {{ s === 'ALL' ? 'All Sims' : s }}
+      </button>
+    </div>
+
+    <div class="filter-bar" role="tablist" aria-label="Price filter">
+      <button *ngFor="let p of priceFilters"
+              class="filter-btn"
+              [class.active]="selectedPriceFilter === p"
+              (click)="selectPriceFilter(p)"
+              role="tab"
+              [attr.aria-selected]="selectedPriceFilter === p">
+        {{ p === 'ALL' ? 'All Prices' : (p === 'free' ? 'Free' : 'Payware') }}
+      </button>
+    </div>
+
+    <main>
+      <h2>Official & commercial add-ons</h2>
+      <table class="blog-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>2020</th>
+            <th>2024</th>
+            <th>XP</th>
+            <th>P3D</th>
+            <th>DCS</th>
+            <th>FSX</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Pros</th>
+            <th>Cons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of filtered('commercial')">
+            <td class="ok"><a [href]="a.link" target="_blank" rel="noopener">{{ a.name }}</a></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'MSFS2020')" [class.compat-no]="!hasSim(a, 'MSFS2020')">{{ hasSim(a, 'MSFS2020') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'MSFS2024')" [class.compat-no]="!hasSim(a, 'MSFS2024')">{{ hasSim(a, 'MSFS2024') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'X-Plane')" [class.compat-no]="!hasSim(a, 'X-Plane')">{{ hasSim(a, 'X-Plane') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'P3D')" [class.compat-no]="!hasSim(a, 'P3D')">{{ hasSim(a, 'P3D') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'DCS')" [class.compat-no]="!hasSim(a, 'DCS')">{{ hasSim(a, 'DCS') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'FSX')" [class.compat-no]="!hasSim(a, 'FSX')">{{ hasSim(a, 'FSX') ? '✓' : '✗' }}</span></td>
+            <td><span [class]="priceBadgeClass(a)">{{ a.priceLabel }}</span></td>
+            <td>{{ a.description }}</td>
+            <td class="pros">{{ a.pros }}</td>
+            <td class="cons">{{ a.cons }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Community projects & open-source career modes</h2>
+      <table class="blog-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>2020</th>
+            <th>2024</th>
+            <th>XP</th>
+            <th>P3D</th>
+            <th>DCS</th>
+            <th>FSX</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Pros</th>
+            <th>Cons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of filtered('community')">
+            <td class="ok"><a [href]="a.link" target="_blank" rel="noopener">{{ a.name }}</a></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'MSFS2020')" [class.compat-no]="!hasSim(a, 'MSFS2020')">{{ hasSim(a, 'MSFS2020') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'MSFS2024')" [class.compat-no]="!hasSim(a, 'MSFS2024')">{{ hasSim(a, 'MSFS2024') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'X-Plane')" [class.compat-no]="!hasSim(a, 'X-Plane')">{{ hasSim(a, 'X-Plane') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'P3D')" [class.compat-no]="!hasSim(a, 'P3D')">{{ hasSim(a, 'P3D') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'DCS')" [class.compat-no]="!hasSim(a, 'DCS')">{{ hasSim(a, 'DCS') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'FSX')" [class.compat-no]="!hasSim(a, 'FSX')">{{ hasSim(a, 'FSX') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge free">Community</span></td>
+            <td>{{ a.description }}</td>
+            <td class="pros">{{ a.pros }}</td>
+            <td class="cons">{{ a.cons }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h2>Companions & tracking (no economy)</h2>
+      <table class="blog-table">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>2020</th>
+            <th>2024</th>
+            <th>XP</th>
+            <th>P3D</th>
+            <th>DCS</th>
+            <th>FSX</th>
+            <th>Type</th>
+            <th>Description</th>
+            <th>Pros</th>
+            <th>Cons</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let a of filtered('companion')">
+            <td class="ok"><a [href]="a.link" target="_blank" rel="noopener">{{ a.name }}</a></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'MSFS2020')" [class.compat-no]="!hasSim(a, 'MSFS2020')">{{ hasSim(a, 'MSFS2020') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'MSFS2024')" [class.compat-no]="!hasSim(a, 'MSFS2024')">{{ hasSim(a, 'MSFS2024') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'X-Plane')" [class.compat-no]="!hasSim(a, 'X-Plane')">{{ hasSim(a, 'X-Plane') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'P3D')" [class.compat-no]="!hasSim(a, 'P3D')">{{ hasSim(a, 'P3D') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'DCS')" [class.compat-no]="!hasSim(a, 'DCS')">{{ hasSim(a, 'DCS') ? '✓' : '✗' }}</span></td>
+            <td><span class="badge" [class.compat-yes]="hasSim(a, 'FSX')" [class.compat-no]="!hasSim(a, 'FSX')">{{ hasSim(a, 'FSX') ? '✓' : '✗' }}</span></td>
+            <td>Planning / Tracking</td>
+            <td>{{ a.description }}</td>
+            <td class="pros">{{ a.pros }}</td>
+            <td class="cons">{{ a.cons }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <section class="sources">
+        <h3>Notes & sources</h3>
+        <ul>
+          <li>Sources: Developer pages (NeoFly, OnAir, FSEconomy, SimBitWorld, Just Flight, Parallel 42) and community portals (flightsim.to, Reddit, MSFS forum).</li>
+          <li>Prices and compatibility can change. Please verify on the linked pages.</li>
+        </ul>
+      </section>
+
+      <!-- Comments Section -->
+      <section class="comments-section">
+        <h2>Comments</h2>
+        
+        <div class="comment-form">
+          <h3>Leave a Comment</h3>
+          <div class="form-group">
+            <label for="author">Name</label>
+            <input 
+              type="text" 
+              id="author" 
+              [(ngModel)]="newCommentAuthor" 
+              placeholder="Your name"
+              class="form-control">
+          </div>
+          <div class="form-group">
+            <label for="comment">Comment</label>
+            <textarea 
+              id="comment" 
+              [(ngModel)]="newCommentText" 
+              placeholder="Share your thoughts..."
+              rows="4"
+              class="form-control"></textarea>
+          </div>
+          <button 
+            (click)="addComment()" 
+            [disabled]="!newCommentAuthor.trim() || !newCommentText.trim()"
+            class="btn-submit">
+            Post Comment
+          </button>
+        </div>
+
+        <div class="comments-list">
+          <h3>{{ comments.length }} Comment{{ comments.length !== 1 ? 's' : '' }}</h3>
+          <div *ngIf="comments.length === 0" class="no-comments">
+            No comments yet. Be the first to comment!
+          </div>
+          <div *ngFor="let comment of comments" class="comment">
+            <div class="comment-header">
+              <span class="comment-author">{{ comment.author }}</span>
+              <span class="comment-date">{{ formatDate(comment.date) }}</span>
+            </div>
+            <div class="comment-text">{{ comment.text }}</div>
+            <button (click)="deleteComment(comment.id)" class="btn-delete">Delete</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="blog-footer">
+      <p>As of <strong>October 2025</strong></p>
+    </footer>
+  </div>
+</div>
