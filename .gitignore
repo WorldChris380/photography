@@ -48,5 +48,10 @@ scripts/Anleitung für automatische Website Konvertierung und Optimierung.txt
 # Environment files (keep examples, ignore real secrets)
 .env
 .env.*
-!.env.example
-!**/.env.example
+**/.env
+**/.env.*
+**/.env.example
+
+# PayPal secret definition files (do not track anywhere in the tree)
+paypal-secret.php
+**/paypal-secret.php
