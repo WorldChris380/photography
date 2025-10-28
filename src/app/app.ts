@@ -1,4 +1,4 @@
-import { Component, HostListener, OnInit, Renderer2, signal, ViewChild } from '@angular/core';
+import { Component, OnInit, Renderer2, signal, ViewChild } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { Footer } from './footer/footer';
 import { Header } from './header/header';
@@ -17,9 +17,8 @@ import { Notifications } from './notifications/notifications';
 })
 export class AppComponent implements OnInit {
   protected readonly title = signal('photography');
-  showBackToTop = false;
 
-  constructor(private renderer: Renderer2, private viewportScroller: ViewportScroller) { }
+  constructor(private renderer: Renderer2, private viewportScroller: ViewportScroller) {}
 
   ngOnInit() {
     this.renderer.listen('document', 'contextmenu', (event: MouseEvent) => {
@@ -74,15 +73,5 @@ export class AppComponent implements OnInit {
 
   showNotification(message: string, type: 'success' | 'error') {
     this.notifications.showMessage(message, type);
-  }
-
-  @HostListener('window:scroll')
-  onWindowScroll() {
-    const y = window.scrollY || document.documentElement.scrollTop || 0;
-    this.showBackToTop = y > 400;
-  }
-
-  scrollToTop() {
-    this.viewportScroller.scrollToPosition([0, 0]);
   }
 }

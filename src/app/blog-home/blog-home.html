@@ -1,0 +1,105 @@
+<div class="blog-home">
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-background">
+      <div class="clouds cloud-1"></div>
+      <div class="clouds cloud-2"></div>
+      <div class="clouds cloud-3"></div>
+      <div class="plane-icon">✈️</div>
+    </div>
+    
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <span class="title-line">Aviation &amp;</span>
+        <span class="title-line highlight">Travel Blog</span>
+      </h1>
+      <p class="hero-subtitle">
+        Explore the world through flight simulation, real aviation experiences, and travel adventures
+      </p>
+      <div class="hero-stats">
+        <div class="stat">
+          <span class="stat-number">1</span>
+          <span class="stat-label">Articles</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">3</span>
+          <span class="stat-label">Categories</span>
+        </div>
+        <div class="stat">
+          <span class="stat-number">∞</span>
+          <span class="stat-label">Adventures</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Categories Section -->
+  <section class="categories">
+    <div class="container">
+      <h2 class="section-title">Explore Topics</h2>
+      <div class="category-grid">
+        @for (category of categories; track category.filter) {
+          <div class="category-card">
+            <div class="category-icon">{{ category.icon }}</div>
+            <h3 class="category-name">{{ category.name }}</h3>
+            <p class="category-count">{{ category.count }} article{{ category.count !== 1 ? 's' : '' }}</p>
+            <div class="category-hover-effect"></div>
+          </div>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Featured Posts -->
+  <section class="featured-posts">
+    <div class="container">
+      <h2 class="section-title">Latest Articles</h2>
+      <div class="posts-grid">
+        @for (post of posts; track post.route) {
+          <article class="post-card" [routerLink]="post.route">
+            <div class="post-image">
+              <div class="post-category" [class]="'category-' + post.category">
+                {{ post.category }}
+              </div>
+              <div class="image-placeholder">
+                <span class="placeholder-icon">
+                  @if (post.category === 'aviation') { ✈️ }
+                  @else if (post.category === 'travel') { 🌍 }
+                  @else { 💻 }
+                </span>
+              </div>
+            </div>
+            <div class="post-content">
+              <div class="post-meta">
+                <span class="post-date">{{ post.date }}</span>
+                <span class="post-read-time">{{ post.readTime }} min read</span>
+              </div>
+              <h3 class="post-title">{{ post.title }}</h3>
+              <p class="post-excerpt">{{ post.excerpt }}</p>
+              <div class="read-more">
+                Read Article
+                <span class="arrow">→</span>
+              </div>
+            </div>
+          </article>
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter">
+    <div class="container">
+      <div class="newsletter-content">
+        <div class="newsletter-icon">📧</div>
+        <h2 class="newsletter-title">Stay Updated</h2>
+        <p class="newsletter-text">
+          Get notified about new articles, aviation tips, and travel stories
+        </p>
+        <div class="newsletter-note">
+          <em>Newsletter coming soon</em>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>

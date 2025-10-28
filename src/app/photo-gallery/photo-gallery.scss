@@ -26,7 +26,6 @@
   overflow: hidden;
   transition: box-shadow 0.2s;
   position: relative;
-  cursor: pointer;
 
   &:hover {
     box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
@@ -97,20 +96,10 @@
   transition: background 0.2s;
 }
 
-.gallery-filter button.active {
-  background: $cb-gray;
-  color: #fff;
-}
-
-.gallery-filter button.active:hover {
-  cursor: default;
-  background: $cb-gray;
-  color: white;
-}
-
+.gallery-filter button.active,
 .gallery-filter button:hover {
-  background: $cb-light-green;
-  color: black;
+  background: #212529;
+  color: #fff;
 }
 
 .gallery-pagination {
@@ -134,26 +123,26 @@
 }
 
 .gallery-pagination button.active {
-  background: black;
-  color: white;
+  background: $cb-green;
+  color: #fff;
   border: none;
 }
 
 .gallery-pagination button.active:hover {
-  background: black;
-  color: white !important;
+  background: $cb-green;
+  color: #fff;
   cursor: auto;
 }
 
 .gallery-pagination button:hover {
-  background: $cb-light-green;
-  color: black;
+  background: $cb-grey;
+  color: #fff;
 }
 
 .lightbox {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.95);
+  background: rgba(0, 0, 0, 0.85);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -186,30 +175,12 @@
   box-shadow: 0 4px 32px rgba(0, 0, 0, 0.4);
 }
 
-.lightbox-info-container {
-  background: white;
-  color: black;
-  padding: 1rem 1.5rem;
-  border-radius: 8px;
-  margin-top: 1rem;
-  max-width: 90vw;
-  width: 100%;
-  box-sizing: border-box;
-}
-
-.lightbox-path {
-  color: rgba(0, 0, 0, 0.6);
-  margin-bottom: 0.5rem;
-  text-align: center;
-  font-size: 0.9rem;
-  font-family: monospace;
-}
-
 .lightbox-desc {
-  color: black;
-  margin-bottom: 0.75rem;
+  color: #fff;
+  margin-top: 1rem;
   text-align: center;
   font-size: 1.1rem;
+  max-width: 90vw;
 }
 
 .lightbox-nav {
@@ -245,80 +216,15 @@
   position: absolute;
   top: -16px;
   right: -16px;
-  background: $cb-red;
-  color: white;
+  background: #fff;
+  color: #212529;
   border: none;
   border-radius: 50%;
-  width: 38px;
-  height: 38px;
+  width: 36px;
+  height: 36px;
   font-size: 2rem;
   cursor: pointer;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
-}
-
-.purchase-actions {
-  margin-top: 0;
-  text-align: center;
-}
-
-.buy-button {
-  background: $cb-red;
-  color: #fff;
-  border: none;
-  border-radius: 20px;
-  padding: 0.5rem 1.2rem;
-  font-size: 1rem;
-  cursor: pointer;
-}
-
-.purchase-panel {
-  margin-top: 10px;
-  padding: 12px;
-  background: rgba(255, 255, 255, 0.95);
-  border-radius: 8px;
-
-  .post-purchase-cta {
-    margin-top: 12px;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    font-size: 14px;
-    color: #cbd5e1;
-  }
-
-  .post-purchase-cta .cta-link {
-    padding: 6px 10px;
-    border-radius: 999px;
-    border: 1px solid rgba(255, 255, 255, .2);
-    text-decoration: none;
-    color: #fff;
-  }
-
-  .post-purchase-cta .cta-link:hover {
-    border-color: #2ea8ff;
-  }
-
-  min-width: 280px;
-}
-
-body.darkmode .purchase-panel {
-  background: rgba(33, 37, 41, 0.95);
-}
-
-.purchase-info {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  color: #212529;
-  margin-bottom: 8px;
-}
-
-body.darkmode .purchase-info {
-  color: #fff;
-}
-
-.price {
-  font-weight: bold;
 }
 
 .gallery-search-bar {
@@ -330,15 +236,13 @@ body.darkmode .purchase-info {
   width: 80%;
   min-width: 250px;
   flex-direction: column;
-  position: relative;
 }
 
 .gallery-search-bar input[type='text'] {
   flex: 1;
   font-size: 1.1rem;
   width: 60%;
-  padding: 0.7rem 3rem 0.7rem 1.5rem;
-  /* Extra padding right for clear button */
+  padding: 0.7rem 1.5rem;
   border-radius: 2rem;
   border: solid 1px $cb-grey;
   background: white;
@@ -346,41 +250,6 @@ body.darkmode .purchase-info {
   outline: none;
   transition: box-shadow 0.2s;
   height: 2.5rem;
-}
-
-.search-clear-btn {
-  position: absolute;
-  right: 21%;
-  top: 26%;
-  transform: translateY(-50%);
-  background: transparent;
-  border: none;
-  font-size: 1.8rem;
-  color: $cb-grey;
-  cursor: pointer;
-  width: 2rem;
-  height: auto;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 50%;
-  transition: background 0.2s, color 0.2s;
-  padding: 0;
-  line-height: 1;
-}
-
-.search-clear-btn:hover {
-  background: $cb-red;
-  color: white;
-}
-
-body.darkmode .search-clear-btn {
-  color: #f1f3f4;
-}
-
-body.darkmode .search-clear-btn:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
 }
 
 body.darkmode .gallery-search-bar input[type='text'] {
@@ -439,12 +308,6 @@ body.darkmode .gallery-loading-overlay {
   color: #007bff;
   text-shadow: 0 1px 8px #fff, 0 1px 8px #212529;
   pointer-events: none;
-}
-
-.active-folder {
-  background-color: #f0f8ff; // Heller Blauton für aktive Ordner
-  font-weight: bold;
-  border: 2px solid #0078d7; // Blaue Umrandung
 }
 
 @media (max-width: 700px) {

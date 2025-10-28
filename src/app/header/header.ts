@@ -1,7 +1,6 @@
 import { Component, Renderer2, OnInit, ViewEncapsulation } from '@angular/core';
-import { Router } from '@angular/router';
-import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-header',
@@ -15,7 +14,7 @@ export class Header implements OnInit {
   menuOpen = false;
   darkMode = false;
 
-  constructor(private renderer: Renderer2, private router: Router) { }
+  constructor(private renderer: Renderer2) { }
 
   ngOnInit() {
     const saved = localStorage.getItem('darkmode');

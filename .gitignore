@@ -10,8 +10,6 @@
 /node_modules
 npm-debug.log
 yarn-error.log
-.DS_Store
-src/paypal-secret.php
 
 # IDEs and editors
 .idea/
@@ -45,8 +43,4 @@ Thumbs.db
 
 # My individual excluded files
 public/img/photography/
-src/assets/img/photography/
 scripts/Anleitung für automatische Website Konvertierung und Optimierung.txt
-
-# Deployment folder - contains sensitive credentials
-deploy-to-ionos/

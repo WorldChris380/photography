@@ -29,16 +29,10 @@
               {
                 "glob": "**/*",
                 "input": "public"
-              },
-              {
-                "glob": "*.php",
-                "input": "src",
-                "output": "/"
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "src/app/app.scss"
+              "src/styles.scss"
             ]
           },
           "configurations": {
@@ -67,9 +61,6 @@
         },
         "serve": {
           "builder": "@angular/build:dev-server",
-          "options": {
-            "proxyConfig": "proxy.conf.json"
-          },
           "configurations": {
             "production": {
               "buildTarget": "photography:build:production"
@@ -99,8 +90,7 @@
               }
             ],
             "styles": [
-              "src/styles.scss",
-              "src/app/app.scss"
+              "src/styles.scss"
             ]
           }
         }

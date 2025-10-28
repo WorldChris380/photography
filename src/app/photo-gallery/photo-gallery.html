@@ -3,33 +3,24 @@
     <button (click)="clearFilter()" [class.active]="!filter || filter.toLowerCase() === 'all'">
       All
     </button>
-    <!-- Show Go back button after "All" when a filter is active (not "All") -->
-    <button *ngIf="selectedFolder && selectedFolder !== '' && filter && filter.toLowerCase() !== 'all'" 
-            (click)="goUpOneLevel()" 
-            class="back-button">
-      Go back
-    </button>
     <button (click)="selectFolder('Aviation')" [class.active]="filter.toLowerCase() === 'aviation'">
       Aviation
     </button>
     <button (click)="selectFolder('Travel')" [class.active]="filter.toLowerCase() === 'travel'">
       Travel
     </button>
-    <!-- Show current folder as active (only if it's a subfolder, not top-level Aviation/Travel) -->
-    <button *ngIf="currentPath.length > 1 && selectedFolder" 
-            [class.active]="true">
-      {{ formatFolderLabel(getVisibleFolders().current) }}
+    <!-- Only show Go back when we're in a subfolder (currentPath length > 1) -->
+    <button *ngIf="currentPath.length > 1" (click)="goUpOneLevel()">
+      Go back
     </button>
-    <!-- Show child folders -->
-    <button *ngFor="let folder of getVisibleFolders().children" (click)="goToSubfolder(folder)">
+    <button *ngFor="let folder of currentLevelFolders" (click)="goToSubfolder(folder)"
+      [class.active]="selectedFolder === getCurrentFolderPath(folder)">
       {{ formatFolderLabel(folder) }}
     </button>
   </div>
 
   <div class="gallery-search-bar">
-    <input type="text" placeholder="Search by country or description"
-      aria-label="Search images by country or description" [(ngModel)]="searchTerm" (input)="onSearch()" />
-    <button class="search-clear-btn" *ngIf="searchTerm" (click)="clearSearch()" aria-label="Clear search">×</button>
+    <input type="text" placeholder="Search by country or description" [(ngModel)]="searchTerm" (input)="onSearch()" />
     <span class="gallery-search-count">{{ filteredImages.length }} images found</span>
   </div>
 
@@ -58,37 +49,15 @@
   </div>
 
   <!-- Lightbox -->
-  <div class="lightbox" *ngIf="lightboxImage" (click)="closeLightbox()" [attr.role]="'dialog'" aria-modal="true"
-    [attr.aria-label]="lightboxImage.description" tabindex="-1" #lightboxContainer (keydown.arrowLeft)="prevImage()"
-    (keydown.arrowRight)="nextImage()" (keydown.escape)="closeLightbox()" (keydown)="onLightboxKeydown($event)">
+  <div class="lightbox" *ngIf="lightboxImage" (click)="closeLightbox()" tabindex="0" (keydown.arrowLeft)="prevImage()"
+    (keydown.arrowRight)="nextImage()">
     <div class="lightbox-content" (click)="$event.stopPropagation()">
-      <button class="lightbox-nav left" (click)="prevImage()" [disabled]="selectedImageIndex === 0"
-        aria-label="Previous image">&#8592;</button>
+      <button class="lightbox-nav left" (click)="prevImage()" [disabled]="selectedImageIndex === 0">&#8592;</button>
       <img [src]="lightboxImage.src" [alt]="lightboxImage.description" />
       <button class="lightbox-nav right" (click)="nextImage()"
-        [disabled]="selectedImageIndex === filteredImages.length - 1" aria-label="Next image">&#8594;</button>
-      
-      <!-- Info container with same width as image -->
-      <div class="lightbox-info-container">
-        <div class="lightbox-path" *ngIf="lightboxImagePath">{{ lightboxImagePath }}</div>
-        <div class="lightbox-desc" id="lightbox-desc">{{ lightboxImage.description }}</div>
-        <div class="purchase-actions">
-          <button class="buy-button" type="button" (click)="togglePurchase()">Buy this photo</button>
-        </div>
-      </div>
-      
-      <div class="purchase-panel" *ngIf="purchaseVisible">
-        <div class="purchase-info">
-          <div>Digital download – personal use</div>
-          <div class="price">{{ defaultPrice | currency:'EUR':'symbol-narrow':'1.2-2':'de' }}</div>
-        </div>
-        <div #paypalButtons></div>
-        <div class="post-purchase-cta" *ngIf="showDownloadCta">
-          <span>Fertig! Deine Bestellung war erfolgreich.</span>
-          <a class="cta-link" [attr.href]="accountDownloadsUrl" target="_blank" rel="noopener">Zu deinen Downloads →</a>
-        </div>
-      </div>
-      <button class="lightbox-close" (click)="closeLightbox()" #lightboxCloseBtn aria-label="Close lightbox">×</button>
+        [disabled]="selectedImageIndex === filteredImages.length - 1">&#8594;</button>
+      <div class="lightbox-desc">{{ lightboxImage.description }}</div>
+      <button class="lightbox-close" (click)="closeLightbox()">×</button>
     </div>
   </div>
 

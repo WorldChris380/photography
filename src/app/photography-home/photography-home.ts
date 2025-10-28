@@ -4,6 +4,7 @@ import { RouterModule } from '@angular/router';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { HomeNumbers } from '../home-numbers/home-numbers';
 import { CountriesVisited } from '../countries-visited/countries-visited';
+import { BlogHome } from '../blog-home/blog-home';
 import { SeoService } from '../seo-service/seo-service';
 
 @Component({
@@ -11,7 +12,7 @@ import { SeoService } from '../seo-service/seo-service';
   templateUrl: './photography-home.html',
   styleUrls: ['./photography-home.scss'],
   standalone: true,
-  imports: [CommonModule, RouterModule, HttpClientModule, HomeNumbers, CountriesVisited]
+  imports: [CommonModule, RouterModule, HttpClientModule, HomeNumbers, CountriesVisited, BlogHome]
 })
 export class PhotographyHome implements OnInit, OnDestroy {
   atfImages: string[] = [

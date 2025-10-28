@@ -7,7 +7,7 @@
               (click)="accordionOpen = accordionOpen === continent.name ? null : continent.name">
         {{ continent.name }}
       </button>
-      <div class="accordion-body" [class.open]="accordionOpen === continent.name">
+      <div class="accordion-body" *ngIf="accordionOpen === continent.name">
         <ul>
           <li *ngFor="let country of continent.countries">{{ country }}</li>
         </ul>

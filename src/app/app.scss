@@ -4,7 +4,6 @@ $cb-light-green: #e0f7e9;
 $cb-grey: #212529;
 $cb-gray: #212529;
 $cb-red: #dc3545;
-@use 'sass:color';
 
 .cb-light-green {
   color: $cb-light-green;
@@ -29,8 +28,7 @@ app-header {
 app-home-numbers {
   display: block;
   width: 100%;
-  min-height: 1px;
-  /* sorgt dafür, dass ein Hintergrund sichtbar wird, bei Bedarf anpassen */
+  min-height: 1px; /* sorgt dafür, dass ein Hintergrund sichtbar wird, bei Bedarf anpassen */
   background-color: $cb-light-green;
 }
 
@@ -192,11 +190,11 @@ body.darkmode .fact-label {
 
 main {
   position: relative;
-  min-height: calc(100vh - 60px - 90px); // Adjust based on your header/footer height
+  min-height: calc(100vh - 60px - 120px); // Adjust based on your header/footer height
   width: 100%;
   display: block;
   overflow-x: hidden;
-  background-color: white;
+  background-color: $cb-gray;
 }
 
 html {
@@ -207,65 +205,4 @@ body {
   overflow-x: hidden;
   margin: 0;
   padding: 0;
-}
-
-// Improve default focus visibility for accessibility
-button:focus-visible,
-a:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 2px solid $cb-blue;
-  outline-offset: 2px;
-}
-
-// Back to top button styles
-#back-to-top {
-  position: fixed;
-  right: 16px;
-  bottom: 24px;
-  width: 44px;
-  height: 44px;
-  border-radius: 50%;
-  border: solid 1px white;
-  background: $cb-green;
-  color: #fff;
-  font-size: 1.5rem;
-  line-height: 44px;
-  text-align: center;
-  cursor: pointer;
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
-  z-index: 1000;
-}
-
-.darkmode #back-to-top {
-  background: white;
-  color: $cb-grey;
-  border: solid 1px black;
-
-  &:hover {
-    background: $cb-light-green;
-  }
-}
-
-#back-to-top:hover {
-  background: color.adjust($cb-green, $lightness: -5%);
-}
-
-.visually-hidden {
-  position: absolute !important;
-  width: 1px !important;
-  height: 1px !important;
-  padding: 0 !important;
-  margin: -1px !important;
-  overflow: hidden !important;
-  clip: rect(0, 0, 0, 0) !important;
-  white-space: nowrap !important;
-  border: 0 !important;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
 }
