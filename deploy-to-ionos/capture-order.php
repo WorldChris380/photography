@@ -20,6 +20,7 @@ error_log("capture-order.php: Script started");
 $secretFile = __DIR__ . '/paypal-secret.php';
 if (!file_exists($secretFile)) { $secretFile = dirname(__DIR__) . '/paypal-secret.php'; }
 if (!file_exists($secretFile)) { http_response_code(500); header('Content-Type: application/json'); echo json_encode(['error' => 'Server not configured: paypal-secret.php missing']); exit; }
+define('ALLOW_INCLUDE', true);
 require_once $secretFile;
 
 $base = (defined('PAYPAL_ENV') && PAYPAL_ENV === 'sandbox') ? 'https://api-m.sandbox.paypal.com' : 'https://api-m.paypal.com';

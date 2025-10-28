@@ -44,3 +44,9 @@ Thumbs.db
 # My individual excluded files
 public/img/photography/
 scripts/Anleitung für automatische Website Konvertierung und Optimierung.txt
+
+# Environment files (keep examples, ignore real secrets)
+.env
+.env.*
+!.env.example
+!**/.env.example
