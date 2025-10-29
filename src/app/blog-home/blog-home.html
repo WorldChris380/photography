@@ -1,17 +1,10 @@
 <div class="blog-home">
   <!-- Hero Section -->
   <section class="hero">
-    <div class="hero-background">
-      <div class="clouds cloud-1"></div>
-      <div class="clouds cloud-2"></div>
-      <div class="clouds cloud-3"></div>
-      <div class="plane-icon">✈️</div>
-    </div>
-    
     <div class="hero-content">
       <h1 class="hero-title">
         <span class="title-line">Aviation &amp;</span>
-        <span class="title-line highlight">Travel Blog</span>
+        <span class="title-line">Travel Blog</span>
       </h1>
       <p class="hero-subtitle">
         Explore the world through flight simulation, real aviation experiences, and travel adventures
@@ -43,7 +36,6 @@
             <div class="category-icon">{{ category.icon }}</div>
             <h3 class="category-name">{{ category.name }}</h3>
             <p class="category-count">{{ category.count }} article{{ category.count !== 1 ? 's' : '' }}</p>
-            <div class="category-hover-effect"></div>
           </div>
         }
       </div>
@@ -96,9 +88,28 @@
         <p class="newsletter-text">
           Get notified about new articles, aviation tips, and travel stories
         </p>
-        <div class="newsletter-note">
-          <em>Newsletter coming soon</em>
-        </div>
+        <form (ngSubmit)="submitNewsletter()" #newsletterForm="ngForm" novalidate>
+          <div style="display:flex; gap: 12px; justify-content:center; align-items:center; flex-wrap: wrap;">
+            <input
+              type="email"
+              name="email"
+              [(ngModel)]="newsletterEmail"
+              required
+              placeholder="Your email address"
+              style="min-width:260px; padding:12px 14px; border-radius:8px; border: none; outline: none;"
+            />
+            <button
+              type="submit"
+              [disabled]="submitting || !newsletterForm.form.valid"
+              style="padding:12px 16px; border-radius:8px; border:none; background:#e0f7e9; color:#0a0a0a; font-weight:600; cursor:pointer;"
+            >
+              {{ submitting ? 'Submitting…' : 'Subscribe' }}
+            </button>
+          </div>
+          <div class="newsletter-note" style="margin-top:10px;">
+            <em>We’ll send occasional updates. You can unsubscribe anytime.</em>
+          </div>
+        </form>
       </div>
     </div>
   </section>

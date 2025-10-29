@@ -20,8 +20,8 @@ interface Addon {
   selector: 'app-blog',
   standalone: true,
   imports: [CommonModule],
-  templateUrl: './blog.html',
-  styleUrls: ['./blog.scss'],
+  templateUrl: './flight-simulation-career-addons.html',
+  styleUrls: ['./flight-simulation-career-addons.scss'],
   encapsulation: ViewEncapsulation.None
 })
 export class Blog {
@@ -29,7 +29,6 @@ export class Blog {
   selectedSim: Sim | 'ALL' = 'ALL';
 
   addons: Addon[] = [
-    // Commercial/official (includes free services)
     {
       name: 'NeoFly 4',
       sims: ['MSFS'],

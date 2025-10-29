@@ -58,6 +58,70 @@ Angular CLI does not come with an end-to-end testing framework by default. You c
 
 For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
 
+## Deployment to IONOS
+
+### Prerequisites
+
+1. **Environment Variables**: Your IONOS hosting must have these environment variables configured:
+   - `PAYPAL_CLIENT_ID` - Your PayPal client ID
+   - `PAYPAL_SECRET` - Your PayPal secret key
+   - `PAYPAL_ENV` - Either `live` or `sandbox`
+
+2. **PHP Support**: Ensure PHP 7.4+ is enabled on your hosting
+3. **MySQL Database**: Configure database credentials in `deploy-to-ionos/lib/db.php`
+
+### Deployment Steps
+
+1. **Prepare deployment folder**:
+   ```powershell
+   .\deploy-ionos.ps1
+   ```
+   This script will:
+   - Build the Angular application for production
+   - Clear the `deploy-to-ionos` folder (keeping backend files)
+   - Copy compiled Angular files
+   - Copy PHP backend files
+   - Verify all critical files are present
+
+2. **Configure environment on IONOS**:
+   - Log into your IONOS control panel
+   - Navigate to PHP settings or environment variables
+   - Set the three PayPal environment variables listed above
+
+3. **Upload to server**:
+   - Connect via FTP/SFTP to your IONOS web space
+   - Upload all contents of `deploy-to-ionos/` to your web root (usually `htdocs` or `public_html`)
+
+4. **Set folder permissions**:
+   - Ensure `data/` folder is writable (chmod 755 or 775)
+   - Ensure `private_downloads/` folder is writable
+   - Both folders should have `.htaccess` files to prevent direct access
+
+5. **Test the deployment**:
+   - Visit your domain to verify the Angular app loads
+   - Test PayPal functionality (use sandbox first!)
+   - Check that PHP endpoints respond correctly
+
+### Manual Deployment (without script)
+
+If you prefer manual deployment:
+
+```powershell
+# 1. Build
+ng build --configuration production
+
+# 2. Copy dist/photography/browser/* to deploy-to-ionos/
+# 3. Copy PHP files from src/ to deploy-to-ionos/
+# 4. Upload deploy-to-ionos/ contents to your server
+```
+
+### Troubleshooting
+
+- **502 errors**: Check `paypal_errors.log` in your web root
+- **PayPal auth fails**: Verify environment variables are set correctly
+- **Database errors**: Check credentials in `lib/db.php`
+- **403 errors**: Verify `.htaccess` files are present and working
+
 ## PayPal configuration and secret management
 
 Important: Do not commit credentials. The application reads PayPal settings exclusively from environment variables and never from the repository.
