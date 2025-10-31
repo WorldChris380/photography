@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
 import { AppComponent } from '../app';
+import { BlogsSummary } from '../blogs/blogs-summary/blogs-summary';
 
 interface BlogPost {
   title: string;
@@ -17,7 +18,7 @@ interface BlogPost {
 
 @Component({
   selector: 'app-blog-home',
-  imports: [CommonModule, RouterLink, FormsModule, HttpClientModule],
+  imports: [CommonModule, RouterLink, FormsModule, HttpClientModule, BlogsSummary],
   templateUrl: './blog-home.html',
   styleUrl: './blog-home.scss',
   encapsulation: ViewEncapsulation.None

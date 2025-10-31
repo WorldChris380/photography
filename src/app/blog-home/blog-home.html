@@ -1,30 +1,9 @@
 <div class="blog-home">
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="hero-title">
-        <span class="title-line">Aviation &amp;</span>
-        <span class="title-line">Travel Blog</span>
-      </h1>
-      <p class="hero-subtitle">
-        Explore the world through flight simulation, real aviation experiences, and travel adventures
-      </p>
-      <div class="hero-stats">
-        <div class="stat">
-          <span class="stat-number">1</span>
-          <span class="stat-label">Articles</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">3</span>
-          <span class="stat-label">Categories</span>
-        </div>
-        <div class="stat">
-          <span class="stat-number">∞</span>
-          <span class="stat-label">Adventures</span>
-        </div>
-      </div>
-    </div>
-  </section>
+  <!-- Summary (extracted to component) -->
+  <app-blogs-summary
+    [postsCount]="posts.length"
+    [categoriesCount]="categories.length"
+  />
 
   <!-- Categories Section -->
   <section class="categories">
