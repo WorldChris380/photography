@@ -1,0 +1,390 @@
+@use 'sass:color';
+@use '../../app.scss' as *;
+
+.blog-home {
+	width: 100%;
+	min-height: 100vh;
+	background: white;
+}
+
+.container {
+	max-width: 1200px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+
+.section-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	text-align: center;
+	margin: 0 0 3rem 0;
+	color: $cb-grey;
+	position: relative;
+
+	&::after {
+		content: '';
+		position: absolute;
+		bottom: -1rem;
+		left: 50%;
+		transform: translateX(-50%);
+		width: 80px;
+		height: 4px;
+		background: linear-gradient(90deg, $cb-blue 0%, $cb-green 50%, $cb-red 100%);
+		border-radius: 2px;
+	}
+}
+
+.categories {
+	padding: 6rem 0;
+	background: $cb-light-green;
+}
+
+.category-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+	gap: 2rem;
+}
+
+.category-card {
+	background: white;
+	border-radius: 20px;
+	padding: 3rem 2rem;
+	text-align: center;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	transition: all 0.3s ease;
+	cursor: pointer;
+	border: 2px solid transparent;
+
+	&:hover {
+		transform: translateY(-10px);
+		border-color: $cb-blue;
+	}
+}
+
+.category-icon {
+	font-size: 4rem;
+	margin-bottom: 1rem;
+}
+
+.category-name {
+	font-size: 1.5rem;
+	font-weight: 600;
+	margin: 0 0 0.5rem 0;
+	color: $cb-grey;
+}
+
+.category-count {
+	font-size: 1rem;
+	color: #718096;
+	margin: 0;
+}
+
+.featured-posts {
+	padding: 6rem 0;
+}
+
+.posts-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+	gap: 2.5rem;
+}
+
+.post-card {
+	background: white;
+	border-radius: 20px;
+	overflow: hidden;
+	box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+	transition: all 0.3s ease;
+	cursor: pointer;
+	text-decoration: none;
+	color: inherit;
+
+	&:hover {
+		transform: translateY(-8px);
+	}
+}
+
+.post-image {
+	position: relative;
+	height: 250px;
+	background: linear-gradient(135deg, $cb-blue 0%, $cb-green 100%);
+	overflow: hidden;
+}
+
+.post-category {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	padding: 0.5rem 1rem;
+	background: rgba(255, 255, 255, 0.95);
+	border-radius: 20px;
+	border: 1px solid rgba(0, 0, 0, 0.08);
+	font-size: 0.75rem;
+	font-weight: 600;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	z-index: 2;
+}
+
+/* Category accents (light mode) */
+.post-category.category-aviation { color: $cb-blue; background: rgba($cb-blue, 0.08); }
+.post-category.category-travel { color: $cb-green; background: rgba($cb-green, 0.08); }
+.post-category.category-tech { color: #4c78ff; background: rgba(76, 120, 255, 0.08); }
+
+.image-placeholder {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	.placeholder-icon {
+		font-size: 6rem;
+		opacity: 0.3;
+	}
+}
+
+.post-content {
+	padding: 2rem;
+}
+
+.post-meta {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 1rem;
+	font-size: 0.875rem;
+	color: #718096;
+}
+
+.post-title {
+	font-size: 1.5rem;
+	font-weight: 700;
+	margin: 0 0 1rem 0;
+	color: $cb-grey;
+	line-height: 1.4;
+}
+
+.post-excerpt {
+	font-size: 1rem;
+	color: #4a5568;
+	line-height: 1.6;
+	margin: 0 0 1.5rem 0;
+}
+
+.read-more {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	color: $cb-blue;
+	font-weight: 600;
+}
+
+.newsletter {
+	padding: 6rem 0;
+	background: linear-gradient(135deg, $cb-blue 0%, $cb-green 100%);
+	color: white;
+}
+
+.newsletter-content {
+	text-align: center;
+	max-width: 600px;
+	margin: 0 auto;
+}
+
+.newsletter-icon {
+	font-size: 4rem;
+	margin-bottom: 1.5rem;
+}
+
+.newsletter-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin: 0 0 1rem 0;
+}
+
+.newsletter-text {
+	font-size: 1.25rem;
+	margin: 0 0 2rem 0;
+	opacity: 0.95;
+}
+
+.newsletter-note {
+	font-size: 1rem;
+	opacity: 0.8;
+	font-style: italic;
+	margin-top: 10px;
+}
+
+.newsletter-form {
+	margin-top: 2rem;
+}
+
+.newsletter-form-group {
+	display: flex;
+	gap: 12px;
+	justify-content: center;
+	align-items: center;
+	flex-wrap: wrap;
+}
+
+.newsletter-input {
+	min-width: 260px;
+	padding: 12px 14px;
+	border-radius: 8px;
+	border: none;
+	outline: none;
+	font-size: 1rem;
+	color: $cb-grey;
+	background: white;
+	transition: all 0.2s ease;
+
+	&:focus {
+		box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.3);
+	}
+
+	&::placeholder {
+		color: #9ca3af;
+	}
+}
+
+.newsletter-button {
+	padding: 12px 24px;
+	border-radius: 8px;
+	border: none;
+	background: $cb-light-green;
+	color: $cb-grey;
+	font-weight: 600;
+	font-size: 1rem;
+	cursor: pointer;
+	transition: all 0.2s ease;
+
+	&:hover:not(:disabled) {
+		background: $cb-green;
+		color: white;
+		transform: translateY(-2px);
+		box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+	}
+
+	&:disabled {
+		opacity: 0.6;
+		cursor: not-allowed;
+	}
+}
+
+// Dark Mode
+body.darkmode {
+	.blog-home {
+		background: #181a1b;
+	}
+
+	.section-title {
+		color: white;
+	}
+
+	.categories {
+		background: #0a0a0a;
+	}
+
+	.category-card {
+		background: $cb-grey;
+	}
+
+	.category-name {
+		color: white;
+	}
+
+	.featured-posts {
+		background: #181a1b;
+	}
+
+	.post-card {
+		background: $cb-grey;
+		color: white;
+	}
+
+	.post-image {
+		background: linear-gradient(135deg, color.scale($cb-blue, $lightness: -10%) 0%, color.scale($cb-green, $lightness: -10%) 100%);
+	}
+
+	.post-title {
+		color: white;
+	}
+
+	.post-excerpt {
+		color: #cbd5e0;
+	}
+
+	/* Post-category in dark mode */
+	.post-category {
+		background: rgba(255, 255, 255, 0.08);
+		color: #e5e7eb;
+		border: 1px solid rgba(255, 255, 255, 0.15);
+	}
+	.post-category.category-aviation { color: color.scale($cb-blue, $lightness: 20%); }
+	.post-category.category-travel { color: color.scale($cb-green, $lightness: 20%); }
+	.post-category.category-tech { color: #8ea5ff; }
+
+	.newsletter-input {
+		background: $cb-grey;
+		color: white;
+		border: 1px solid rgba(255, 255, 255, 0.2);
+
+		&::placeholder {
+			color: #9ca3af;
+		}
+
+		&:focus {
+			box-shadow: 0 0 0 3px rgba(224, 247, 233, 0.3);
+			border-color: $cb-light-green;
+		}
+	}
+
+	.newsletter-button {
+		background: $cb-green;
+		color: white;
+
+		&:hover:not(:disabled) {
+			background: $cb-light-green;
+			color: $cb-grey;
+		}
+	}
+}
+
+// Responsive
+@media (max-width: 768px) {
+	.hero {
+		min-height: 500px;
+	}
+
+	.hero-title {
+		font-size: 2.5rem;
+	}
+
+	.hero-subtitle {
+		font-size: 1.2rem;
+	}
+
+	.hero-stats {
+		gap: 2rem;
+	}
+
+	.stat-number {
+		font-size: 2rem;
+	}
+
+	.section-title {
+		font-size: 2rem;
+	}
+
+	.categories,
+	.featured-posts,
+	.newsletter {
+		padding: 4rem 0;
+	}
+
+	.category-grid,
+	.posts-grid {
+		grid-template-columns: 1fr;
+	}
+}
+

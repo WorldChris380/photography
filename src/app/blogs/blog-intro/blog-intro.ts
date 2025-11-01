@@ -3,8 +3,8 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { RouterLink } from '@angular/router';
-import { AppComponent } from '../app';
-import { BlogsSummary } from '../blogs/blogs-summary/blogs-summary';
+import { AppComponent } from '../../app';
+import { BlogsSummary } from '../blogs-summary/blogs-summary';
 
 interface BlogPost {
   title: string;
@@ -17,13 +17,14 @@ interface BlogPost {
 }
 
 @Component({
-  selector: 'app-blog-home',
+  selector: 'app-blog-intro',
+  standalone: true,
   imports: [CommonModule, RouterLink, FormsModule, HttpClientModule, BlogsSummary],
-  templateUrl: './blog-home.html',
-  styleUrl: './blog-home.scss',
+  templateUrl: './blog-intro.html',
+  styleUrl: './blog-intro.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class BlogHome {
+export class BlogIntro {
   constructor(private http: HttpClient, private app: AppComponent) {}
 
   posts: BlogPost[] = [
@@ -55,7 +56,6 @@ export class BlogHome {
       return;
     }
     this.submitting = true;
-    // Use the production API endpoint (CORS enabled on server)
     const endpoint = 'https://photography.christian-boehme.com/api/newsletter-signup.php';
     this.http.post(endpoint, { email }).subscribe({
       next: () => {

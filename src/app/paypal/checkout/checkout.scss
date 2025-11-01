@@ -1,0 +1,13 @@
+@use '../../app.scss' as *;
+
+.checkout { padding: 4rem 0; }
+.container { max-width: 900px; margin: 0 auto; padding: 0 2rem; }
+.checkout-title { font-size: 2rem; font-weight: 800; margin: 0 0 0.5rem 0; }
+.checkout-text { color: #4a5568; margin-bottom: 1rem; }
+.checkout-note { color: #718096; font-style: italic; margin-top: 1rem; }
+
+body.darkmode {
+  .checkout-title { color: #fff; }
+  .checkout-text { color: #cbd5e0; }
+  .checkout-note { color: #9ca3af; }
+}

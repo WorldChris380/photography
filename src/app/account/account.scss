@@ -1,0 +1,21 @@
+.account {
+	padding: 4rem 0;
+}
+.container {
+	max-width: 900px;
+	margin: 0 auto;
+	padding: 0 2rem;
+}
+.account-title {
+	font-size: 2rem;
+	font-weight: 800;
+	margin: 0 0 0.5rem 0;
+}
+.account-text { color: #4a5568; }
+.account-note { color: #718096; font-style: italic; }
+
+body.darkmode {
+	.account-title { color: #fff; }
+	.account-text { color: #cbd5e0; }
+	.account-note { color: #9ca3af; }
+}

@@ -123,18 +123,32 @@
 }
 
 .gallery-pagination button.active {
-  background: $cb-green;
+  background: $cb-grey;
   color: #fff;
   border: none;
 }
 
 .gallery-pagination button.active:hover {
-  background: $cb-green;
+  background: $cb-grey;
   color: #fff;
   cursor: auto;
 }
+  
+/* Dark mode: active page button styling */
+body.darkmode .gallery-pagination button:active {
+  background: white !important;
+  color: #111;
+  border: 1px solid #ddd;
+}
 
-.gallery-pagination button:hover {
+/* Keep active look stable on hover in dark mode */
+body.darkmode .gallery-pagination button.active:hover {
+  background: white;
+  color: #111;
+  cursor: default;
+}
+
+.gallery-pagination button:hover:not(.active) {
   background: $cb-grey;
   color: #fff;
 }

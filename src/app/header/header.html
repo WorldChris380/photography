@@ -33,11 +33,20 @@
                                 (click)="menuOpen = false">Aviation Gallery</a>
                         </li>
                         <li>
+                            <a [routerLink]="['/blog']" (click)="menuOpen = false">Blog</a>
+                        </li>
+                        <li>
+                            <a [routerLink]="['/checkout']" (click)="menuOpen = false">Checkout</a>
+                        </li>
+                        <li>
                             <a target="_blank"
                                 href="https://stock.adobe.com/de/contributor/211348852/christian-boehme-com"
                                 (click)="closeMenuDelayed()">Buy photos</a>
                         </li>
                     </ul>
+                </li>
+                <li>
+                    <a class="menu-link" routerLink="/account" (click)="menuOpen = false">Account</a>
                 </li>
                 <li>
                     <a class="dark-background menu-link"

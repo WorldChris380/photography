@@ -1,0 +1,62 @@
+@use '../../app.scss' as *;
+
+.blogs-home-intro {
+  padding: 4rem 0;
+  background: linear-gradient(135deg, rgba($cb-blue, 0.06), rgba($cb-green, 0.06));
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.intro-card {
+  border-radius: 16px;
+  padding: 2rem 1.5rem;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  backdrop-filter: blur(6px);
+  text-align: center;
+}
+
+.intro-title {
+  margin: 0 0 0.5rem 0;
+  font-weight: 800;
+  font-size: clamp(1.5rem, 3.6vw, 2.2rem);
+  color: $cb-grey;
+}
+
+.intro-text {
+  margin: 0 0 1rem 0;
+  color: #4a5568;
+}
+
+.intro-button {
+  display: inline-block;
+  padding: 0.6rem 1.1rem;
+  border-radius: 10px;
+  background: $cb-light-green;
+  color: $cb-grey;
+  font-weight: 600;
+  text-decoration: none;
+  transition: transform 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+body.darkmode {
+  .blogs-home-intro {
+    background: linear-gradient(135deg, rgba($cb-blue, 0.12), rgba($cb-green, 0.12));
+  }
+  .intro-card {
+    background: rgba(0, 0, 0, 0.35);
+    border-color: rgba(255, 255, 255, 0.1);
+    color: white;
+  }
+  .intro-title { color: white; }
+  .intro-text { color: #cbd5e0; }
+  .intro-button { background: $cb-green; color: white; }
+}

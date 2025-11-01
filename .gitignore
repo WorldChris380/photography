@@ -55,3 +55,7 @@ scripts/Anleitung für automatische Website Konvertierung und Optimierung.txt
 # PayPal secret definition files (do not track anywhere in the tree)
 paypal-secret.php
 **/paypal-secret.php
+
+# README files (keep internal documentation private)
+README.md
+**/README.md
